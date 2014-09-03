@@ -26,6 +26,9 @@
 		77BE77D519B6ACA300097F66 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE77D419B6ACA300097F66 /* RegisterViewController.m */; };
 		77BE77D819B6AD6900097F66 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE77D719B6AD6900097F66 /* LoginViewController.m */; };
 		77BE77DB19B6B22F00097F66 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE77DA19B6B22F00097F66 /* HomePageViewController.m */; };
+		77BE77EA19B6E5CF00097F66 /* 30pxBellIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE77E719B6E5CF00097F66 /* 30pxBellIcon.png */; };
+		77BE77EB19B6E5CF00097F66 /* 30pxCalendarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE77E819B6E5CF00097F66 /* 30pxCalendarIcon.png */; };
+		77BE77EC19B6E5CF00097F66 /* 30pxProfileIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE77E919B6E5CF00097F66 /* 30pxProfileIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,9 @@
 		77BE77D719B6AD6900097F66 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		77BE77D919B6B22F00097F66 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
 		77BE77DA19B6B22F00097F66 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		77BE77E719B6E5CF00097F66 /* 30pxBellIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30pxBellIcon.png; sourceTree = "<group>"; };
+		77BE77E819B6E5CF00097F66 /* 30pxCalendarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30pxCalendarIcon.png; sourceTree = "<group>"; };
+		77BE77E919B6E5CF00097F66 /* 30pxProfileIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30pxProfileIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 		77A92F3719B69D9F00430C23 = {
 			isa = PBXGroup;
 			children = (
+				77BE77E019B6E2DC00097F66 /* Resources */,
 				77A92F4919B69D9F00430C23 /* UCLA IEEE */,
 				77A92F6819B69D9F00430C23 /* UCLA IEEETests */,
 				77A92F4219B69D9F00430C23 /* Frameworks */,
@@ -185,6 +192,16 @@
 			name = UserData;
 			sourceTree = "<group>";
 		};
+		77BE77E019B6E2DC00097F66 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				77BE77E719B6E5CF00097F66 /* 30pxBellIcon.png */,
+				77BE77E819B6E5CF00097F66 /* 30pxCalendarIcon.png */,
+				77BE77E919B6E5CF00097F66 /* 30pxProfileIcon.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -261,8 +278,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77BE77EB19B6E5CF00097F66 /* 30pxCalendarIcon.png in Resources */,
 				77A92F5C19B69D9F00430C23 /* Images.xcassets in Resources */,
 				77A92F4E19B69D9F00430C23 /* InfoPlist.strings in Resources */,
+				77BE77EC19B6E5CF00097F66 /* 30pxProfileIcon.png in Resources */,
+				77BE77EA19B6E5CF00097F66 /* 30pxBellIcon.png in Resources */,
 				77A92F7919B69DB700430C23 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
