@@ -12,7 +12,7 @@
 
 @implementation DataManager
 
-+(void)loginWithEmail:(NSString *)email Password:(NSString *)password
++(void)loginWithEmail:(NSString *)email Password:(NSString *)password onComplete:(void (^)(void))callbackBlock
 {
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
@@ -66,18 +66,21 @@
             userInfo.isLoggedIn = YES;
             userInfo.userMail = [userObj objectForKey:@"email"];
             userInfo.userCookie = [result objectForKey:@"cookie"];
+            callbackBlock();
         }
         else {
+            [UserInfo sharedInstance].isLoggedIn = NO;
             NSString *error = [result objectForKey:@"error_message"];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Login!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
             // optional - add more buttons:
             [alert show];
+            callbackBlock();
         }
         NSLog(@"Result %@", result);
     }];
 }
 
-+(void)registerWithEmail:(NSString *)email Firstname:(NSString *)firstname Lastname:(NSString *)lastname Password:(NSString *)password
++(void)registerWithEmail:(NSString *)email Firstname:(NSString *)firstname Lastname:(NSString *)lastname Password:(NSString *)password onComplete:(void (^)(void))callbackBlock
 {
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
@@ -131,12 +134,15 @@
             userInfo.isLoggedIn = YES;
             userInfo.userMail = [userObj objectForKey:@"email"];
             userInfo.userCookie = [result objectForKey:@"cookie"];
+            callbackBlock();
         }
         else {
+            [UserInfo sharedInstance].isLoggedIn = NO;
             NSString *error = [result objectForKey:@"error_message"];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Login!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
             // optional - add more buttons:
             [alert show];
+            callbackBlock();
         }
         NSLog(@"Result %@", result);
     }];

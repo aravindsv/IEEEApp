@@ -23,6 +23,9 @@
 		77A92F7919B69DB700430C23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A92F7819B69DB700430C23 /* Main.storyboard */; };
 		77A92F7C19B69DF200430C23 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A92F7B19B69DF200430C23 /* DataManager.m */; };
 		77A92F7F19B69E3800430C23 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A92F7E19B69E3800430C23 /* UserInfo.m */; };
+		77BE77D519B6ACA300097F66 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE77D419B6ACA300097F66 /* RegisterViewController.m */; };
+		77BE77D819B6AD6900097F66 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE77D719B6AD6900097F66 /* LoginViewController.m */; };
+		77BE77DB19B6B22F00097F66 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE77DA19B6B22F00097F66 /* HomePageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,12 @@
 		77A92F7B19B69DF200430C23 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		77A92F7D19B69E3800430C23 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		77A92F7E19B69E3800430C23 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		77BE77D319B6ACA300097F66 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		77BE77D419B6ACA300097F66 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		77BE77D619B6AD6900097F66 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		77BE77D719B6AD6900097F66 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		77BE77D919B6B22F00097F66 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
+		77BE77DA19B6B22F00097F66 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,10 +131,14 @@
 				77A92F5219B69D9F00430C23 /* AppDelegate.h */,
 				77A92F5319B69D9F00430C23 /* AppDelegate.m */,
 				77A92F7819B69DB700430C23 /* Main.storyboard */,
+				77BE77D919B6B22F00097F66 /* HomePageViewController.h */,
+				77BE77DA19B6B22F00097F66 /* HomePageViewController.m */,
+				77BE77D619B6AD6900097F66 /* LoginViewController.h */,
+				77BE77D719B6AD6900097F66 /* LoginViewController.m */,
+				77BE77D319B6ACA300097F66 /* RegisterViewController.h */,
+				77BE77D419B6ACA300097F66 /* RegisterViewController.m */,
 				77A92F5819B69D9F00430C23 /* ViewController.h */,
 				77A92F5919B69D9F00430C23 /* ViewController.m */,
-				77A92F7A19B69DF200430C23 /* DataManager.h */,
-				77A92F7B19B69DF200430C23 /* DataManager.m */,
 				77A92F5B19B69D9F00430C23 /* Images.xcassets */,
 				77A92F4A19B69D9F00430C23 /* Supporting Files */,
 			);
@@ -164,6 +177,8 @@
 		77A92F8019B69E4000430C23 /* UserData */ = {
 			isa = PBXGroup;
 			children = (
+				77A92F7A19B69DF200430C23 /* DataManager.h */,
+				77A92F7B19B69DF200430C23 /* DataManager.m */,
 				77A92F7D19B69E3800430C23 /* UserInfo.h */,
 				77A92F7E19B69E3800430C23 /* UserInfo.m */,
 			);
@@ -267,9 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77BE77DB19B6B22F00097F66 /* HomePageViewController.m in Sources */,
 				77A92F5A19B69D9F00430C23 /* ViewController.m in Sources */,
+				77BE77D519B6ACA300097F66 /* RegisterViewController.m in Sources */,
 				77A92F7C19B69DF200430C23 /* DataManager.m in Sources */,
 				77A92F5419B69D9F00430C23 /* AppDelegate.m in Sources */,
+				77BE77D819B6AD6900097F66 /* LoginViewController.m in Sources */,
 				77A92F7F19B69E3800430C23 /* UserInfo.m in Sources */,
 				77A92F5019B69D9F00430C23 /* main.m in Sources */,
 			);
