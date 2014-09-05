@@ -11,8 +11,6 @@
 #import "UserInfo.h"
 
 @interface HomePageViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *txtName;
-@property (weak, nonatomic) IBOutlet UILabel *txtEmail;
 
 @end
 
@@ -31,8 +29,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _txtName.text = [UserInfo sharedInstance].userName;
-    _txtEmail.text = [UserInfo sharedInstance].userMail;
 }
 
 - (void)didReceiveMemoryWarning

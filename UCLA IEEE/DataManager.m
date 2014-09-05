@@ -139,7 +139,7 @@
         else {
             [UserInfo sharedInstance].isLoggedIn = NO;
             NSString *error = [result objectForKey:@"error_message"];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Login!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Register!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
             // optional - add more buttons:
             [alert show];
             callbackBlock();
@@ -148,7 +148,7 @@
     }];
 }
 
-+(void)changeEmailWithEmail:(NSString *)email Cookie:(NSString *)cookie newEmail:(NSString *)newEmail
++(void)changeEmailWithEmail:(NSString *)email Cookie:(NSString *)cookie newEmail:(NSString *)newEmail onComplete:(void (^)(void))callbackBlock
 {
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
@@ -157,7 +157,7 @@
     NSString *contentType = @"application/x-www-form-urlencoded; charset=utf-8";
     
     
-    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newEmail=%@&", email, cookie, newEmail] dataUsingEncoding:NSUTF8StringEncoding];
+    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newEmail=%@", email, cookie, newEmail] dataUsingEncoding:NSUTF8StringEncoding];
     
     
     NSString *putLength = [NSString stringWithFormat:@"%d",[body length]];
@@ -196,25 +196,27 @@
         int success = [[result objectForKey:@"success"] intValue];
         if (success) {
             UserInfo* userInfo  = [UserInfo sharedInstance];
-            NSDictionary* userObj = [result objectForKey:@"user"];
-            userInfo.userName = [userObj objectForKey:@"name"];
-            userInfo.userId = [userObj objectForKey:@"ieee_id"];
+            //            NSDictionary* userObj = [result objectForKey:@"user"];
+            userInfo.userName = [result objectForKey:@"name"];
+            userInfo.userId = [result objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
-            userInfo.userMail = [userObj objectForKey:@"email"];
-            userInfo.userCookie = [result objectForKey:@"cookie"];
+            userInfo.userMail = [result objectForKey:@"email"];
+//            userInfo.userCo   okie = [result objectForKey:@"cookie"];
+            callbackBlock();
         }
         else {
             NSString *error = [result objectForKey:@"error_message"];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Login!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Edit!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
             // optional - add more buttons:
             
             [alert show];
+            callbackBlock();
         }
         NSLog(@"Result %@", result);
     }];
 }
 
-+(void)changeIDWithEmail:(NSString *)email Cookie:(NSString *)cookie newID:(NSString *)newID
++(void)changeIDWithEmail:(NSString *)email Cookie:(NSString *)cookie newID:(NSString *)newID onComplete:(void (^)(void))callbackBlock
 {
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
@@ -223,7 +225,7 @@
     NSString *contentType = @"application/x-www-form-urlencoded; charset=utf-8";
     
     
-    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newID=%@&", email, cookie, newID] dataUsingEncoding:NSUTF8StringEncoding];
+    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newID=%@", email, cookie, newID] dataUsingEncoding:NSUTF8StringEncoding];
     
     
     NSString *putLength = [NSString stringWithFormat:@"%d",[body length]];
@@ -262,25 +264,27 @@
         int success = [[result objectForKey:@"success"] intValue];
         if (success) {
             UserInfo* userInfo  = [UserInfo sharedInstance];
-            NSDictionary* userObj = [result objectForKey:@"user"];
-            userInfo.userName = [userObj objectForKey:@"name"];
-            userInfo.userId = [userObj objectForKey:@"ieee_id"];
+            //            NSDictionary* userObj = [result objectForKey:@"user"];
+            userInfo.userName = [result objectForKey:@"name"];
+            userInfo.userId = [result objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
-            userInfo.userMail = [userObj objectForKey:@"email"];
-            userInfo.userCookie = [result objectForKey:@"cookie"];
+            userInfo.userMail = [result objectForKey:@"email"];
+//            userInfo.userCookie = [result objectForKey:@"cookie"];
+            callbackBlock();
         }
         else {
             NSString *error = [result objectForKey:@"error_message"];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Login!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Edit!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
             // optional - add more buttons:
             
             [alert show];
+            callbackBlock();
         }
         NSLog(@"Result %@", result);
     }];
 }
 
-+(void)changeNameWithEmail:(NSString *)email Cookie:(NSString *)cookie newName:(NSString *)newName
++(void)changeNameWithEmail:(NSString *)email Cookie:(NSString *)cookie newName:(NSString *)newName onComplete:(void (^)(void))callbackBlock
 {
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
@@ -289,7 +293,7 @@
     NSString *contentType = @"application/x-www-form-urlencoded; charset=utf-8";
     
     
-    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newName=%@&", email, cookie, newName] dataUsingEncoding:NSUTF8StringEncoding];
+    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newName=%@", email, cookie, newName] dataUsingEncoding:NSUTF8StringEncoding];
     
     
     NSString *putLength = [NSString stringWithFormat:@"%d",[body length]];
@@ -328,25 +332,27 @@
         int success = [[result objectForKey:@"success"] intValue];
         if (success) {
             UserInfo* userInfo  = [UserInfo sharedInstance];
-            NSDictionary* userObj = [result objectForKey:@"user"];
-            userInfo.userName = [userObj objectForKey:@"name"];
-            userInfo.userId = [userObj objectForKey:@"ieee_id"];
+//            NSDictionary* userObj = [result objectForKey:@"user"];
+            userInfo.userName = [result objectForKey:@"name"];
+            userInfo.userId = [result objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
-            userInfo.userMail = [userObj objectForKey:@"email"];
-            userInfo.userCookie = [result objectForKey:@"cookie"];
+            userInfo.userMail = [result objectForKey:@"email"];
+//            userInfo.userCookie = [result objectForKey:@"cookie"];
+            callbackBlock();
         }
         else {
             NSString *error = [result objectForKey:@"error_message"];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Login!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Edit!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
             // optional - add more buttons:
             
             [alert show];
+            callbackBlock();
         }
         NSLog(@"Result %@", result);
     }];
 }
 
-+(void)changePasswordWithEmail:(NSString *)email Cookie:(NSString *)cookie newPassword:(NSString *)newPass
++(void)changePasswordWithEmail:(NSString *)email Cookie:(NSString *)cookie newPassword:(NSString *)newPass oldPassword:(NSString *)oldPass onComplete:(void (^)(void))callbackBlock
 {
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
@@ -355,7 +361,7 @@
     NSString *contentType = @"application/x-www-form-urlencoded; charset=utf-8";
     
     
-    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newPassword=%@&", email, cookie, newPass] dataUsingEncoding:NSUTF8StringEncoding];
+    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newPassword=%@&password=%@", email, cookie, newPass, oldPass] dataUsingEncoding:NSUTF8StringEncoding];
     
     
     NSString *putLength = [NSString stringWithFormat:@"%d",[body length]];
@@ -394,19 +400,21 @@
         int success = [[result objectForKey:@"success"] intValue];
         if (success) {
             UserInfo* userInfo  = [UserInfo sharedInstance];
-            NSDictionary* userObj = [result objectForKey:@"user"];
-            userInfo.userName = [userObj objectForKey:@"name"];
-            userInfo.userId = [userObj objectForKey:@"ieee_id"];
+            //            NSDictionary* userObj = [result objectForKey:@"user"];
+            userInfo.userName = [result objectForKey:@"name"];
+            userInfo.userId = [result objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
-            userInfo.userMail = [userObj objectForKey:@"email"];
-            userInfo.userCookie = [result objectForKey:@"cookie"];
+            userInfo.userMail = [result objectForKey:@"email"];
+//            userInfo.userCookie = [result objectForKey:@"cookie"];
+            callbackBlock();
         }
         else {
             NSString *error = [result objectForKey:@"error_message"];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Login!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Edit!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
             // optional - add more buttons:
             
             [alert show];
+            callbackBlock();
         }
         NSLog(@"Result %@", result);
     }];

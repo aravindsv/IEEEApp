@@ -29,6 +29,9 @@
 		77BE77EA19B6E5CF00097F66 /* 30pxBellIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE77E719B6E5CF00097F66 /* 30pxBellIcon.png */; };
 		77BE77EB19B6E5CF00097F66 /* 30pxCalendarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE77E819B6E5CF00097F66 /* 30pxCalendarIcon.png */; };
 		77BE77EC19B6E5CF00097F66 /* 30pxProfileIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE77E919B6E5CF00097F66 /* 30pxProfileIcon.png */; };
+		77BE77EF19B95F1700097F66 /* ProfilePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE77EE19B95F1700097F66 /* ProfilePageViewController.m */; };
+		77C1277719B9669E007E3F53 /* EditDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C1277619B9669E007E3F53 /* EditDetailsViewController.m */; };
+		77C1277A19B998FE007E3F53 /* EditPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C1277919B998FE007E3F53 /* EditPasswordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,15 +68,21 @@
 		77A92F7B19B69DF200430C23 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		77A92F7D19B69E3800430C23 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		77A92F7E19B69E3800430C23 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
-		77BE77D319B6ACA300097F66 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		77BE77D419B6ACA300097F66 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		77BE77D619B6AD6900097F66 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		77BE77D719B6AD6900097F66 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		77BE77D919B6B22F00097F66 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
-		77BE77DA19B6B22F00097F66 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		77BE77D319B6ACA300097F66 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = "UCLA IEEE/RegisterViewController.h"; sourceTree = "<group>"; };
+		77BE77D419B6ACA300097F66 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = "UCLA IEEE/RegisterViewController.m"; sourceTree = "<group>"; };
+		77BE77D619B6AD6900097F66 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "UCLA IEEE/LoginViewController.h"; sourceTree = "<group>"; };
+		77BE77D719B6AD6900097F66 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "UCLA IEEE/LoginViewController.m"; sourceTree = "<group>"; };
+		77BE77D919B6B22F00097F66 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageViewController.h; path = "UCLA IEEE/HomePageViewController.h"; sourceTree = "<group>"; };
+		77BE77DA19B6B22F00097F66 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageViewController.m; path = "UCLA IEEE/HomePageViewController.m"; sourceTree = "<group>"; };
 		77BE77E719B6E5CF00097F66 /* 30pxBellIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30pxBellIcon.png; sourceTree = "<group>"; };
 		77BE77E819B6E5CF00097F66 /* 30pxCalendarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30pxCalendarIcon.png; sourceTree = "<group>"; };
 		77BE77E919B6E5CF00097F66 /* 30pxProfileIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30pxProfileIcon.png; sourceTree = "<group>"; };
+		77BE77ED19B95F1700097F66 /* ProfilePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePageViewController.h; sourceTree = "<group>"; };
+		77BE77EE19B95F1700097F66 /* ProfilePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePageViewController.m; sourceTree = "<group>"; };
+		77C1277519B9669E007E3F53 /* EditDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDetailsViewController.h; sourceTree = "<group>"; };
+		77C1277619B9669E007E3F53 /* EditDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditDetailsViewController.m; sourceTree = "<group>"; };
+		77C1277819B998FE007E3F53 /* EditPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPasswordViewController.h; path = "UCLA IEEE/EditPasswordViewController.h"; sourceTree = "<group>"; };
+		77C1277919B998FE007E3F53 /* EditPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPasswordViewController.m; path = "UCLA IEEE/EditPasswordViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,16 +143,11 @@
 		77A92F4919B69D9F00430C23 /* UCLA IEEE */ = {
 			isa = PBXGroup;
 			children = (
+				77BE77F019B95F1F00097F66 /* ViewControllers */,
 				77A92F8019B69E4000430C23 /* UserData */,
 				77A92F5219B69D9F00430C23 /* AppDelegate.h */,
 				77A92F5319B69D9F00430C23 /* AppDelegate.m */,
 				77A92F7819B69DB700430C23 /* Main.storyboard */,
-				77BE77D919B6B22F00097F66 /* HomePageViewController.h */,
-				77BE77DA19B6B22F00097F66 /* HomePageViewController.m */,
-				77BE77D619B6AD6900097F66 /* LoginViewController.h */,
-				77BE77D719B6AD6900097F66 /* LoginViewController.m */,
-				77BE77D319B6ACA300097F66 /* RegisterViewController.h */,
-				77BE77D419B6ACA300097F66 /* RegisterViewController.m */,
 				77A92F5819B69D9F00430C23 /* ViewController.h */,
 				77A92F5919B69D9F00430C23 /* ViewController.m */,
 				77A92F5B19B69D9F00430C23 /* Images.xcassets */,
@@ -200,6 +204,26 @@
 				77BE77E919B6E5CF00097F66 /* 30pxProfileIcon.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		77BE77F019B95F1F00097F66 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				77C1277819B998FE007E3F53 /* EditPasswordViewController.h */,
+				77C1277919B998FE007E3F53 /* EditPasswordViewController.m */,
+				77C1277519B9669E007E3F53 /* EditDetailsViewController.h */,
+				77C1277619B9669E007E3F53 /* EditDetailsViewController.m */,
+				77BE77D919B6B22F00097F66 /* HomePageViewController.h */,
+				77BE77DA19B6B22F00097F66 /* HomePageViewController.m */,
+				77BE77D619B6AD6900097F66 /* LoginViewController.h */,
+				77BE77D719B6AD6900097F66 /* LoginViewController.m */,
+				77BE77D319B6ACA300097F66 /* RegisterViewController.h */,
+				77BE77D419B6ACA300097F66 /* RegisterViewController.m */,
+				77BE77ED19B95F1700097F66 /* ProfilePageViewController.h */,
+				77BE77EE19B95F1700097F66 /* ProfilePageViewController.m */,
+			);
+			name = ViewControllers;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,11 +327,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				77BE77DB19B6B22F00097F66 /* HomePageViewController.m in Sources */,
+				77C1277719B9669E007E3F53 /* EditDetailsViewController.m in Sources */,
 				77A92F5A19B69D9F00430C23 /* ViewController.m in Sources */,
 				77BE77D519B6ACA300097F66 /* RegisterViewController.m in Sources */,
 				77A92F7C19B69DF200430C23 /* DataManager.m in Sources */,
+				77C1277A19B998FE007E3F53 /* EditPasswordViewController.m in Sources */,
 				77A92F5419B69D9F00430C23 /* AppDelegate.m in Sources */,
 				77BE77D819B6AD6900097F66 /* LoginViewController.m in Sources */,
+				77BE77EF19B95F1700097F66 /* ProfilePageViewController.m in Sources */,
 				77A92F7F19B69E3800430C23 /* UserInfo.m in Sources */,
 				77A92F5019B69D9F00430C23 /* main.m in Sources */,
 			);

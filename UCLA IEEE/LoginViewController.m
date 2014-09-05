@@ -70,7 +70,8 @@
 
 -(IBAction)unwindToLogin:(UIStoryboardSegue *)segue
 {
-    
+    _txtPassword.text = @"";
+    _txtUsername.text = @"";
 }
 
 

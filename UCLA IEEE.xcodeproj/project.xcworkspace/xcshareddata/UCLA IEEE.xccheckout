@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0A829CA3-4C1C-46BE-A472-F3BAF6E2F495</string>
+	<key>IDESourceControlProjectName</key>
+	<string>UCLA IEEE</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>19939FD2-42FF-4BAC-99EC-61A3B389444D</key>
+		<string>ssh://github.com/aravindsv/IEEEApp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>UCLA IEEE.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>19939FD2-42FF-4BAC-99EC-61A3B389444D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/aravindsv/IEEEApp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>19939FD2-42FF-4BAC-99EC-61A3B389444D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>19939FD2-42FF-4BAC-99EC-61A3B389444D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IEEEApp</string>
+		</dict>
+	</array>
+</dict>
+</plist>
