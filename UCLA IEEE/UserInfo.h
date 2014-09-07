@@ -17,4 +17,9 @@
 @property (strong, nonatomic) NSString* userId;
 @property (strong, nonatomic) NSString* userCookie;
 @property (nonatomic) BOOL isLoggedIn;
+
+@property (nonatomic) NSMutableArray* announcements;
+
+-(void)logOut;
+
 @end

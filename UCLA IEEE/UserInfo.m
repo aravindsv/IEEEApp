@@ -16,7 +16,20 @@
     dispatch_once(&onceToken, ^{
         Class class = [self class];
         sharedInstance = [[class alloc] init];
+        [sharedInstance initData];
     });
     return sharedInstance;
+}
+
+-(void)initData
+{
+    _announcements = [[NSMutableArray alloc] init];
+}
+
+-(void)logOut
+{
+    _isLoggedIn = NO;
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Username"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Password"];
 }
 @end

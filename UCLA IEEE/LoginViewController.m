@@ -34,6 +34,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSString *usrname = [[NSUserDefaults standardUserDefaults] valueForKey:@"Username"];
+    NSString *password = [[NSUserDefaults standardUserDefaults] valueForKey:@"Password"];
+    if (usrname != nil && password != nil)
+    {
+        [DataManager loginWithEmail:usrname Password:password onComplete:^{
+            if ([UserInfo sharedInstance].isLoggedIn)
+            {
+                [self performSegueWithIdentifier:@"LoggedIn" sender:nil];
+            }
+        }];
+    }
     // Do any additional setup after loading the view.
 }
 

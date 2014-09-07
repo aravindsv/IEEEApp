@@ -10,6 +10,6 @@
 
 @interface EditDetailsViewController : UIViewController
 
-@property (weak, nonatomic) NSString* detail;
+@property (strong, nonatomic) NSString* detail;
 
 @end

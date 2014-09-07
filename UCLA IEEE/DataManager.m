@@ -8,6 +8,7 @@
 
 #import "DataManager.h"
 #import "UserInfo.h"
+#import "Announcement.h"
 
 
 @implementation DataManager
@@ -66,10 +67,13 @@
             userInfo.isLoggedIn = YES;
             userInfo.userMail = [userObj objectForKey:@"email"];
             userInfo.userCookie = [result objectForKey:@"cookie"];
+            [[NSUserDefaults standardUserDefaults] setValue:email forKey:@"Username"];
+            [[NSUserDefaults standardUserDefaults] setValue:password forKey:@"Password"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             callbackBlock();
         }
         else {
-            [UserInfo sharedInstance].isLoggedIn = NO;
+            [[UserInfo sharedInstance]logOut];
             NSString *error = [result objectForKey:@"error_message"];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Login!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
             // optional - add more buttons:
@@ -137,7 +141,7 @@
             callbackBlock();
         }
         else {
-            [UserInfo sharedInstance].isLoggedIn = NO;
+            [[UserInfo sharedInstance] logOut];
             NSString *error = [result objectForKey:@"error_message"];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Register!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
             // optional - add more buttons:
@@ -196,11 +200,11 @@
         int success = [[result objectForKey:@"success"] intValue];
         if (success) {
             UserInfo* userInfo  = [UserInfo sharedInstance];
-            //            NSDictionary* userObj = [result objectForKey:@"user"];
-            userInfo.userName = [result objectForKey:@"name"];
-            userInfo.userId = [result objectForKey:@"ieee_id"];
+            NSDictionary* userObj = [result objectForKey:@"user"];
+            userInfo.userName = [userObj objectForKey:@"name"];
+            userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
-            userInfo.userMail = [result objectForKey:@"email"];
+            userInfo.userMail = [userObj objectForKey:@"email"];
 //            userInfo.userCo   okie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -225,7 +229,7 @@
     NSString *contentType = @"application/x-www-form-urlencoded; charset=utf-8";
     
     
-    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newID=%@", email, cookie, newID] dataUsingEncoding:NSUTF8StringEncoding];
+    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newId=%@", email, cookie, newID] dataUsingEncoding:NSUTF8StringEncoding];
     
     
     NSString *putLength = [NSString stringWithFormat:@"%d",[body length]];
@@ -264,11 +268,11 @@
         int success = [[result objectForKey:@"success"] intValue];
         if (success) {
             UserInfo* userInfo  = [UserInfo sharedInstance];
-            //            NSDictionary* userObj = [result objectForKey:@"user"];
-            userInfo.userName = [result objectForKey:@"name"];
-            userInfo.userId = [result objectForKey:@"ieee_id"];
+            NSDictionary* userObj = [result objectForKey:@"user"];
+            userInfo.userName = [userObj objectForKey:@"name"];
+            userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
-            userInfo.userMail = [result objectForKey:@"email"];
+            userInfo.userMail = [userObj objectForKey:@"email"];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -332,11 +336,11 @@
         int success = [[result objectForKey:@"success"] intValue];
         if (success) {
             UserInfo* userInfo  = [UserInfo sharedInstance];
-//            NSDictionary* userObj = [result objectForKey:@"user"];
-            userInfo.userName = [result objectForKey:@"name"];
-            userInfo.userId = [result objectForKey:@"ieee_id"];
+            NSDictionary* userObj = [result objectForKey:@"user"];
+            userInfo.userName = [userObj objectForKey:@"name"];
+            userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
-            userInfo.userMail = [result objectForKey:@"email"];
+            userInfo.userMail = [userObj objectForKey:@"email"];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -400,11 +404,11 @@
         int success = [[result objectForKey:@"success"] intValue];
         if (success) {
             UserInfo* userInfo  = [UserInfo sharedInstance];
-            //            NSDictionary* userObj = [result objectForKey:@"user"];
-            userInfo.userName = [result objectForKey:@"name"];
-            userInfo.userId = [result objectForKey:@"ieee_id"];
+            NSDictionary* userObj = [result objectForKey:@"user"];
+            userInfo.userName = [userObj objectForKey:@"name"];
+            userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
-            userInfo.userMail = [result objectForKey:@"email"];
+            userInfo.userMail = [userObj objectForKey:@"email"];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -416,6 +420,41 @@
             [alert show];
             callbackBlock();
         }
+        NSLog(@"Result %@", result);
+    }];
+}
+
++(void)getAnnouncementsOnComplete:(void (^)(void))callbackBlock
+{    
+    NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/announcements.php"];
+    
+    NSString *contentType = @"text/plain; charset=utf-8";
+    
+    NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
+    [headers setValue:contentType forKey:@"Content-Type"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+
+    [request setAllHTTPHeaderFields:headers];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:0
+                                                                 error:NULL];
+
+        for (NSDictionary *dict in result)
+        {
+            Announcement *newAnnouncement = [[Announcement alloc] init];
+            newAnnouncement.content = [dict valueForKey:@"content"];
+            newAnnouncement.datePosted = [dict valueForKey:@"datePosted"];
+            [[UserInfo sharedInstance].announcements addObject:newAnnouncement];
+        }
+        callbackBlock();
         NSLog(@"Result %@", result);
     }];
 }

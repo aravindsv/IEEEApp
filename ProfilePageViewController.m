@@ -64,7 +64,7 @@
 
 -(IBAction)logoutPressed:(id)sender
 {
-    [UserInfo sharedInstance].isLoggedIn = NO;
+    [[UserInfo sharedInstance] logOut];
 }
 
 - (IBAction)nameEdit:(id)sender {
