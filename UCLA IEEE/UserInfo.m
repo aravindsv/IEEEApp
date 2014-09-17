@@ -9,7 +9,7 @@
 #import "UserInfo.h"
 
 @implementation UserInfo
-+ (UserInfo*)sharedInstance {
++(UserInfo*)sharedInstance {
     static dispatch_once_t onceToken;
     static id sharedInstance;
     

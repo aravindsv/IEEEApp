@@ -175,10 +175,10 @@
             </objects>
             <point key="canvasLocation" x="1550" y="588"/>
         </scene>
-        <!--Home Page View Controller - Calendar-->
+        <!--Calendar View Controller - Calendar-->
         <scene sceneID="Jn4-kE-qEk">
             <objects>
-                <viewController id="jYx-O6-b9D" customClass="HomePageViewController" sceneMemberID="viewController">
+                <viewController id="jYx-O6-b9D" customClass="CalendarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wvw-Ss-UWN"/>
                         <viewControllerLayoutGuide type="bottom" id="6iG-Nh-tSv"/>
@@ -246,6 +246,7 @@
                         <segue destination="bH6-4C-3hd" kind="relationship" relationship="viewControllers" id="KeN-3u-xkE"/>
                         <segue destination="T1Y-dl-jrE" kind="relationship" relationship="viewControllers" id="5Ty-tE-7Oq"/>
                         <segue destination="sDF-P5-iA4" kind="relationship" relationship="viewControllers" id="Sd5-CW-Y50"/>
+                        <segue destination="H83-bT-2SI" kind="relationship" relationship="viewControllers" id="I1i-Tn-cQi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXC-e2-e6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -519,7 +520,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCd-j8-hMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="XpO-cU-BeY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3699" y="2741"/>
+            <point key="canvasLocation" x="4225" y="2741"/>
         </scene>
         <!--Edit Details View Controller - Edit Name-->
         <scene sceneID="pRm-1p-cy1">
@@ -616,7 +617,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sdl-sx-7dy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3173" y="2741"/>
+            <point key="canvasLocation" x="3699" y="2741"/>
         </scene>
         <!--Navigation Controller - Announcements-->
         <scene sceneID="XIs-xe-nyi">
@@ -636,6 +637,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ev-yJ-XvN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2751" y="616"/>
+        </scene>
+        <!--Check In View Controller - Check In-->
+        <scene sceneID="cvU-14-ObC">
+            <objects>
+                <viewController id="H83-bT-2SI" customClass="CheckInViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gh9-IV-Afe"/>
+                        <viewControllerLayoutGuide type="bottom" id="CTf-Q6-Hbn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iNH-ra-H1o">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ePl-TD-Uic">
+                                <rect key="frame" x="20" y="40" width="280" height="350"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axj-c4-CZA">
+                                        <rect key="frame" x="17" y="164" width="247" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-zE-eem">
+                                <rect key="frame" x="20" y="398" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start time to End time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgH-yV-8Ra">
+                                <rect key="frame" x="20" y="438" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="At Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv8-ct-lOp">
+                                <rect key="frame" x="20" y="475" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CTf-Q6-Hbn" firstAttribute="top" secondItem="AgH-yV-8Ra" secondAttribute="bottom" constant="60" id="BIA-Hy-TEH"/>
+                            <constraint firstAttribute="trailing" secondItem="fv8-ct-lOp" secondAttribute="trailing" constant="20" id="SjW-nB-rGY"/>
+                            <constraint firstAttribute="trailing" secondItem="kOu-zE-eem" secondAttribute="trailing" constant="20" id="WbW-M3-H0n"/>
+                            <constraint firstItem="CTf-Q6-Hbn" firstAttribute="top" secondItem="fv8-ct-lOp" secondAttribute="bottom" constant="23" id="Zax-qZ-6NK"/>
+                            <constraint firstItem="fv8-ct-lOp" firstAttribute="leading" secondItem="iNH-ra-H1o" secondAttribute="leading" constant="20" id="hG8-sH-VNy"/>
+                            <constraint firstAttribute="trailing" secondItem="AgH-yV-8Ra" secondAttribute="trailing" constant="20" id="itf-iF-3SD"/>
+                            <constraint firstItem="AgH-yV-8Ra" firstAttribute="leading" secondItem="iNH-ra-H1o" secondAttribute="leading" constant="20" id="qS4-2r-xBM"/>
+                            <constraint firstItem="kOu-zE-eem" firstAttribute="leading" secondItem="iNH-ra-H1o" secondAttribute="leading" constant="20" id="rvw-cM-E9X"/>
+                            <constraint firstItem="CTf-Q6-Hbn" firstAttribute="top" secondItem="kOu-zE-eem" secondAttribute="bottom" constant="100" id="vrO-Mo-GMX"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Check In" image="30pxBarcodeIcon.png" id="dvv-i8-LA9"/>
+                    <connections>
+                        <outlet property="eventLocation" destination="fv8-ct-lOp" id="Zvi-Av-eEX"/>
+                        <outlet property="eventName" destination="kOu-zE-eem" id="XBF-1Z-eAo"/>
+                        <outlet property="eventTiming" destination="AgH-yV-8Ra" id="ZML-ID-2jb"/>
+                        <outlet property="scanLabel" destination="axj-c4-CZA" id="g6u-GO-VE3"/>
+                        <outlet property="viewPreview" destination="ePl-TD-Uic" id="pWd-wZ-A5G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lr4-vY-FOF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2751" y="2746"/>
         </scene>
         <!--Navigation Controller - Calendar-->
         <scene sceneID="Wh8-PM-VsI">
@@ -677,6 +749,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="30pxBarcodeIcon.png" width="30" height="30"/>
         <image name="30pxBellIcon.png" width="30" height="30"/>
         <image name="30pxCalendarIcon.png" width="30" height="30"/>
         <image name="30pxProfileIcon.png" width="30" height="30"/>

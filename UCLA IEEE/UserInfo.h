@@ -10,7 +10,7 @@
 
 @interface UserInfo : NSObject
 
-+ (UserInfo*)sharedInstance;
++(UserInfo*)sharedInstance;
 
 @property (strong, nonatomic) NSString* userName;
 @property (strong, nonatomic) NSString* userMail;

@@ -25,7 +25,6 @@
 		77A92F7F19B69E3800430C23 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A92F7E19B69E3800430C23 /* UserInfo.m */; };
 		77BE77D519B6ACA300097F66 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE77D419B6ACA300097F66 /* RegisterViewController.m */; };
 		77BE77D819B6AD6900097F66 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE77D719B6AD6900097F66 /* LoginViewController.m */; };
-		77BE77DB19B6B22F00097F66 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE77DA19B6B22F00097F66 /* HomePageViewController.m */; };
 		77BE77EA19B6E5CF00097F66 /* 30pxBellIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE77E719B6E5CF00097F66 /* 30pxBellIcon.png */; };
 		77BE77EB19B6E5CF00097F66 /* 30pxCalendarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE77E819B6E5CF00097F66 /* 30pxCalendarIcon.png */; };
 		77BE77EC19B6E5CF00097F66 /* 30pxProfileIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE77E919B6E5CF00097F66 /* 30pxProfileIcon.png */; };
@@ -34,6 +33,11 @@
 		77C1277A19B998FE007E3F53 /* EditPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C1277919B998FE007E3F53 /* EditPasswordViewController.m */; };
 		77C1278019BA8E2F007E3F53 /* AnnouncementsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C1277F19BA8E2F007E3F53 /* AnnouncementsTableViewController.m */; };
 		77C127C419BBF52C007E3F53 /* Announcement.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C127C319BBF52C007E3F53 /* Announcement.m */; };
+		77C127C719BCDAC8007E3F53 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C127C619BCDAC8007E3F53 /* CalendarViewController.m */; };
+		77C127D819C1064C007E3F53 /* 30pxBarcodeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C127D719C1064C007E3F53 /* 30pxBarcodeIcon.png */; };
+		77C127DB19C109E7007E3F53 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C127DA19C109E7007E3F53 /* CheckInViewController.m */; };
+		77C127DF19C11A3E007E3F53 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C127DE19C11A3E007E3F53 /* Event.m */; };
+		77C127E419C154D1007E3F53 /* Images1.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77C127E319C154D1007E3F53 /* Images1.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,8 +78,6 @@
 		77BE77D419B6ACA300097F66 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = "UCLA IEEE/RegisterViewController.m"; sourceTree = "<group>"; };
 		77BE77D619B6AD6900097F66 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "UCLA IEEE/LoginViewController.h"; sourceTree = "<group>"; };
 		77BE77D719B6AD6900097F66 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "UCLA IEEE/LoginViewController.m"; sourceTree = "<group>"; };
-		77BE77D919B6B22F00097F66 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageViewController.h; path = "UCLA IEEE/HomePageViewController.h"; sourceTree = "<group>"; };
-		77BE77DA19B6B22F00097F66 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageViewController.m; path = "UCLA IEEE/HomePageViewController.m"; sourceTree = "<group>"; };
 		77BE77E719B6E5CF00097F66 /* 30pxBellIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30pxBellIcon.png; sourceTree = "<group>"; };
 		77BE77E819B6E5CF00097F66 /* 30pxCalendarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30pxCalendarIcon.png; sourceTree = "<group>"; };
 		77BE77E919B6E5CF00097F66 /* 30pxProfileIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30pxProfileIcon.png; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 		77C1277F19BA8E2F007E3F53 /* AnnouncementsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementsTableViewController.m; sourceTree = "<group>"; };
 		77C127C219BBF52C007E3F53 /* Announcement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Announcement.h; path = ../Announcement.h; sourceTree = "<group>"; };
 		77C127C319BBF52C007E3F53 /* Announcement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Announcement.m; path = ../Announcement.m; sourceTree = "<group>"; };
+		77C127C519BCDAC8007E3F53 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		77C127C619BCDAC8007E3F53 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		77C127D719C1064C007E3F53 /* 30pxBarcodeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30pxBarcodeIcon.png; sourceTree = "<group>"; };
+		77C127D919C109E7007E3F53 /* CheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckInViewController.h; path = "UCLA IEEE/CheckInViewController.h"; sourceTree = "<group>"; };
+		77C127DA19C109E7007E3F53 /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckInViewController.m; path = "UCLA IEEE/CheckInViewController.m"; sourceTree = "<group>"; };
+		77C127DD19C11A3E007E3F53 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		77C127DE19C11A3E007E3F53 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		77C127E319C154D1007E3F53 /* Images1.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images1.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +128,7 @@
 		77A92F3719B69D9F00430C23 = {
 			isa = PBXGroup;
 			children = (
+				77C127E319C154D1007E3F53 /* Images1.xcassets */,
 				77BE77E019B6E2DC00097F66 /* Resources */,
 				77A92F4919B69D9F00430C23 /* UCLA IEEE */,
 				77A92F6819B69D9F00430C23 /* UCLA IEEETests */,
@@ -149,10 +160,9 @@
 		77A92F4919B69D9F00430C23 /* UCLA IEEE */ = {
 			isa = PBXGroup;
 			children = (
-				77C127C219BBF52C007E3F53 /* Announcement.h */,
-				77C127C319BBF52C007E3F53 /* Announcement.m */,
+				77C127DC19C11A0F007E3F53 /* Data Structures */,
 				77BE77F019B95F1F00097F66 /* ViewControllers */,
-				77A92F8019B69E4000430C23 /* UserData */,
+				77A92F8019B69E4000430C23 /* Server Calls */,
 				77A92F5219B69D9F00430C23 /* AppDelegate.h */,
 				77A92F5319B69D9F00430C23 /* AppDelegate.m */,
 				77A92F7819B69DB700430C23 /* Main.storyboard */,
@@ -193,21 +203,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		77A92F8019B69E4000430C23 /* UserData */ = {
+		77A92F8019B69E4000430C23 /* Server Calls */ = {
 			isa = PBXGroup;
 			children = (
 				77A92F7A19B69DF200430C23 /* DataManager.h */,
 				77A92F7B19B69DF200430C23 /* DataManager.m */,
-				77A92F7D19B69E3800430C23 /* UserInfo.h */,
-				77A92F7E19B69E3800430C23 /* UserInfo.m */,
 			);
-			name = UserData;
+			name = "Server Calls";
 			sourceTree = "<group>";
 		};
 		77BE77E019B6E2DC00097F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				77BE77E719B6E5CF00097F66 /* 30pxBellIcon.png */,
+				77C127D719C1064C007E3F53 /* 30pxBarcodeIcon.png */,
 				77BE77E819B6E5CF00097F66 /* 30pxCalendarIcon.png */,
 				77BE77E919B6E5CF00097F66 /* 30pxProfileIcon.png */,
 			);
@@ -217,23 +226,62 @@
 		77BE77F019B95F1F00097F66 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				77C1277819B998FE007E3F53 /* EditPasswordViewController.h */,
-				77C1277919B998FE007E3F53 /* EditPasswordViewController.m */,
-				77C1277E19BA8E2F007E3F53 /* AnnouncementsTableViewController.h */,
-				77C1277F19BA8E2F007E3F53 /* AnnouncementsTableViewController.m */,
-				77C1277519B9669E007E3F53 /* EditDetailsViewController.h */,
-				77C1277619B9669E007E3F53 /* EditDetailsViewController.m */,
-				77BE77D919B6B22F00097F66 /* HomePageViewController.h */,
-				77BE77DA19B6B22F00097F66 /* HomePageViewController.m */,
+				77C127E019C11F38007E3F53 /* Login/Register Views */,
+				77C127E119C11F9A007E3F53 /* Profile View/Edit Views */,
+				77C127E219C11FCF007E3F53 /* Functionality Views */,
+			);
+			name = ViewControllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		77C127DC19C11A0F007E3F53 /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				77A92F7D19B69E3800430C23 /* UserInfo.h */,
+				77A92F7E19B69E3800430C23 /* UserInfo.m */,
+				77C127C219BBF52C007E3F53 /* Announcement.h */,
+				77C127C319BBF52C007E3F53 /* Announcement.m */,
+				77C127DD19C11A3E007E3F53 /* Event.h */,
+				77C127DE19C11A3E007E3F53 /* Event.m */,
+			);
+			name = "Data Structures";
+			sourceTree = "<group>";
+		};
+		77C127E019C11F38007E3F53 /* Login/Register Views */ = {
+			isa = PBXGroup;
+			children = (
 				77BE77D619B6AD6900097F66 /* LoginViewController.h */,
 				77BE77D719B6AD6900097F66 /* LoginViewController.m */,
 				77BE77D319B6ACA300097F66 /* RegisterViewController.h */,
 				77BE77D419B6ACA300097F66 /* RegisterViewController.m */,
+			);
+			name = "Login/Register Views";
+			sourceTree = "<group>";
+		};
+		77C127E119C11F9A007E3F53 /* Profile View/Edit Views */ = {
+			isa = PBXGroup;
+			children = (
+				77C1277819B998FE007E3F53 /* EditPasswordViewController.h */,
+				77C1277919B998FE007E3F53 /* EditPasswordViewController.m */,
+				77C1277519B9669E007E3F53 /* EditDetailsViewController.h */,
+				77C1277619B9669E007E3F53 /* EditDetailsViewController.m */,
 				77BE77ED19B95F1700097F66 /* ProfilePageViewController.h */,
 				77BE77EE19B95F1700097F66 /* ProfilePageViewController.m */,
 			);
-			name = ViewControllers;
-			path = ..;
+			name = "Profile View/Edit Views";
+			sourceTree = "<group>";
+		};
+		77C127E219C11FCF007E3F53 /* Functionality Views */ = {
+			isa = PBXGroup;
+			children = (
+				77C127D919C109E7007E3F53 /* CheckInViewController.h */,
+				77C127DA19C109E7007E3F53 /* CheckInViewController.m */,
+				77C1277E19BA8E2F007E3F53 /* AnnouncementsTableViewController.h */,
+				77C1277F19BA8E2F007E3F53 /* AnnouncementsTableViewController.m */,
+				77C127C519BCDAC8007E3F53 /* CalendarViewController.h */,
+				77C127C619BCDAC8007E3F53 /* CalendarViewController.m */,
+			);
+			name = "Functionality Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +331,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Aravind Vadali";
 				TargetAttributes = {
+					77A92F3F19B69D9F00430C23 = {
+						DevelopmentTeam = AQ6F2VZP2L;
+					};
 					77A92F6019B69D9F00430C23 = {
 						TestTargetID = 77A92F3F19B69D9F00430C23;
 					};
@@ -315,6 +366,8 @@
 				77BE77EB19B6E5CF00097F66 /* 30pxCalendarIcon.png in Resources */,
 				77A92F5C19B69D9F00430C23 /* Images.xcassets in Resources */,
 				77A92F4E19B69D9F00430C23 /* InfoPlist.strings in Resources */,
+				77C127E419C154D1007E3F53 /* Images1.xcassets in Resources */,
+				77C127D819C1064C007E3F53 /* 30pxBarcodeIcon.png in Resources */,
 				77BE77EC19B6E5CF00097F66 /* 30pxProfileIcon.png in Resources */,
 				77BE77EA19B6E5CF00097F66 /* 30pxBellIcon.png in Resources */,
 				77A92F7919B69DB700430C23 /* Main.storyboard in Resources */,
@@ -336,12 +389,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77BE77DB19B6B22F00097F66 /* HomePageViewController.m in Sources */,
+				77C127DB19C109E7007E3F53 /* CheckInViewController.m in Sources */,
 				77C1277719B9669E007E3F53 /* EditDetailsViewController.m in Sources */,
 				77A92F5A19B69D9F00430C23 /* ViewController.m in Sources */,
+				77C127DF19C11A3E007E3F53 /* Event.m in Sources */,
 				77BE77D519B6ACA300097F66 /* RegisterViewController.m in Sources */,
 				77A92F7C19B69DF200430C23 /* DataManager.m in Sources */,
 				77C1277A19B998FE007E3F53 /* EditPasswordViewController.m in Sources */,
+				77C127C719BCDAC8007E3F53 /* CalendarViewController.m in Sources */,
 				77A92F5419B69D9F00430C23 /* AppDelegate.m in Sources */,
 				77BE77D819B6AD6900097F66 /* LoginViewController.m in Sources */,
 				77C127C419BBF52C007E3F53 /* Announcement.m in Sources */,
@@ -465,10 +520,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCLA IEEE/UCLA IEEE-Prefix.pch";
 				INFOPLIST_FILE = "UCLA IEEE/UCLA IEEE-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2382933c-1dbe-49e7-8da3-ae5a883193d7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -478,10 +535,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCLA IEEE/UCLA IEEE-Prefix.pch";
 				INFOPLIST_FILE = "UCLA IEEE/UCLA IEEE-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2382933c-1dbe-49e7-8da3-ae5a883193d7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

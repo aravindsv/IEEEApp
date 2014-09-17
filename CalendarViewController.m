@@ -1,20 +1,18 @@
 //
-//  HomePageViewController.m
+//  CalendarViewController.m
 //  UCLA IEEE
 //
-//  Created by Aravind Vadali on 9/2/14.
+//  Created by Aravind Vadali on 9/7/14.
 //  Copyright (c) 2014 Aravind Vadali. All rights reserved.
 //
 
-#import "HomePageViewController.h"
-#import "DataManager.h"
-#import "UserInfo.h"
+#import "CalendarViewController.h"
 
-@interface HomePageViewController ()
+@interface CalendarViewController ()
 
 @end
 
-@implementation HomePageViewController
+@implementation CalendarViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

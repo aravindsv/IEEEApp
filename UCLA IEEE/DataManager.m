@@ -9,6 +9,7 @@
 #import "DataManager.h"
 #import "UserInfo.h"
 #import "Announcement.h"
+#import "Event.h"
 
 
 @implementation DataManager
@@ -456,6 +457,77 @@
         }
         callbackBlock();
         NSLog(@"Result %@", result);
+    }];
+}
+
++(void)checkInToEvent:(NSString *)eventCode withEmail:(NSString *)email andCookie:(NSString *)cookie onComplete:(void (^)(void))callbackBlock
+{
+    NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
+    
+    NSData *body = nil;
+    
+    NSString *contentType = @"application/x-www-form-urlencoded; charset=utf-8";
+    
+    
+    body = [[NSString stringWithFormat:@"service=check_in&email=%@&cookie=%@&eventId=%@", email, cookie, eventCode] dataUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSString *putLength = [NSString stringWithFormat:@"%d",[body length]];
+    
+    
+    NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
+    [headers setValue:contentType forKey:@"Content-Type"];
+    //    [headers setValue:@"mimeType" forKey:@"Accept"];
+    //    [headers setValue:@"no-cache" forKey:@"Cache-Control"];
+    //    [headers setValue:@"no-cache" forKey:@"Pragma"];
+    //    [headers setValue:@"close" forKey:@"Connection"];
+    
+    
+    
+    
+    
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    [request setHTTPMethod:@"POST"];
+    
+    [request setAllHTTPHeaderFields:headers];
+    
+    
+    [request setHTTPBody:body];
+    [request setValue:putLength forHTTPHeaderField:@"Content-Length"];
+    
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:0
+                                                                 error:NULL];
+        
+        int success = [[result objectForKey:@"success"] intValue];
+        if (success) {
+            NSDictionary *dict = [result objectForKey:@"event"];
+            Event *newEvent = [Event currentEvent];
+            newEvent.summary = [dict valueForKey:@"summary"];
+            newEvent.contact = [dict valueForKey:@"contact"];
+            newEvent.location = [dict valueForKey:@"location"];
+            newEvent.eventID = [dict valueForKey:@"eventId"];
+            newEvent.startTime = [dict valueForKey:@"start"];
+            newEvent.endTime = [dict valueForKey:@"end"];
+            callbackBlock();
+            NSLog(@"Result %@", result);
+        }
+        else {
+            NSString *error = [result objectForKey:@"error_message"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Check In!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+            // optional - add more buttons:
+            
+            [alert show];
+            callbackBlock();
+            NSLog(@"Result %@", result);
+        }
+        
     }];
 }
 
