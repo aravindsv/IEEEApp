@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtPasswordConfirm;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 - (IBAction)AttemptRegistration:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *txtMajor;
+@property (weak, nonatomic) IBOutlet UITextField *txtYear;
 
 @end
 
@@ -59,7 +61,7 @@
         [alert show];
         return;
     }
-    [DataManager registerWithEmail:_txtEmail.text Firstname:_txtFirstName.text Lastname:_txtLastName.text Password:password onComplete:^{
+    [DataManager registerWithEmail:_txtEmail.text Firstname:_txtFirstName.text Lastname:_txtLastName.text Password:password year:_txtYear.text major:_txtMajor.text onComplete:^{
         if ([UserInfo sharedInstance].isLoggedIn)
         {
             [self performSegueWithIdentifier:@"Registered" sender:nil];

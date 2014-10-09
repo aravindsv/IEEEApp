@@ -26,7 +26,7 @@
     body = [[NSString stringWithFormat:@"service=login&email=%@&password=%@", email, password] dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    NSString *putLength = [NSString stringWithFormat:@"%d",[body length]];
+    NSString *putLength = [NSString stringWithFormat:@"%lu",(unsigned long)[body length]];
     
     
     NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
@@ -85,7 +85,7 @@
     }];
 }
 
-+(void)registerWithEmail:(NSString *)email Firstname:(NSString *)firstname Lastname:(NSString *)lastname Password:(NSString *)password onComplete:(void (^)(void))callbackBlock
++(void)registerWithEmail:(NSString *)email Firstname:(NSString *)firstname Lastname:(NSString *)lastname Password:(NSString *)password year:(NSString *)year major:(NSString *)major onComplete:(void (^)(void))callbackBlock
 {
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
@@ -94,10 +94,10 @@
     NSString *contentType = @"application/x-www-form-urlencoded; charset=utf-8";
     
     
-    body = [[NSString stringWithFormat:@"service=register&email=%@&password=%@&firstname=%@&lastname=%@&", email, password, firstname, lastname] dataUsingEncoding:NSUTF8StringEncoding];
+    body = [[NSString stringWithFormat:@"service=register&email=%@&password=%@&firstname=%@&lastname=%@&year=%@&major=%@", email, password, firstname, lastname, year, major] dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    NSString *putLength = [NSString stringWithFormat:@"%d",[body length]];
+    NSString *putLength = [NSString stringWithFormat:@"%lu",(unsigned long)[body length]];
     
     
     NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
@@ -165,7 +165,7 @@
     body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newEmail=%@", email, cookie, newEmail] dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    NSString *putLength = [NSString stringWithFormat:@"%d",[body length]];
+    NSString *putLength = [NSString stringWithFormat:@"%lu",(unsigned long)[body length]];
     
     
     NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
@@ -233,7 +233,7 @@
     body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newId=%@", email, cookie, newID] dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    NSString *putLength = [NSString stringWithFormat:@"%d",[body length]];
+    NSString *putLength = [NSString stringWithFormat:@"%lu",(unsigned long)[body length]];
     
     
     NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
@@ -301,7 +301,7 @@
     body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newName=%@", email, cookie, newName] dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    NSString *putLength = [NSString stringWithFormat:@"%d",[body length]];
+    NSString *putLength = [NSString stringWithFormat:@"%lu",(unsigned long)[body length]];
     
     
     NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
@@ -369,7 +369,7 @@
     body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newPassword=%@&password=%@", email, cookie, newPass, oldPass] dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    NSString *putLength = [NSString stringWithFormat:@"%d",[body length]];
+    NSString *putLength = [NSString stringWithFormat:@"%lu",(unsigned long)[body length]];
     
     
     NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
@@ -472,7 +472,7 @@
     body = [[NSString stringWithFormat:@"service=check_in&email=%@&cookie=%@&eventId=%@", email, cookie, eventCode] dataUsingEncoding:NSUTF8StringEncoding];
     
     
-    NSString *putLength = [NSString stringWithFormat:@"%d",[body length]];
+    NSString *putLength = [NSString stringWithFormat:@"%lu",(unsigned long)[body length]];
     
     
     NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
@@ -529,6 +529,11 @@
         }
         
     }];
+}
+
++(void)GetCalendarEventsOnComplete:(void (^)(void))callbackBlock
+{
+    
 }
 
 @end

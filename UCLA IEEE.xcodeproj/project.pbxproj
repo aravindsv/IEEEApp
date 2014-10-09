@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77A6BEBE19E4F2B80049B4FD /* IEEE_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */; };
 		77A92F4419B69D9F00430C23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92F4319B69D9F00430C23 /* Foundation.framework */; };
 		77A92F4619B69D9F00430C23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92F4519B69D9F00430C23 /* CoreGraphics.framework */; };
 		77A92F4819B69D9F00430C23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92F4719B69D9F00430C23 /* UIKit.framework */; };
@@ -38,6 +39,14 @@
 		77C127DB19C109E7007E3F53 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C127DA19C109E7007E3F53 /* CheckInViewController.m */; };
 		77C127DF19C11A3E007E3F53 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C127DE19C11A3E007E3F53 /* Event.m */; };
 		77C127E419C154D1007E3F53 /* Images1.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77C127E319C154D1007E3F53 /* Images1.xcassets */; };
+		77CA03EB19D9F4D400049169 /* MNCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA03DB19D9F4D400049169 /* MNCalendarHeaderView.m */; };
+		77CA03EC19D9F4D400049169 /* MNCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA03DE19D9F4D400049169 /* MNCalendarView.m */; };
+		77CA03ED19D9F4D400049169 /* MNCalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA03E019D9F4D400049169 /* MNCalendarViewCell.m */; };
+		77CA03EE19D9F4D400049169 /* MNCalendarViewDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA03E219D9F4D400049169 /* MNCalendarViewDayCell.m */; };
+		77CA03EF19D9F4D400049169 /* MNCalendarViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA03E419D9F4D400049169 /* MNCalendarViewLayout.m */; };
+		77CA03F019D9F4D400049169 /* MNCalendarViewWeekdayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA03E619D9F4D400049169 /* MNCalendarViewWeekdayCell.m */; };
+		77CA03F119D9F4D400049169 /* MNFastDateEnumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA03E819D9F4D400049169 /* MNFastDateEnumeration.m */; };
+		77CA03F219D9F4D400049169 /* NSDate+MNAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA03EA19D9F4D400049169 /* NSDate+MNAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IEEE_logo.jpg; sourceTree = "<group>"; };
 		77A92F4019B69D9F00430C23 /* UCLA IEEE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCLA IEEE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A92F4319B69D9F00430C23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		77A92F4519B69D9F00430C23 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,6 +109,23 @@
 		77C127DD19C11A3E007E3F53 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		77C127DE19C11A3E007E3F53 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		77C127E319C154D1007E3F53 /* Images1.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images1.xcassets; sourceTree = "<group>"; };
+		77CA03DA19D9F4D400049169 /* MNCalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNCalendarHeaderView.h; sourceTree = "<group>"; };
+		77CA03DB19D9F4D400049169 /* MNCalendarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNCalendarHeaderView.m; sourceTree = "<group>"; };
+		77CA03DC19D9F4D400049169 /* MNCalendarView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MNCalendarView-Prefix.pch"; sourceTree = "<group>"; };
+		77CA03DD19D9F4D400049169 /* MNCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNCalendarView.h; sourceTree = "<group>"; };
+		77CA03DE19D9F4D400049169 /* MNCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNCalendarView.m; sourceTree = "<group>"; };
+		77CA03DF19D9F4D400049169 /* MNCalendarViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNCalendarViewCell.h; sourceTree = "<group>"; };
+		77CA03E019D9F4D400049169 /* MNCalendarViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNCalendarViewCell.m; sourceTree = "<group>"; };
+		77CA03E119D9F4D400049169 /* MNCalendarViewDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNCalendarViewDayCell.h; sourceTree = "<group>"; };
+		77CA03E219D9F4D400049169 /* MNCalendarViewDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNCalendarViewDayCell.m; sourceTree = "<group>"; };
+		77CA03E319D9F4D400049169 /* MNCalendarViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNCalendarViewLayout.h; sourceTree = "<group>"; };
+		77CA03E419D9F4D400049169 /* MNCalendarViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNCalendarViewLayout.m; sourceTree = "<group>"; };
+		77CA03E519D9F4D400049169 /* MNCalendarViewWeekdayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNCalendarViewWeekdayCell.h; sourceTree = "<group>"; };
+		77CA03E619D9F4D400049169 /* MNCalendarViewWeekdayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNCalendarViewWeekdayCell.m; sourceTree = "<group>"; };
+		77CA03E719D9F4D400049169 /* MNFastDateEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNFastDateEnumeration.h; sourceTree = "<group>"; };
+		77CA03E819D9F4D400049169 /* MNFastDateEnumeration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNFastDateEnumeration.m; sourceTree = "<group>"; };
+		77CA03E919D9F4D400049169 /* NSDate+MNAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MNAdditions.h"; sourceTree = "<group>"; };
+		77CA03EA19D9F4D400049169 /* NSDate+MNAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MNAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +155,7 @@
 		77A92F3719B69D9F00430C23 = {
 			isa = PBXGroup;
 			children = (
+				77CA03D919D9F4D400049169 /* MNCalendarView */,
 				77C127E319C154D1007E3F53 /* Images1.xcassets */,
 				77BE77E019B6E2DC00097F66 /* Resources */,
 				77A92F4919B69D9F00430C23 /* UCLA IEEE */,
@@ -215,6 +243,7 @@
 		77BE77E019B6E2DC00097F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */,
 				77BE77E719B6E5CF00097F66 /* 30pxBellIcon.png */,
 				77C127D719C1064C007E3F53 /* 30pxBarcodeIcon.png */,
 				77BE77E819B6E5CF00097F66 /* 30pxCalendarIcon.png */,
@@ -282,6 +311,31 @@
 				77C127C619BCDAC8007E3F53 /* CalendarViewController.m */,
 			);
 			name = "Functionality Views";
+			sourceTree = "<group>";
+		};
+		77CA03D919D9F4D400049169 /* MNCalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				77CA03DA19D9F4D400049169 /* MNCalendarHeaderView.h */,
+				77CA03DB19D9F4D400049169 /* MNCalendarHeaderView.m */,
+				77CA03DC19D9F4D400049169 /* MNCalendarView-Prefix.pch */,
+				77CA03DD19D9F4D400049169 /* MNCalendarView.h */,
+				77CA03DE19D9F4D400049169 /* MNCalendarView.m */,
+				77CA03DF19D9F4D400049169 /* MNCalendarViewCell.h */,
+				77CA03E019D9F4D400049169 /* MNCalendarViewCell.m */,
+				77CA03E119D9F4D400049169 /* MNCalendarViewDayCell.h */,
+				77CA03E219D9F4D400049169 /* MNCalendarViewDayCell.m */,
+				77CA03E319D9F4D400049169 /* MNCalendarViewLayout.h */,
+				77CA03E419D9F4D400049169 /* MNCalendarViewLayout.m */,
+				77CA03E519D9F4D400049169 /* MNCalendarViewWeekdayCell.h */,
+				77CA03E619D9F4D400049169 /* MNCalendarViewWeekdayCell.m */,
+				77CA03E719D9F4D400049169 /* MNFastDateEnumeration.h */,
+				77CA03E819D9F4D400049169 /* MNFastDateEnumeration.m */,
+				77CA03E919D9F4D400049169 /* NSDate+MNAdditions.h */,
+				77CA03EA19D9F4D400049169 /* NSDate+MNAdditions.m */,
+			);
+			name = MNCalendarView;
+			path = "../Calendars/MNCalendarView-master/MNCalendarView";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +422,7 @@
 				77A92F4E19B69D9F00430C23 /* InfoPlist.strings in Resources */,
 				77C127E419C154D1007E3F53 /* Images1.xcassets in Resources */,
 				77C127D819C1064C007E3F53 /* 30pxBarcodeIcon.png in Resources */,
+				77A6BEBE19E4F2B80049B4FD /* IEEE_logo.jpg in Resources */,
 				77BE77EC19B6E5CF00097F66 /* 30pxProfileIcon.png in Resources */,
 				77BE77EA19B6E5CF00097F66 /* 30pxBellIcon.png in Resources */,
 				77A92F7919B69DB700430C23 /* Main.storyboard in Resources */,
@@ -390,19 +445,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				77C127DB19C109E7007E3F53 /* CheckInViewController.m in Sources */,
+				77CA03ED19D9F4D400049169 /* MNCalendarViewCell.m in Sources */,
 				77C1277719B9669E007E3F53 /* EditDetailsViewController.m in Sources */,
+				77CA03F019D9F4D400049169 /* MNCalendarViewWeekdayCell.m in Sources */,
+				77CA03EC19D9F4D400049169 /* MNCalendarView.m in Sources */,
 				77A92F5A19B69D9F00430C23 /* ViewController.m in Sources */,
+				77CA03F119D9F4D400049169 /* MNFastDateEnumeration.m in Sources */,
 				77C127DF19C11A3E007E3F53 /* Event.m in Sources */,
 				77BE77D519B6ACA300097F66 /* RegisterViewController.m in Sources */,
 				77A92F7C19B69DF200430C23 /* DataManager.m in Sources */,
 				77C1277A19B998FE007E3F53 /* EditPasswordViewController.m in Sources */,
 				77C127C719BCDAC8007E3F53 /* CalendarViewController.m in Sources */,
 				77A92F5419B69D9F00430C23 /* AppDelegate.m in Sources */,
+				77CA03EE19D9F4D400049169 /* MNCalendarViewDayCell.m in Sources */,
 				77BE77D819B6AD6900097F66 /* LoginViewController.m in Sources */,
+				77CA03EB19D9F4D400049169 /* MNCalendarHeaderView.m in Sources */,
 				77C127C419BBF52C007E3F53 /* Announcement.m in Sources */,
+				77CA03EF19D9F4D400049169 /* MNCalendarViewLayout.m in Sources */,
 				77BE77EF19B95F1700097F66 /* ProfilePageViewController.m in Sources */,
 				77A92F7F19B69E3800430C23 /* UserInfo.m in Sources */,
 				77C1278019BA8E2F007E3F53 /* AnnouncementsTableViewController.m in Sources */,
+				77CA03F219D9F4D400049169 /* NSDate+MNAdditions.m in Sources */,
 				77A92F5019B69D9F00430C23 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,6 +587,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCLA IEEE/UCLA IEEE-Prefix.pch";
 				INFOPLIST_FILE = "UCLA IEEE/UCLA IEEE-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2382933c-1dbe-49e7-8da3-ae5a883193d7";
 				WRAPPER_EXTENSION = app;
@@ -539,6 +603,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCLA IEEE/UCLA IEEE-Prefix.pch";
 				INFOPLIST_FILE = "UCLA IEEE/UCLA IEEE-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2382933c-1dbe-49e7-8da3-ae5a883193d7";
 				WRAPPER_EXTENSION = app;

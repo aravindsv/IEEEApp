@@ -16,6 +16,8 @@
 @property (strong, nonatomic) NSString* userMail;
 @property (strong, nonatomic) NSString* userId;
 @property (strong, nonatomic) NSString* userCookie;
+@property (strong, nonatomic) NSString* userYear;
+@property (strong, nonatomic) NSString* userMajor;
 @property (nonatomic) BOOL isLoggedIn;
 
 @property (nonatomic) NSMutableArray* announcements;
