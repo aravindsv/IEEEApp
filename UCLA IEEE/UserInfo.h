@@ -21,6 +21,7 @@
 @property (nonatomic) BOOL isLoggedIn;
 
 @property (nonatomic) NSMutableArray* announcements;
+@property (nonatomic) NSMutableArray* calendarArray;
 
 -(void)logOut;
 

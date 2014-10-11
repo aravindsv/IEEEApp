@@ -36,7 +36,7 @@
     
     self.currentDate = [NSDate date];
     self.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    self.calendarView = [[MNCalendarView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+50, self.view.bounds.size.width, self.view.bounds.size.height-200)];
+    self.calendarView = [[MNCalendarView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+65, self.view.bounds.size.width, self.view.bounds.size.height-230)];
     self.calendarView.calendar = self.calendar;
     self.calendarView.selectedDate = [NSDate date];
     self.calendarView.delegate = self;
@@ -66,10 +66,12 @@
     NSTimeInterval timeInterval = [date timeIntervalSinceDate:self.currentDate];
     
     if (timeInterval > MN_WEEK && timeInterval < (MN_WEEK * 2)) {
-        return NO;
+        return YES;
     }
     
-    return YES;
+    return NO;
+    
+    //Check if date has an event. If it does, return YES and display it on the bottom. If not, return NO
 }
 
 - (void)didReceiveMemoryWarning

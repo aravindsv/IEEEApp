@@ -10,12 +10,40 @@
 #import "UserInfo.h"
 #import "Announcement.h"
 #import "Event.h"
+#import "Reachability.h"
+#import "CalendarEvent.h"
 
 
 @implementation DataManager
 
+
++(BOOL)connectedToInternet
+{
+    Reachability *reach = [Reachability reachabilityForInternetConnection];
+    NetworkStatus internetStatus = [reach currentReachabilityStatus];
+    if (internetStatus == NotReachable)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't connect to internet!" message:@"Please check your connection and try again" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        // optional - add more buttons:
+        
+        [alert show];
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
+
+
 +(void)loginWithEmail:(NSString *)email Password:(NSString *)password onComplete:(void (^)(void))callbackBlock
 {
+    
+    if (![self connectedToInternet])
+    {
+        return;
+    }
+    
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
     NSData *body = nil;
@@ -87,6 +115,11 @@
 
 +(void)registerWithEmail:(NSString *)email Firstname:(NSString *)firstname Lastname:(NSString *)lastname Password:(NSString *)password year:(NSString *)year major:(NSString *)major onComplete:(void (^)(void))callbackBlock
 {
+    if (![self connectedToInternet])
+    {
+        return;
+    }
+    
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
     NSData *body = nil;
@@ -155,6 +188,11 @@
 
 +(void)changeEmailWithEmail:(NSString *)email Cookie:(NSString *)cookie newEmail:(NSString *)newEmail onComplete:(void (^)(void))callbackBlock
 {
+    if (![self connectedToInternet])
+    {
+        return;
+    }
+    
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
     NSData *body = nil;
@@ -223,6 +261,11 @@
 
 +(void)changeIDWithEmail:(NSString *)email Cookie:(NSString *)cookie newID:(NSString *)newID onComplete:(void (^)(void))callbackBlock
 {
+    if (![self connectedToInternet])
+    {
+        return;
+    }
+    
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
     NSData *body = nil;
@@ -291,6 +334,11 @@
 
 +(void)changeNameWithEmail:(NSString *)email Cookie:(NSString *)cookie newName:(NSString *)newName onComplete:(void (^)(void))callbackBlock
 {
+    if (![self connectedToInternet])
+    {
+        return;
+    }
+    
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
     NSData *body = nil;
@@ -359,6 +407,11 @@
 
 +(void)changePasswordWithEmail:(NSString *)email Cookie:(NSString *)cookie newPassword:(NSString *)newPass oldPassword:(NSString *)oldPass onComplete:(void (^)(void))callbackBlock
 {
+    if (![self connectedToInternet])
+    {
+        return;
+    }
+    
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
     NSData *body = nil;
@@ -426,7 +479,12 @@
 }
 
 +(void)getAnnouncementsOnComplete:(void (^)(void))callbackBlock
-{    
+{
+    if (![self connectedToInternet])
+    {
+        return;
+    }
+    
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/announcements.php"];
     
     NSString *contentType = @"text/plain; charset=utf-8";
@@ -462,6 +520,11 @@
 
 +(void)checkInToEvent:(NSString *)eventCode withEmail:(NSString *)email andCookie:(NSString *)cookie onComplete:(void (^)(void))callbackBlock
 {
+    if (![self connectedToInternet])
+    {
+        return;
+    }
+    
     NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
     
     NSData *body = nil;
@@ -533,7 +596,57 @@
 
 +(void)GetCalendarEventsOnComplete:(void (^)(void))callbackBlock
 {
+    if (![self connectedToInternet])
+    {
+        return;
+    }
     
+    NSURL *url = [NSURL URLWithString:@"https://www.googleapis.com/calendar/v3/calendars/umh1upatck4qihkji9k6ntpc9k@group.calendar.google.com/events?key=AIzaSyAgLz-5vEBqTeJtCv_eiW0zQjKMlJqcztI"];
+    
+    NSString *contentType = @"text/plain; charset=utf-8";
+    
+    NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
+    [headers setValue:contentType forKey:@"Content-Type"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    [request setAllHTTPHeaderFields:headers];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:0
+                                                                 error:NULL];
+        NSDictionary *eventsList = [result valueForKey:@"items"];
+        for (NSDictionary *event in eventsList)
+        {
+            CalendarEvent *newEvent = [[CalendarEvent alloc] init];
+            //Use NSDateFormatter to get the date of the event, put that into newEvent.eventDate
+            //Google Calendar date format is 2014-10-13T10:00:00.000-07:00
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.OOOO"];
+            NSDictionary *eventDateDict = [event valueForKey:@"start"];
+            NSDate *now = [NSDate date];
+            NSString *nowString = [formatter stringFromDate:now];
+            NSString *eventDateString = [eventDateDict valueForKey:@"dateTime"];
+            NSDate *eventDate = [formatter dateFromString:eventDateString];
+            newEvent.eventDate = eventDate;
+//            Announcement *newAnnouncement = [[Announcement alloc] init];
+//            newAnnouncement.content = [dict valueForKey:@"content"];
+//            newAnnouncement.datePosted = [dict valueForKey:@"datePosted"];
+//            [[UserInfo sharedInstance].announcements addObject:newAnnouncement];
+        }
+        callbackBlock();
+        NSLog(@"Result %@", result);
+    }];
+
 }
+
+
+
 
 @end

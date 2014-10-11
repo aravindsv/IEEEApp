@@ -24,6 +24,9 @@
 		77A92F7919B69DB700430C23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A92F7819B69DB700430C23 /* Main.storyboard */; };
 		77A92F7C19B69DF200430C23 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A92F7B19B69DF200430C23 /* DataManager.m */; };
 		77A92F7F19B69E3800430C23 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A92F7E19B69E3800430C23 /* UserInfo.m */; };
+		77A9986F19E7B63B0021070B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A9986E19E7B63B0021070B /* Reachability.m */; };
+		77A9987119E7B6720021070B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A9987019E7B6720021070B /* SystemConfiguration.framework */; };
+		77A9987419E7C1850021070B /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A9987319E7C1850021070B /* CalendarEvent.m */; };
 		77BE77D519B6ACA300097F66 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE77D419B6ACA300097F66 /* RegisterViewController.m */; };
 		77BE77D819B6AD6900097F66 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77BE77D719B6AD6900097F66 /* LoginViewController.m */; };
 		77BE77EA19B6E5CF00097F66 /* 30pxBellIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE77E719B6E5CF00097F66 /* 30pxBellIcon.png */; };
@@ -84,6 +87,11 @@
 		77A92F7B19B69DF200430C23 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		77A92F7D19B69E3800430C23 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		77A92F7E19B69E3800430C23 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		77A9986D19E7B63B0021070B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		77A9986E19E7B63B0021070B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		77A9987019E7B6720021070B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		77A9987219E7C1850021070B /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
+		77A9987319E7C1850021070B /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		77BE77D319B6ACA300097F66 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = "UCLA IEEE/RegisterViewController.h"; sourceTree = "<group>"; };
 		77BE77D419B6ACA300097F66 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = "UCLA IEEE/RegisterViewController.m"; sourceTree = "<group>"; };
 		77BE77D619B6AD6900097F66 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "UCLA IEEE/LoginViewController.h"; sourceTree = "<group>"; };
@@ -133,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77A9987119E7B6720021070B /* SystemConfiguration.framework in Frameworks */,
 				77A92F4619B69D9F00430C23 /* CoreGraphics.framework in Frameworks */,
 				77A92F4819B69D9F00430C23 /* UIKit.framework in Frameworks */,
 				77A92F4419B69D9F00430C23 /* Foundation.framework in Frameworks */,
@@ -155,6 +164,8 @@
 		77A92F3719B69D9F00430C23 = {
 			isa = PBXGroup;
 			children = (
+				77A9986D19E7B63B0021070B /* Reachability.h */,
+				77A9986E19E7B63B0021070B /* Reachability.m */,
 				77CA03D919D9F4D400049169 /* MNCalendarView */,
 				77C127E319C154D1007E3F53 /* Images1.xcassets */,
 				77BE77E019B6E2DC00097F66 /* Resources */,
@@ -177,6 +188,7 @@
 		77A92F4219B69D9F00430C23 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				77A9987019E7B6720021070B /* SystemConfiguration.framework */,
 				77A92F4319B69D9F00430C23 /* Foundation.framework */,
 				77A92F4519B69D9F00430C23 /* CoreGraphics.framework */,
 				77A92F4719B69D9F00430C23 /* UIKit.framework */,
@@ -266,6 +278,8 @@
 		77C127DC19C11A0F007E3F53 /* Data Structures */ = {
 			isa = PBXGroup;
 			children = (
+				77A9987219E7C1850021070B /* CalendarEvent.h */,
+				77A9987319E7C1850021070B /* CalendarEvent.m */,
 				77A92F7D19B69E3800430C23 /* UserInfo.h */,
 				77A92F7E19B69E3800430C23 /* UserInfo.m */,
 				77C127C219BBF52C007E3F53 /* Announcement.h */,
@@ -444,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77A9987419E7C1850021070B /* CalendarEvent.m in Sources */,
 				77C127DB19C109E7007E3F53 /* CheckInViewController.m in Sources */,
 				77CA03ED19D9F4D400049169 /* MNCalendarViewCell.m in Sources */,
 				77C1277719B9669E007E3F53 /* EditDetailsViewController.m in Sources */,
@@ -454,6 +469,7 @@
 				77C127DF19C11A3E007E3F53 /* Event.m in Sources */,
 				77BE77D519B6ACA300097F66 /* RegisterViewController.m in Sources */,
 				77A92F7C19B69DF200430C23 /* DataManager.m in Sources */,
+				77A9986F19E7B63B0021070B /* Reachability.m in Sources */,
 				77C1277A19B998FE007E3F53 /* EditPasswordViewController.m in Sources */,
 				77C127C719BCDAC8007E3F53 /* CalendarViewController.m in Sources */,
 				77A92F5419B69D9F00430C23 /* AppDelegate.m in Sources */,
