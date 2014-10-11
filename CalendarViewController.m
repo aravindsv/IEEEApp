@@ -8,12 +8,15 @@
 
 #import "CalendarViewController.h"
 #import "MNCalendarView.h"
+#import "DataManager.h"
+#import "UserInfo.h"
 
 @interface CalendarViewController () <MNCalendarViewDelegate>
 
 @property(nonatomic,strong) NSCalendar     *calendar;
 @property(nonatomic,strong) MNCalendarView *calendarView;
 @property(nonatomic,strong) NSDate         *currentDate;
+@property(nonatomic) NSMutableDictionary    *eventsDict;
 
 @end
 
@@ -33,6 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     
     self.currentDate = [NSDate date];
     self.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -63,13 +68,16 @@
 }
 
 - (BOOL)calendarView:(MNCalendarView *)calendarView shouldSelectDate:(NSDate *)date {
-    NSTimeInterval timeInterval = [date timeIntervalSinceDate:self.currentDate];
     
-    if (timeInterval > MN_WEEK && timeInterval < (MN_WEEK * 2)) {
+    NSMutableArray *eventsForDate = [DataManager getEventsForDate:date];
+    if ([eventsForDate count] == 0)
+    {
+        return NO;
+    }
+    else
+    {
         return YES;
     }
-    
-    return NO;
     
     //Check if date has an event. If it does, return YES and display it on the bottom. If not, return NO
 }

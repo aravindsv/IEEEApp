@@ -10,6 +10,7 @@
 
 @interface DataManager : NSObject
 
+//Server Interaces
 +(void)loginWithEmail:(NSString *)email Password:(NSString *)password onComplete:(void (^)(void))callbackBlock;
 +(void)registerWithEmail:(NSString *)email Firstname:(NSString *)firstname Lastname:(NSString *)lastname Password:(NSString *)password year:(NSString *)year major:(NSString *)major onComplete:(void (^)(void))callbackBlock;
 +(void)changePasswordWithEmail:(NSString *)email Cookie:(NSString *)cookie newPassword:(NSString *)newPass oldPassword:(NSString *)oldPass onComplete:(void (^)(void))callbackBlock;
@@ -19,5 +20,8 @@
 +(void)getAnnouncementsOnComplete:(void (^)(void))callbackBlock;
 +(void)checkInToEvent:(NSString *)eventCode withEmail:(NSString *)email andCookie:(NSString *)cookie onComplete:(void (^)(void))callbackBlock;
 +(void)GetCalendarEventsOnComplete:(void (^)(void))callbackBlock;
+
+//Helper Functions
++(NSMutableArray *)getEventsForDate:(NSDate*)date;
 
 @end

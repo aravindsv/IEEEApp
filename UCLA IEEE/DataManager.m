@@ -628,24 +628,50 @@
             //Use NSDateFormatter to get the date of the event, put that into newEvent.eventDate
             //Google Calendar date format is 2014-10-13T10:00:00.000-07:00
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.OOOO"];
+            [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
             NSDictionary *eventDateDict = [event valueForKey:@"start"];
-            NSDate *now = [NSDate date];
-            NSString *nowString = [formatter stringFromDate:now];
             NSString *eventDateString = [eventDateDict valueForKey:@"dateTime"];
             NSDate *eventDate = [formatter dateFromString:eventDateString];
             newEvent.eventDate = eventDate;
-//            Announcement *newAnnouncement = [[Announcement alloc] init];
-//            newAnnouncement.content = [dict valueForKey:@"content"];
-//            newAnnouncement.datePosted = [dict valueForKey:@"datePosted"];
-//            [[UserInfo sharedInstance].announcements addObject:newAnnouncement];
+            newEvent.eventTitle = [event valueForKey:@"summary"];
+            newEvent.eventLocation = [event valueForKey:@"location"];
+            newEvent.eventCreatorName = [event valueForKeyPath:@"creator.displayName"];
+            newEvent.eventCreatorEmail = [event valueForKeyPath:@"creator.email"];
+            newEvent.eventID = [event valueForKey:@"id"];
+            newEvent.eventDescription = [event valueForKey:@"description"];
+            
+            [[UserInfo sharedInstance].calendarArray addObject:newEvent];
         }
         callbackBlock();
-        NSLog(@"Result %@", result);
     }];
 
 }
 
++(NSMutableArray *)getEventsForDate:(NSDate *)date
+{
+    NSMutableArray *eventArr = [[NSMutableArray alloc] init];
+    for (CalendarEvent *event in [UserInfo sharedInstance].calendarArray)
+    {
+        if ([self isSameDayWithDate1:date date2:event.eventDate])
+        {
+            [eventArr addObject:event];
+        }
+    }
+    
+    return eventArr;
+}
+
++ (BOOL)isSameDayWithDate1:(NSDate*)date1 date2:(NSDate*)date2 {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSDateComponents* comp1 = [calendar components:unitFlags fromDate:date1];
+    NSDateComponents* comp2 = [calendar components:unitFlags fromDate:date2];
+    
+    return [comp1 day]   == [comp2 day] &&
+    [comp1 month] == [comp2 month] &&
+    [comp1 year]  == [comp2 year];
+}
 
 
 

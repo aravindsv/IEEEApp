@@ -7,6 +7,7 @@
 //
 
 #import "UserInfo.h"
+#import "DataManager.h"
 
 @implementation UserInfo
 +(UserInfo*)sharedInstance {
@@ -24,6 +25,10 @@
 -(void)initData
 {
     _announcements = [[NSMutableArray alloc] init];
+    _calendarArray = [[NSMutableArray alloc] init];
+//    [DataManager GetCalendarEventsOnComplete:^{
+//        NSLog(@"%@", [UserInfo sharedInstance].calendarArray);
+//    }];
 }
 
 -(void)logOut
