@@ -83,7 +83,10 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"h:mm a"];
         NSString *eventTime = [formatter stringFromDate:item.event.eventDate];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ at %@", eventTime, item.event.eventLocation];
+        NSDateFormatter *d2s = [[NSDateFormatter alloc] init];
+        [d2s setDateFormat:@"MMM d"];
+        NSString *eventDate = [d2s stringFromDate:item.date];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ at %@\n%@", eventTime, item.event.eventLocation, eventDate];
     }
     else if (!item.isEvent)
     {
@@ -101,6 +104,8 @@
     
     [cell.textLabel setNumberOfLines:0];
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    [cell.detailTextLabel setNumberOfLines:0];
+    cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
     return cell;
 }
