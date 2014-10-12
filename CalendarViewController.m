@@ -142,7 +142,7 @@
     }
     else
     {
-        cell.textLabel.text = @"There are no events today!";
+        cell.textLabel.text = @"There are no events today";
         cell.detailTextLabel.text = @"";
     }
     return cell;
@@ -150,7 +150,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 50;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

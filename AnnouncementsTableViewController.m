@@ -31,10 +31,8 @@
 {
     [super viewDidLoad];
     
-    [DataManager getAnnouncementsOnComplete:^{
-        _announcements = [UserInfo sharedInstance].announcements;
-        [self.tableView reloadData];
-    }];
+    self.announcements = [UserInfo sharedInstance].announcements;
+    [self.tableView reloadData];
     
     
     // Uncomment the following line to preserve selection between presentations.

@@ -23,9 +23,8 @@
     //[[UINavigationBar appearance] setTranslucent:YES];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil]];
-    [DataManager GetCalendarEventsOnComplete:^{
-        NSLog(@"%@", [UserInfo sharedInstance].calendarArray);
-    }];
+    
+    
     
     
     return YES;

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FrontPageViewController : UIViewController
+@interface FrontPageViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

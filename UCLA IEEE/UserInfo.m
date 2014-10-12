@@ -8,6 +8,7 @@
 
 #import "UserInfo.h"
 #import "DataManager.h"
+#import "NewsFeedItem.h"
 
 @implementation UserInfo
 +(UserInfo*)sharedInstance {
@@ -25,10 +26,8 @@
 -(void)initData
 {
     _announcements = [[NSMutableArray alloc] init];
-    _calendarArray = [[NSMutableDictionary alloc] init];
-//    [DataManager GetCalendarEventsOnComplete:^{
-//        NSLog(@"%@", [UserInfo sharedInstance].calendarArray);
-//    }];
+    _calendarDict = [[NSMutableDictionary alloc] init];
+    _newsFeedArray = [[NSMutableArray alloc] init];
 }
 
 -(void)logOut
@@ -37,4 +36,35 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Username"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Password"];
 }
+
+-(void)addCalendarEventToNewsFeedArray:(CalendarEvent *)event
+{
+    NewsFeedItem *newItem = [[NewsFeedItem alloc] init];
+    newItem.date = event.eventDate;
+    newItem.isEvent = YES;
+    newItem.event = event;
+    [self.newsFeedArray addObject:newItem];
+    NSArray *sorter = [[NSArray alloc] initWithArray:self.newsFeedArray];
+    NSArray *sorted = [sorter sortedArrayUsingSelector:@selector(compare:)];
+    [self.newsFeedArray removeAllObjects];
+    [self.newsFeedArray addObjectsFromArray:sorted];
+}
+
+-(void)addAnnouncementToNewsFeedArray:(Announcement *)announcement
+{
+    NewsFeedItem *newItem = [[NewsFeedItem alloc] init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    newItem.date = [formatter dateFromString:announcement.datePosted];
+    newItem.isEvent = NO;
+    newItem.announcement = announcement;
+    [self.newsFeedArray addObject:newItem];
+    NSArray *sorter = [[NSArray alloc] initWithArray:self.newsFeedArray];
+    NSArray *sorted = [sorter sortedArrayUsingSelector:@selector(compare:)];
+    [self.newsFeedArray removeAllObjects];
+    [self.newsFeedArray addObjectsFromArray:sorted];
+}
+
+
+
 @end

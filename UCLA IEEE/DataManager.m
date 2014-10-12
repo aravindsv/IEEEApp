@@ -96,6 +96,8 @@
             userInfo.isLoggedIn = YES;
             userInfo.userMail = [userObj objectForKey:@"email"];
             userInfo.userCookie = [result objectForKey:@"cookie"];
+            userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
+            userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
             [[NSUserDefaults standardUserDefaults] setValue:email forKey:@"Username"];
             [[NSUserDefaults standardUserDefaults] setValue:password forKey:@"Password"];
             [[NSUserDefaults standardUserDefaults] synchronize];
@@ -171,7 +173,9 @@
             userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
             userInfo.userMail = [userObj objectForKey:@"email"];
-            userInfo.userCookie = [result objectForKey:@"cookie"];
+            userInfo.userCookie = [userObj objectForKey:@"cookie"];
+            userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
+            userInfo.totalPoints = [[result objectForKey:@"total_points"] intValue];
             callbackBlock();
         }
         else {
@@ -244,6 +248,8 @@
             userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
             userInfo.userMail = [userObj objectForKey:@"email"];
+            userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
+            userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
 //            userInfo.userCo   okie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -317,6 +323,8 @@
             userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
             userInfo.userMail = [userObj objectForKey:@"email"];
+            userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
+            userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -390,6 +398,8 @@
             userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
             userInfo.userMail = [userObj objectForKey:@"email"];
+            userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
+            userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -463,6 +473,8 @@
             userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
             userInfo.userMail = [userObj objectForKey:@"email"];
+            userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
+            userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -512,6 +524,7 @@
             newAnnouncement.content = [dict valueForKey:@"content"];
             newAnnouncement.datePosted = [dict valueForKey:@"datePosted"];
             [[UserInfo sharedInstance].announcements addObject:newAnnouncement];
+            [[UserInfo sharedInstance] addAnnouncementToNewsFeedArray:newAnnouncement];
         }
         callbackBlock();
         NSLog(@"Result %@", result);
@@ -571,6 +584,7 @@
         int success = [[result objectForKey:@"success"] intValue];
         if (success) {
             NSDictionary *dict = [result objectForKey:@"event"];
+            UserInfo *userInfo = [UserInfo sharedInstance];
             Event *newEvent = [Event currentEvent];
             newEvent.summary = [dict valueForKey:@"summary"];
             newEvent.contact = [dict valueForKey:@"contact"];
@@ -578,6 +592,9 @@
             newEvent.eventID = [dict valueForKey:@"eventId"];
             newEvent.startTime = [dict valueForKey:@"start"];
             newEvent.endTime = [dict valueForKey:@"end"];
+            NSDictionary *user = [result objectForKey:@"user"];
+            userInfo.currentPoints = [[user objectForKey:@"points"] intValue];
+            userInfo.totalPoints = [[user objectForKey:@"total_points"] intValue];
             callbackBlock();
             NSLog(@"Result %@", result);
         }
@@ -640,11 +657,16 @@
             newEvent.eventID = [event valueForKey:@"id"];
             newEvent.eventDescription = [event valueForKey:@"description"];
             
+            if ([newEvent.eventDate timeIntervalSinceNow] > 0)
+            {
+                [[UserInfo sharedInstance] addCalendarEventToNewsFeedArray:newEvent];
+            }
+            
             NSString *dateString = [self stringForDate:newEvent.eventDate];
             
-            if ([[UserInfo sharedInstance].calendarArray valueForKey:dateString]) //An event already is on that date, add next event for date to the array
+            if ([[UserInfo sharedInstance].calendarDict valueForKey:dateString]) //An event already is on that date, add next event for date to the array
             {
-                NSMutableArray *eventsArray = [[UserInfo sharedInstance].calendarArray objectForKey:dateString];
+                NSMutableArray *eventsArray = [[UserInfo sharedInstance].calendarDict objectForKey:dateString];
                 [eventsArray addObject:newEvent];
             }
             else //first event for this date, create an array and add the event to the array, set the array as the object
@@ -657,7 +679,7 @@
                 }
                 else
                 {
-                    [[UserInfo sharedInstance].calendarArray setObject:eventsArray forKey:dateString];
+                    [[UserInfo sharedInstance].calendarDict setObject:eventsArray forKey:dateString];
                 }
             }
         }
@@ -668,7 +690,7 @@
 
 +(NSMutableArray *)getEventsForDate:(NSDate *)date
 {
-    return [[UserInfo sharedInstance].calendarArray objectForKey:[self stringForDate:date]];
+    return [[UserInfo sharedInstance].calendarDict objectForKey:[self stringForDate:date]];
 }
 
 + (BOOL)isSameDayWithDate1:(NSDate*)date1 date2:(NSDate*)date2 {

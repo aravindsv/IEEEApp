@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CalendarEvent.h"
+#import "Announcement.h"
+
 
 @interface UserInfo : NSObject
 
@@ -18,11 +21,16 @@
 @property (strong, nonatomic) NSString* userCookie;
 @property (strong, nonatomic) NSString* userYear;
 @property (strong, nonatomic) NSString* userMajor;
+@property (nonatomic) int currentPoints;
+@property (nonatomic) int totalPoints;
 @property (nonatomic) BOOL isLoggedIn;
 
-@property (nonatomic) NSMutableArray* announcements;
-@property (nonatomic) NSMutableDictionary* calendarArray;
+@property (nonatomic, strong) NSMutableArray* announcements;
+@property (nonatomic, strong) NSMutableDictionary* calendarDict;
+@property (nonatomic, strong) NSMutableArray* newsFeedArray;
 
 -(void)logOut;
+-(void)addCalendarEventToNewsFeedArray:(CalendarEvent *)event;
+-(void)addAnnouncementToNewsFeedArray:(Announcement *)announcement;
 
 @end
