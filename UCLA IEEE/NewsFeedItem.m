@@ -14,8 +14,8 @@
 {
     NSDate *date1 = self.date;
     NSDate *date2 = otherObject.date;
-    NSTimeInterval interval1 = [date1 timeIntervalSinceNow];
-    NSTimeInterval interval2 = [date2 timeIntervalSinceNow];
+    NSTimeInterval interval1 = abs([date1 timeIntervalSinceNow]);
+    NSTimeInterval interval2 = abs([date2 timeIntervalSinceNow]);
     if (interval1 == interval2)
     {
         return NSOrderedSame;
