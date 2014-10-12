@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7728EA6719EA33EB0044B9E2 /* FrontPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7728EA6619EA33EB0044B9E2 /* FrontPageViewController.m */; };
 		77A6BEBE19E4F2B80049B4FD /* IEEE_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */; };
 		77A92F4419B69D9F00430C23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92F4319B69D9F00430C23 /* Foundation.framework */; };
 		77A92F4619B69D9F00430C23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92F4519B69D9F00430C23 /* CoreGraphics.framework */; };
@@ -63,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7728EA6519EA33EB0044B9E2 /* FrontPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrontPageViewController.h; sourceTree = "<group>"; };
+		7728EA6619EA33EB0044B9E2 /* FrontPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrontPageViewController.m; sourceTree = "<group>"; };
 		77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IEEE_logo.jpg; sourceTree = "<group>"; };
 		77A92F4019B69D9F00430C23 /* UCLA IEEE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCLA IEEE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A92F4319B69D9F00430C23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -317,6 +320,8 @@
 		77C127E219C11FCF007E3F53 /* Functionality Views */ = {
 			isa = PBXGroup;
 			children = (
+				7728EA6519EA33EB0044B9E2 /* FrontPageViewController.h */,
+				7728EA6619EA33EB0044B9E2 /* FrontPageViewController.m */,
 				77C127D919C109E7007E3F53 /* CheckInViewController.h */,
 				77C127DA19C109E7007E3F53 /* CheckInViewController.m */,
 				77C1277E19BA8E2F007E3F53 /* AnnouncementsTableViewController.h */,
@@ -465,6 +470,7 @@
 				77CA03F019D9F4D400049169 /* MNCalendarViewWeekdayCell.m in Sources */,
 				77CA03EC19D9F4D400049169 /* MNCalendarView.m in Sources */,
 				77A92F5A19B69D9F00430C23 /* ViewController.m in Sources */,
+				7728EA6719EA33EB0044B9E2 /* FrontPageViewController.m in Sources */,
 				77CA03F119D9F4D400049169 /* MNFastDateEnumeration.m in Sources */,
 				77C127DF19C11A3E007E3F53 /* Event.m in Sources */,
 				77BE77D519B6ACA300097F66 /* RegisterViewController.m in Sources */,

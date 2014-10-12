@@ -25,7 +25,7 @@
 -(void)initData
 {
     _announcements = [[NSMutableArray alloc] init];
-    _calendarArray = [[NSMutableArray alloc] init];
+    _calendarArray = [[NSMutableDictionary alloc] init];
 //    [DataManager GetCalendarEventsOnComplete:^{
 //        NSLog(@"%@", [UserInfo sharedInstance].calendarArray);
 //    }];

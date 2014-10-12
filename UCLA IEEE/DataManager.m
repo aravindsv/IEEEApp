@@ -640,7 +640,26 @@
             newEvent.eventID = [event valueForKey:@"id"];
             newEvent.eventDescription = [event valueForKey:@"description"];
             
-            [[UserInfo sharedInstance].calendarArray addObject:newEvent];
+            NSString *dateString = [self stringForDate:newEvent.eventDate];
+            
+            if ([[UserInfo sharedInstance].calendarArray valueForKey:dateString]) //An event already is on that date, add next event for date to the array
+            {
+                NSMutableArray *eventsArray = [[UserInfo sharedInstance].calendarArray objectForKey:dateString];
+                [eventsArray addObject:newEvent];
+            }
+            else //first event for this date, create an array and add the event to the array, set the array as the object
+            {
+                NSMutableArray *eventsArray = [[NSMutableArray alloc] init];
+                [eventsArray addObject:newEvent];
+                if (!dateString)
+                {
+                    NSLog(@"Event has nil date! %@", newEvent);
+                }
+                else
+                {
+                    [[UserInfo sharedInstance].calendarArray setObject:eventsArray forKey:dateString];
+                }
+            }
         }
         callbackBlock();
     }];
@@ -649,16 +668,7 @@
 
 +(NSMutableArray *)getEventsForDate:(NSDate *)date
 {
-    NSMutableArray *eventArr = [[NSMutableArray alloc] init];
-    for (CalendarEvent *event in [UserInfo sharedInstance].calendarArray)
-    {
-        if ([self isSameDayWithDate1:date date2:event.eventDate])
-        {
-            [eventArr addObject:event];
-        }
-    }
-    
-    return eventArr;
+    return [[UserInfo sharedInstance].calendarArray objectForKey:[self stringForDate:date]];
 }
 
 + (BOOL)isSameDayWithDate1:(NSDate*)date1 date2:(NSDate*)date2 {
@@ -671,6 +681,16 @@
     return [comp1 day]   == [comp2 day] &&
     [comp1 month] == [comp2 month] &&
     [comp1 year]  == [comp2 year];
+}
+
++(NSString *)stringForDate:(NSDate *)date
+{
+    NSString *dateString = [[NSString alloc] init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    dateString = [formatter stringFromDate:date];
+    
+    return dateString;
 }
 
 
