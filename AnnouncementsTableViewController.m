@@ -70,7 +70,11 @@
     [cell.textLabel setLineBreakMode:NSLineBreakByWordWrapping];
     cell.textLabel.numberOfLines = 3;
     cell.textLabel.text = curAnnouncement.content;
-    cell.detailTextLabel.text = curAnnouncement.datePosted;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [formatter dateFromString:curAnnouncement.datePosted];
+    [formatter setDateFormat:@"MMM d"];
+    cell.detailTextLabel.text = [formatter stringFromDate:date];
     return cell;
 }
 

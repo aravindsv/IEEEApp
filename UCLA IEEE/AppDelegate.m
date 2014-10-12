@@ -19,7 +19,7 @@
 {
     // Override point for customization after application launch.
     [[MNCalendarView appearance] setSeparatorColor:UIColor.blueColor];
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x005AB4)];
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x2C5E91)];
     //[[UINavigationBar appearance] setTranslucent:YES];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil]];

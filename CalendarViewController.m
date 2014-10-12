@@ -162,7 +162,7 @@
     label.text = [NSString stringWithFormat:@"Events for %@", dateString];
     label.textColor = [UIColor whiteColor];
     [label setFont:[UIFont boldSystemFontOfSize:16]];
-    label.backgroundColor = UIColorFromRGB(0x2D8CEB);
+    label.backgroundColor = UIColorFromRGB(0x2C5E91);
     return label;
 }
 

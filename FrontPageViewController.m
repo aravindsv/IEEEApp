@@ -121,7 +121,7 @@
     label.text = @"News Feed";
     label.textColor = [UIColor whiteColor];
     [label setFont:[UIFont boldSystemFontOfSize:26]];
-    label.backgroundColor = UIColorFromRGB(0x2D8CEB);
+    label.backgroundColor = UIColorFromRGB(0x2C5E91);
     return label;
 }
 
