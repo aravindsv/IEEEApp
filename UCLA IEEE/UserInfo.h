@@ -28,6 +28,7 @@
 @property (nonatomic, strong) NSMutableArray* announcements;
 @property (nonatomic, strong) NSMutableDictionary* calendarDict;
 @property (nonatomic, strong) NSMutableArray* newsFeedArray;
+@property (nonatomic, strong) NSMutableArray* attendedEvents;
 
 -(void)logOut;
 -(void)addCalendarEventToNewsFeedArray:(CalendarEvent *)event;

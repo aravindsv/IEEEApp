@@ -43,7 +43,9 @@
     
     [DataManager GetCalendarEventsOnComplete:^{
         [DataManager getAnnouncementsOnComplete:^{
-            NSLog(@"==========================\n%@\n=================================", [UserInfo sharedInstance].newsFeedArray);
+            [DataManager GetAttendedEventsOnComplete:^{
+                
+            }];
             [self reloadInfo];
         }];
     }];
@@ -86,7 +88,14 @@
         NSDateFormatter *d2s = [[NSDateFormatter alloc] init];
         [d2s setDateFormat:@"MMM d"];
         NSString *eventDate = [d2s stringFromDate:item.date];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ at %@\n%@", eventTime, item.event.eventLocation, eventDate];
+        if (item.event.eventLocation != nil)
+        {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ at %@\n%@", eventTime, item.event.eventLocation, eventDate];
+        }
+        else
+        {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@\n%@", eventTime, eventDate];
+        }
     }
     else if (!item.isEvent)
     {

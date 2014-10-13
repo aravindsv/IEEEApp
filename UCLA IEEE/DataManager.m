@@ -16,25 +16,7 @@
 
 @implementation DataManager
 
-
-+(BOOL)connectedToInternet
-{
-    Reachability *reach = [Reachability reachabilityForInternetConnection];
-    NetworkStatus internetStatus = [reach currentReachabilityStatus];
-    if (internetStatus == NotReachable)
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't connect to internet!" message:@"Please check your connection and try again" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-        // optional - add more buttons:
-        
-        [alert show];
-        return NO;
-    }
-    else
-    {
-        return YES;
-    }
-}
-
+#pragma mark - Login/Register
 
 +(void)loginWithEmail:(NSString *)email Password:(NSString *)password onComplete:(void (^)(void))callbackBlock
 {
@@ -98,6 +80,8 @@
             userInfo.userCookie = [result objectForKey:@"cookie"];
             userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
+            userInfo.userMajor = [userObj objectForKey:@"major"];
+            userInfo.userYear = [userObj objectForKey:@"year"];
             [[NSUserDefaults standardUserDefaults] setValue:email forKey:@"Username"];
             [[NSUserDefaults standardUserDefaults] setValue:password forKey:@"Password"];
             [[NSUserDefaults standardUserDefaults] synchronize];
@@ -175,7 +159,9 @@
             userInfo.userMail = [userObj objectForKey:@"email"];
             userInfo.userCookie = [userObj objectForKey:@"cookie"];
             userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
-            userInfo.totalPoints = [[result objectForKey:@"total_points"] intValue];
+            userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
+            userInfo.userMajor = [userObj objectForKey:@"major"];
+            userInfo.userYear = [userObj objectForKey:@"year"];
             callbackBlock();
         }
         else {
@@ -189,6 +175,8 @@
         NSLog(@"Result %@", result);
     }];
 }
+
+#pragma mark - Edit Membership
 
 +(void)changeEmailWithEmail:(NSString *)email Cookie:(NSString *)cookie newEmail:(NSString *)newEmail onComplete:(void (^)(void))callbackBlock
 {
@@ -250,6 +238,8 @@
             userInfo.userMail = [userObj objectForKey:@"email"];
             userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
+            userInfo.userMajor = [userObj objectForKey:@"major"];
+            userInfo.userYear = [userObj objectForKey:@"year"];
 //            userInfo.userCo   okie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -325,6 +315,8 @@
             userInfo.userMail = [userObj objectForKey:@"email"];
             userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
+            userInfo.userMajor = [userObj objectForKey:@"major"];
+            userInfo.userYear = [userObj objectForKey:@"year"];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -400,6 +392,8 @@
             userInfo.userMail = [userObj objectForKey:@"email"];
             userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
+            userInfo.userMajor = [userObj objectForKey:@"major"];
+            userInfo.userYear = [userObj objectForKey:@"year"];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -475,6 +469,8 @@
             userInfo.userMail = [userObj objectForKey:@"email"];
             userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
+            userInfo.userMajor = [userObj objectForKey:@"major"];
+            userInfo.userYear = [userObj objectForKey:@"year"];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -489,6 +485,162 @@
         NSLog(@"Result %@", result);
     }];
 }
+
++(void)changeMajorWithEmail:(NSString *)email Cookie:(NSString *)cookie newMajor:(NSString *)newMajor onComplete:(void (^)(void))callbackBlock
+{
+    if (![self connectedToInternet])
+    {
+        return;
+    }
+    
+    NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
+    
+    NSData *body = nil;
+    
+    NSString *contentType = @"application/x-www-form-urlencoded; charset=utf-8";
+    
+    
+    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newMajor=%@", email, cookie, newMajor] dataUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSString *putLength = [NSString stringWithFormat:@"%lu",(unsigned long)[body length]];
+    
+    
+    NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
+    [headers setValue:contentType forKey:@"Content-Type"];
+    //    [headers setValue:@"mimeType" forKey:@"Accept"];
+    //    [headers setValue:@"no-cache" forKey:@"Cache-Control"];
+    //    [headers setValue:@"no-cache" forKey:@"Pragma"];
+    //    [headers setValue:@"close" forKey:@"Connection"];
+    
+    
+    
+    
+    
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    [request setHTTPMethod:@"POST"];
+    
+    [request setAllHTTPHeaderFields:headers];
+    
+    
+    [request setHTTPBody:body];
+    [request setValue:putLength forHTTPHeaderField:@"Content-Length"];
+    
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:0
+                                                                 error:NULL];
+        
+        int success = [[result objectForKey:@"success"] intValue];
+        if (success) {
+            UserInfo* userInfo  = [UserInfo sharedInstance];
+            NSDictionary* userObj = [result objectForKey:@"user"];
+            userInfo.userName = [userObj objectForKey:@"name"];
+            userInfo.userId = [userObj objectForKey:@"ieee_id"];
+            userInfo.isLoggedIn = YES;
+            userInfo.userMail = [userObj objectForKey:@"email"];
+            userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
+            userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
+            userInfo.userMajor = [userObj objectForKey:@"major"];
+            userInfo.userYear = [userObj objectForKey:@"year"];
+            //            userInfo.userCookie = [result objectForKey:@"cookie"];
+            callbackBlock();
+        }
+        else {
+            NSString *error = [result objectForKey:@"error_message"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Edit!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+            // optional - add more buttons:
+            
+            [alert show];
+            callbackBlock();
+        }
+        NSLog(@"Result %@", result);
+    }];
+}
+
++(void)changeYearWithEmail:(NSString *)email Cookie:(NSString *)cookie newYear:(NSString *)newYear onComplete:(void (^)(void))callbackBlock
+{
+    if (![self connectedToInternet])
+    {
+        return;
+    }
+    
+    NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
+    
+    NSData *body = nil;
+    
+    NSString *contentType = @"application/x-www-form-urlencoded; charset=utf-8";
+    
+    
+    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newYear=%@", email, cookie, newYear] dataUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSString *putLength = [NSString stringWithFormat:@"%lu",(unsigned long)[body length]];
+    
+    
+    NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
+    [headers setValue:contentType forKey:@"Content-Type"];
+    //    [headers setValue:@"mimeType" forKey:@"Accept"];
+    //    [headers setValue:@"no-cache" forKey:@"Cache-Control"];
+    //    [headers setValue:@"no-cache" forKey:@"Pragma"];
+    //    [headers setValue:@"close" forKey:@"Connection"];
+    
+    
+    
+    
+    
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    [request setHTTPMethod:@"POST"];
+    
+    [request setAllHTTPHeaderFields:headers];
+    
+    
+    [request setHTTPBody:body];
+    [request setValue:putLength forHTTPHeaderField:@"Content-Length"];
+    
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:0
+                                                                 error:NULL];
+        
+        int success = [[result objectForKey:@"success"] intValue];
+        if (success) {
+            UserInfo* userInfo  = [UserInfo sharedInstance];
+            NSDictionary* userObj = [result objectForKey:@"user"];
+            userInfo.userName = [userObj objectForKey:@"name"];
+            userInfo.userId = [userObj objectForKey:@"ieee_id"];
+            userInfo.isLoggedIn = YES;
+            userInfo.userMail = [userObj objectForKey:@"email"];
+            userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
+            userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
+            userInfo.userMajor = [userObj objectForKey:@"major"];
+            userInfo.userYear = [userObj objectForKey:@"year"];
+            //            userInfo.userCookie = [result objectForKey:@"cookie"];
+            callbackBlock();
+        }
+        else {
+            NSString *error = [result objectForKey:@"error_message"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Edit!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+            // optional - add more buttons:
+            
+            [alert show];
+            callbackBlock();
+        }
+        NSLog(@"Result %@", result);
+    }];
+}
+
+#pragma mark - Get Information
 
 +(void)getAnnouncementsOnComplete:(void (^)(void))callbackBlock
 {
@@ -685,8 +837,89 @@
         }
         callbackBlock();
     }];
+}
+
++(void)GetAttendedEventsOnComplete:(void (^)(void))callbackBlock
+{
+    if (![self connectedToInternet])
+    {
+        return;
+    }
+    
+    NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
+    
+    NSData *body = nil;
+    
+    NSString *contentType = @"application/x-www-form-urlencoded; charset=utf-8";
+    
+    NSString *email = [UserInfo sharedInstance].userMail;
+    
+    body = [[NSString stringWithFormat:@"service=get_attended_events&email=%@", email] dataUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSString *putLength = [NSString stringWithFormat:@"%lu",(unsigned long)[body length]];
+    
+    
+    NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
+    [headers setValue:contentType forKey:@"Content-Type"];
+    //    [headers setValue:@"mimeType" forKey:@"Accept"];
+    //    [headers setValue:@"no-cache" forKey:@"Cache-Control"];
+    //    [headers setValue:@"no-cache" forKey:@"Pragma"];
+    //    [headers setValue:@"close" forKey:@"Connection"];
+    
+    
+    
+    
+    
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    [request setHTTPMethod:@"POST"];
+    
+    [request setAllHTTPHeaderFields:headers];
+    
+    
+    [request setHTTPBody:body];
+    [request setValue:putLength forHTTPHeaderField:@"Content-Length"];
+    
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:0
+                                                                 error:NULL];
+        
+        int success = [[result objectForKey:@"success"] intValue];
+        if (success) {
+            NSDictionary *events = [result objectForKey:@"events"];
+            for (NSDictionary *event in events)
+            {
+                CalendarEvent *newEvent = [[CalendarEvent alloc] init];
+                newEvent.eventTitle = [event objectForKey:@"summary"];
+                newEvent.eventLocation = [event objectForKey:@"location"];
+                newEvent.eventID = [event objectForKey:@"event_id"];
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                newEvent.eventDate = [formatter dateFromString:[event valueForKey:@"start"]];
+                [[UserInfo sharedInstance].attendedEvents addObject:newEvent];
+            }
+            callbackBlock();
+        }
+        else {
+            [[UserInfo sharedInstance]logOut];
+            NSString *error = [result objectForKey:@"error_message"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Get Events!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+            // optional - add more buttons:
+            [alert show];
+            callbackBlock();
+        }
+        NSLog(@"Result %@", result);
+    }];
 
 }
+
+#pragma mark - Helper Functions
 
 +(NSMutableArray *)getEventsForDate:(NSDate *)date
 {
@@ -715,6 +948,23 @@
     return dateString;
 }
 
++(BOOL)connectedToInternet
+{
+    Reachability *reach = [Reachability reachabilityForInternetConnection];
+    NetworkStatus internetStatus = [reach currentReachabilityStatus];
+    if (internetStatus == NotReachable)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't connect to internet!" message:@"Please check your connection and try again" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        // optional - add more buttons:
+        
+        [alert show];
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
 
 
 @end

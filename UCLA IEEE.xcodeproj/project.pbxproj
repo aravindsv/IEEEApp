@@ -12,6 +12,8 @@
 		7728EA6D19EA5ED00044B9E2 /* 30pxTasksIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA6C19EA5ED00044B9E2 /* 30pxTasksIcon.png */; };
 		7728EA6F19EA65000044B9E2 /* 44pxIEEE_Logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA6E19EA65000044B9E2 /* 44pxIEEE_Logo.jpeg */; };
 		7728EA7219EA66460044B9E2 /* NewsFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7728EA7119EA66460044B9E2 /* NewsFeedItem.m */; };
+		7728EA7419EB2B6F0044B9E2 /* UCLA IEEE.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA7319EB2B6F0044B9E2 /* UCLA IEEE.png */; };
+		7728EA7719EB493D0044B9E2 /* SegueAbleNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7728EA7619EB493D0044B9E2 /* SegueAbleNavigationController.m */; };
 		77A6BEBE19E4F2B80049B4FD /* IEEE_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */; };
 		77A92F4419B69D9F00430C23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92F4319B69D9F00430C23 /* Foundation.framework */; };
 		77A92F4619B69D9F00430C23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92F4519B69D9F00430C23 /* CoreGraphics.framework */; };
@@ -75,6 +77,9 @@
 		7728EA6E19EA65000044B9E2 /* 44pxIEEE_Logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 44pxIEEE_Logo.jpeg; sourceTree = "<group>"; };
 		7728EA7019EA66460044B9E2 /* NewsFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedItem.h; sourceTree = "<group>"; };
 		7728EA7119EA66460044B9E2 /* NewsFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedItem.m; sourceTree = "<group>"; };
+		7728EA7319EB2B6F0044B9E2 /* UCLA IEEE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UCLA IEEE.png"; sourceTree = "<group>"; };
+		7728EA7519EB493D0044B9E2 /* SegueAbleNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SegueAbleNavigationController.h; path = ../SegueAbleNavigationController.h; sourceTree = "<group>"; };
+		7728EA7619EB493D0044B9E2 /* SegueAbleNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SegueAbleNavigationController.m; path = ../SegueAbleNavigationController.m; sourceTree = "<group>"; };
 		77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IEEE_logo.jpg; sourceTree = "<group>"; };
 		77A92F4019B69D9F00430C23 /* UCLA IEEE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCLA IEEE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A92F4319B69D9F00430C23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -173,6 +178,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7728EA7B19EBA5090044B9E2 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7728EA7519EB493D0044B9E2 /* SegueAbleNavigationController.h */,
+				7728EA7619EB493D0044B9E2 /* SegueAbleNavigationController.m */,
+			);
+			name = "Custom Classes";
+			sourceTree = "<group>";
+		};
 		77A92F3719B69D9F00430C23 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +226,7 @@
 		77A92F4919B69D9F00430C23 /* UCLA IEEE */ = {
 			isa = PBXGroup;
 			children = (
+				7728EA7B19EBA5090044B9E2 /* Custom Classes */,
 				77C127DC19C11A0F007E3F53 /* Data Structures */,
 				77BE77F019B95F1F00097F66 /* ViewControllers */,
 				77A92F8019B69E4000430C23 /* Server Calls */,
@@ -267,6 +282,7 @@
 		77BE77E019B6E2DC00097F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7728EA7319EB2B6F0044B9E2 /* UCLA IEEE.png */,
 				7728EA6E19EA65000044B9E2 /* 44pxIEEE_Logo.jpeg */,
 				7728EA6C19EA5ED00044B9E2 /* 30pxTasksIcon.png */,
 				7728EA6A19EA4DD80044B9E2 /* 30pxStarIcon.png */,
@@ -450,6 +466,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7728EA7419EB2B6F0044B9E2 /* UCLA IEEE.png in Resources */,
 				77BE77EB19B6E5CF00097F66 /* 30pxCalendarIcon.png in Resources */,
 				77A92F5C19B69D9F00430C23 /* Images.xcassets in Resources */,
 				7728EA6D19EA5ED00044B9E2 /* 30pxTasksIcon.png in Resources */,
@@ -483,6 +500,7 @@
 				7728EA7219EA66460044B9E2 /* NewsFeedItem.m in Sources */,
 				77A9987419E7C1850021070B /* CalendarEvent.m in Sources */,
 				77C127DB19C109E7007E3F53 /* CheckInViewController.m in Sources */,
+				7728EA7719EB493D0044B9E2 /* SegueAbleNavigationController.m in Sources */,
 				77CA03ED19D9F4D400049169 /* MNCalendarViewCell.m in Sources */,
 				77C1277719B9669E007E3F53 /* EditDetailsViewController.m in Sources */,
 				77CA03F019D9F4D400049169 /* MNCalendarViewWeekdayCell.m in Sources */,

@@ -28,6 +28,7 @@
     _announcements = [[NSMutableArray alloc] init];
     _calendarDict = [[NSMutableDictionary alloc] init];
     _newsFeedArray = [[NSMutableArray alloc] init];
+    _attendedEvents = [[NSMutableArray alloc] init];
 }
 
 -(void)logOut
@@ -35,6 +36,10 @@
     _isLoggedIn = NO;
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Username"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Password"];
+    [_announcements removeAllObjects];
+    [_calendarDict removeAllObjects];
+    [_newsFeedArray removeAllObjects];
+    [_attendedEvents removeAllObjects];
 }
 
 -(void)addCalendarEventToNewsFeedArray:(CalendarEvent *)event

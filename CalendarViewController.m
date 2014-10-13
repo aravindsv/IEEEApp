@@ -136,7 +136,15 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"h:mm a"];
         NSString *eventTime = [formatter stringFromDate:event.eventDate];
-        NSString *detail = [NSString stringWithFormat:@"%@ at %@", eventTime, event.eventLocation];
+        NSString *detail;
+        if (event.eventLocation != nil)
+        {
+            detail = [NSString stringWithFormat:@"%@ at %@", eventTime, event.eventLocation];
+        }
+        else
+        {
+            detail = [NSString stringWithFormat:@"%@", eventTime];
+        }
         cell.textLabel.text = title;
         cell.detailTextLabel.text = detail;
     }

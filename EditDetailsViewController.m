@@ -38,6 +38,7 @@
     _txtDetail.placeholder = [NSString stringWithFormat:@"New %@", _detail];
     _txtDetailConfirm.placeholder = [NSString stringWithFormat:@"Retype %@", _detail];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,6 +82,18 @@
         else if ([_detail isEqualToString:@"Email"])
         {
             [DataManager changeEmailWithEmail:user.userMail Cookie:user.userCookie newEmail:_txtDetail.text onComplete:^{
+                [self performSegueWithIdentifier:@"SaveChanges" sender:self];
+            }];
+        }
+        else if ([self.detail isEqualToString:@"Major"])
+        {
+            [DataManager changeMajorWithEmail:user.userMail Cookie:user.userCookie newMajor:_txtDetail.text onComplete:^{
+                [self performSegueWithIdentifier:@"SaveChanges" sender:self];
+            }];
+        }
+        else if ([self.detail isEqualToString:@"Year"])
+        {
+            [DataManager changeYearWithEmail:user.userMail Cookie:user.userCookie newYear:_txtDetail.text onComplete:^{
                 [self performSegueWithIdentifier:@"SaveChanges" sender:self];
             }];
         }
