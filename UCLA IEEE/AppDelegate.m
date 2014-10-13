@@ -18,6 +18,36 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //Set Initial View Controller
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NSString *isLoggedIn = [[NSUserDefaults standardUserDefaults] objectForKey:@"IsLoggedIn"];
+    UIViewController *viewController;
+    NSString *oldUserEmail = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
+    if ([isLoggedIn isEqualToString:@"yes"] && oldUserEmail != nil)
+    {
+        [UserInfo sharedInstance].userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"UsersName"];
+        [UserInfo sharedInstance].userMail = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
+        [UserInfo sharedInstance].userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserId"];
+        [UserInfo sharedInstance].userYear = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserYear"];
+        [UserInfo sharedInstance].userMajor = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserMajor"];
+        [UserInfo sharedInstance].currentPoints = [[[NSUserDefaults standardUserDefaults] objectForKey:@"UserCurrentPoints"] intValue];
+        [UserInfo sharedInstance].totalPoints = [[[NSUserDefaults standardUserDefaults] objectForKey:@"UserTotalPoints"] intValue];
+        [UserInfo sharedInstance].announcements = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Announcements"] mutableCopy];
+        [UserInfo sharedInstance].calendarDict = [[[NSUserDefaults standardUserDefaults] objectForKey:@"CalendarDict"] mutableCopy];
+        [UserInfo sharedInstance].newsFeedArray = [[[NSUserDefaults standardUserDefaults] objectForKey:@"NewsFeedArray"] mutableCopy];
+        [UserInfo sharedInstance].attendedEvents = [[[NSUserDefaults standardUserDefaults] objectForKey:@"AttendedEvents"] mutableCopy];
+        
+        viewController = [storyboard instantiateViewControllerWithIdentifier:@"FrontPageViewController"];
+    }
+    else
+    {
+        viewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    }
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+    
+    
     [[MNCalendarView appearance] setSeparatorColor:UIColor.blueColor];
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x2C5E91)];
     //[[UINavigationBar appearance] setTranslucent:YES];

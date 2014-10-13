@@ -61,6 +61,12 @@
     self.chosenDayEvents = [[NSMutableArray alloc] init];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.calendarView reloadData];
+    [self.eventListing reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

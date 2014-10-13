@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSMutableArray* newsArray;
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 @property (weak, nonatomic) IBOutlet UITableView *newsFeed;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadIndicator;
 
 @end
 
@@ -44,14 +45,19 @@
     [DataManager GetCalendarEventsOnComplete:^{
         [DataManager getAnnouncementsOnComplete:^{
             [DataManager GetAttendedEventsOnComplete:^{
-                
             }];
             [self reloadInfo];
+            [self.loadIndicator stopAnimating];
         }];
     }];
     
     self.newsFeed.delegate = self;
     self.newsFeed.dataSource = self;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    //[self reloadInfo];
 }
 
 -(void)reloadInfo

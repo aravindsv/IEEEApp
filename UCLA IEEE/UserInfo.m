@@ -36,6 +36,7 @@
     _isLoggedIn = NO;
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Username"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Password"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"IsLoggedIn"];
     [_announcements removeAllObjects];
     [_calendarDict removeAllObjects];
     [_newsFeedArray removeAllObjects];

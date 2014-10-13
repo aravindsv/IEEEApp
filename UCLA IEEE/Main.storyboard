@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="SIz-TV-yQt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
@@ -230,10 +230,10 @@
             </objects>
             <point key="canvasLocation" x="3277" y="1309"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--LoginViewController-->
         <scene sceneID="Drg-jY-UvD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SIz-TV-yQt" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginViewController" title="LoginViewController" automaticallyAdjustsScrollViewInsets="NO" id="SIz-TV-yQt" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lrq-7M-l1G">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -266,10 +266,10 @@
             </objects>
             <point key="canvasLocation" x="1024" y="588"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--FrontPageViewController-->
         <scene sceneID="ZHW-4l-Iib">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Z4w-JR-gmt" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="FrontPageViewController" title="FrontPageViewController" automaticallyAdjustsScrollViewInsets="NO" id="Z4w-JR-gmt" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="UMT-DD-hU8">
@@ -623,11 +623,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pJv-m5-KGh">
+                                <rect key="frame" x="150" y="159" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="UCLA IEEE" id="FSD-ZY-qa4"/>
                     <connections>
+                        <outlet property="loadIndicator" destination="pJv-m5-KGh" id="WyR-3o-xuQ"/>
                         <outlet property="newsFeed" destination="joW-bU-GQJ" id="6PZ-HQ-EIf"/>
                         <outlet property="pointsLabel" destination="oPA-iP-M4A" id="u4n-On-IeA"/>
                     </connections>

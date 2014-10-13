@@ -76,6 +76,7 @@
             userInfo.userName = [userObj objectForKey:@"name"];
             userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
+            [[NSUserDefaults standardUserDefaults] setValue:@"yes" forKey:@"IsLoggedIn"];
             userInfo.userMail = [userObj objectForKey:@"email"];
             userInfo.userCookie = [result objectForKey:@"cookie"];
             userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
@@ -84,6 +85,16 @@
             userInfo.userYear = [userObj objectForKey:@"year"];
             [[NSUserDefaults standardUserDefaults] setValue:email forKey:@"Username"];
             [[NSUserDefaults standardUserDefaults] setValue:password forKey:@"Password"];
+            [[NSUserDefaults standardUserDefaults] setObject:userInfo.userName forKey:@"UsersName"];
+            [[NSUserDefaults standardUserDefaults] setObject:userInfo.userId forKey:@"UserId"];
+            [[NSUserDefaults standardUserDefaults] setObject:userInfo.userYear forKey:@"UserYear"];
+            [[NSUserDefaults standardUserDefaults] setObject:userInfo.userMajor forKey:@"UserMajor"];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:userInfo.currentPoints] forKey:@"UserCurrentPoints"];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:userInfo.totalPoints] forKey:@"UserTotalPoints"];
+            [[NSUserDefaults standardUserDefaults] setObject:userInfo.announcements forKey:@"Announcements"];
+            [[NSUserDefaults standardUserDefaults] setObject:userInfo.calendarDict forKey:@"CalendarDict"];
+            [[NSUserDefaults standardUserDefaults] setObject:userInfo.newsFeedArray forKey:@"NewsFeedArray"];
+            [[NSUserDefaults standardUserDefaults] setObject:userInfo.attendedEvents forKey:@"AttendedEvents"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             callbackBlock();
         }
@@ -93,6 +104,7 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Login!" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
             // optional - add more buttons:
             [alert show];
+            
             callbackBlock();
         }
         NSLog(@"Result %@", result);
@@ -156,6 +168,9 @@
             userInfo.userName = [userObj objectForKey:@"name"];
             userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
+            [[NSUserDefaults standardUserDefaults] setValue:@"yes" forKey:@"IsLoggedIn"];
+            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             userInfo.userMail = [userObj objectForKey:@"email"];
             userInfo.userCookie = [userObj objectForKey:@"cookie"];
             userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
@@ -240,6 +255,9 @@
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
             userInfo.userMajor = [userObj objectForKey:@"major"];
             userInfo.userYear = [userObj objectForKey:@"year"];
+            [[NSUserDefaults standardUserDefaults] setObject:userInfo.userMail forKey:@"Username"];
+            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
 //            userInfo.userCo   okie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -317,6 +335,8 @@
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
             userInfo.userMajor = [userObj objectForKey:@"major"];
             userInfo.userYear = [userObj objectForKey:@"year"];
+            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -394,6 +414,8 @@
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
             userInfo.userMajor = [userObj objectForKey:@"major"];
             userInfo.userYear = [userObj objectForKey:@"year"];
+            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -471,6 +493,9 @@
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
             userInfo.userMajor = [userObj objectForKey:@"major"];
             userInfo.userYear = [userObj objectForKey:@"year"];
+            [[NSUserDefaults standardUserDefaults] setObject:newPass forKey:@"Password"];
+            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -548,6 +573,8 @@
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
             userInfo.userMajor = [userObj objectForKey:@"major"];
             userInfo.userYear = [userObj objectForKey:@"year"];
+            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -625,6 +652,9 @@
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
             userInfo.userMajor = [userObj objectForKey:@"major"];
             userInfo.userYear = [userObj objectForKey:@"year"];
+            [[NSUserDefaults standardUserDefaults] setObject:userInfo.userMail forKey:@"Username"];
+            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
         }
@@ -747,6 +777,9 @@
             NSDictionary *user = [result objectForKey:@"user"];
             userInfo.currentPoints = [[user objectForKey:@"points"] intValue];
             userInfo.totalPoints = [[user objectForKey:@"total_points"] intValue];
+            [[NSUserDefaults standardUserDefaults] setObject:userInfo.userMail forKey:@"Username"];
+            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             callbackBlock();
             NSLog(@"Result %@", result);
         }
