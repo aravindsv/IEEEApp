@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Announcement : NSObject
+@interface Announcement : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSString* content;
 @property (strong, nonatomic) NSString* datePosted;

@@ -11,7 +11,7 @@
 @class CalendarEvent;
 @class Announcement;
 
-@interface NewsFeedItem : NSObject
+@interface NewsFeedItem : NSObject <NSCoding>
 
 @property (nonatomic)NSDate *date;
 @property (nonatomic)BOOL isEvent;

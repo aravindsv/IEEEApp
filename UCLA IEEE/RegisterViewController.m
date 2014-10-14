@@ -61,6 +61,15 @@
         [alert show];
         return;
     }
+    if (_txtEmail.text.length == 0 || _txtFirstName.text.length == 0 || _txtLastName.text.length == 0 || _txtMajor.text.length == 0 || _txtPassword.text.length == 0 || _txtPasswordConfirm.text.length == 0 || _txtYear.text.length == 0)
+    {
+        error = @"Some fields were left empty!";
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unable to register" message:error delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        // optional - add more buttons:
+        
+        [alert show];
+        return;
+    }
     [DataManager registerWithEmail:_txtEmail.text Firstname:_txtFirstName.text Lastname:_txtLastName.text Password:password year:_txtYear.text major:_txtMajor.text onComplete:^{
         if ([UserInfo sharedInstance].isLoggedIn)
         {

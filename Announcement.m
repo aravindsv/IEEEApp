@@ -10,4 +10,20 @@
 
 @implementation Announcement
 
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.content forKey:@"content"];
+    [aCoder encodeObject:self.datePosted forKey:@"datePosted"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self == [super init])
+    {
+        self.content = [aDecoder decodeObjectForKey:@"content"];
+        self.datePosted = [aDecoder decodeObjectForKey:@"datePosted"];
+    }
+    return self;
+}
+
 @end

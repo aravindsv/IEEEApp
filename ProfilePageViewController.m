@@ -10,6 +10,8 @@
 #import "UserInfo.h"
 #import "EditDetailsViewController.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @interface ProfilePageViewController ()
 
 @property (nonatomic, strong) NSMutableArray *eventsAttended;
@@ -41,6 +43,8 @@
     _txtNameLabel.text = [UserInfo sharedInstance].userName;
     _txtEmailLabel.text = [UserInfo sharedInstance].userMail;
     _txtIDLabel.text = [UserInfo sharedInstance].userId;
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     self.infoTable.delegate = self;
     self.infoTable.dataSource = self;
@@ -162,7 +166,7 @@
         switch (indexPath.row)
         {
             case 0:
-                cell.textLabel.text = @"About this app";
+                cell.textLabel.text = @"Help";
                 cell.detailTextLabel.text = @"";
                 break;
             case 1:
@@ -233,6 +237,7 @@
         {
             case 0:
                 //Segue to About Page
+                [self performSegueWithIdentifier:@"AboutPage" sender:self];
                 break;
             case 1:
                 [[UserInfo sharedInstance] logOut];
@@ -243,6 +248,32 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel *header = [[UILabel alloc] init];
+    header.textColor = [UIColor whiteColor];
+    [header setFont:[UIFont boldSystemFontOfSize:16]];
+    header.backgroundColor = UIColorFromRGB(0x003BA6);
+    if (section == 0)
+    {
+        header.text = @"Membership Details";
+    }
+    else if (section == 1)
+    {
+        header.text = @"Events Attended";
+    }
+    else if (section == 2)
+    {
+        header.text = @"";
+    }
+    
+    return header;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}
 
 
 /*

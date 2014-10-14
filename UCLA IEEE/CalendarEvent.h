@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CalendarEvent : NSObject
+@interface CalendarEvent : NSObject <NSCoding>
 
 @property (nonatomic) NSDate *eventDate;
 @property (nonatomic) NSString *eventTitle; //key: summary

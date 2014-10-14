@@ -45,6 +45,7 @@
     [DataManager GetCalendarEventsOnComplete:^{
         [DataManager getAnnouncementsOnComplete:^{
             [DataManager GetAttendedEventsOnComplete:^{
+                [[UserInfo sharedInstance] saveUserToUserDefaults];
             }];
             [self reloadInfo];
             [self.loadIndicator stopAnimating];
@@ -136,7 +137,7 @@
     label.text = @"News Feed";
     label.textColor = [UIColor whiteColor];
     [label setFont:[UIFont boldSystemFontOfSize:26]];
-    label.backgroundColor = UIColorFromRGB(0x2C5E91);
+    label.backgroundColor = UIColorFromRGB(0x003BA6);
     return label;
 }
 

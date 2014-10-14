@@ -23,6 +23,7 @@
     
     if (![self connectedToInternet])
     {
+        callbackBlock();
         return;
     }
     
@@ -76,26 +77,17 @@
             userInfo.userName = [userObj objectForKey:@"name"];
             userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
-            [[NSUserDefaults standardUserDefaults] setValue:@"yes" forKey:@"IsLoggedIn"];
             userInfo.userMail = [userObj objectForKey:@"email"];
             userInfo.userCookie = [result objectForKey:@"cookie"];
             userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
             userInfo.userMajor = [userObj objectForKey:@"major"];
             userInfo.userYear = [userObj objectForKey:@"year"];
-            [[NSUserDefaults standardUserDefaults] setValue:email forKey:@"Username"];
+            [[NSUserDefaults standardUserDefaults] setValue:@"yes" forKey:@"IsLoggedIn"];
             [[NSUserDefaults standardUserDefaults] setValue:password forKey:@"Password"];
-            [[NSUserDefaults standardUserDefaults] setObject:userInfo.userName forKey:@"UsersName"];
-            [[NSUserDefaults standardUserDefaults] setObject:userInfo.userId forKey:@"UserId"];
-            [[NSUserDefaults standardUserDefaults] setObject:userInfo.userYear forKey:@"UserYear"];
-            [[NSUserDefaults standardUserDefaults] setObject:userInfo.userMajor forKey:@"UserMajor"];
-            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:userInfo.currentPoints] forKey:@"UserCurrentPoints"];
-            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:userInfo.totalPoints] forKey:@"UserTotalPoints"];
-            [[NSUserDefaults standardUserDefaults] setObject:userInfo.announcements forKey:@"Announcements"];
-            [[NSUserDefaults standardUserDefaults] setObject:userInfo.calendarDict forKey:@"CalendarDict"];
-            [[NSUserDefaults standardUserDefaults] setObject:userInfo.newsFeedArray forKey:@"NewsFeedArray"];
-            [[NSUserDefaults standardUserDefaults] setObject:userInfo.attendedEvents forKey:@"AttendedEvents"];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            [userInfo saveUserToUserDefaults];
+            
             callbackBlock();
         }
         else {
@@ -115,6 +107,7 @@
 {
     if (![self connectedToInternet])
     {
+        callbackBlock();
         return;
     }
     
@@ -168,15 +161,16 @@
             userInfo.userName = [userObj objectForKey:@"name"];
             userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
-            [[NSUserDefaults standardUserDefaults] setValue:@"yes" forKey:@"IsLoggedIn"];
-            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
             userInfo.userMail = [userObj objectForKey:@"email"];
             userInfo.userCookie = [userObj objectForKey:@"cookie"];
             userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
             userInfo.userMajor = [userObj objectForKey:@"major"];
             userInfo.userYear = [userObj objectForKey:@"year"];
+            [[NSUserDefaults standardUserDefaults] setValue:@"yes" forKey:@"IsLoggedIn"];
+            [[NSUserDefaults standardUserDefaults] setValue:password forKey:@"Password"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [userInfo saveUserToUserDefaults];
             callbackBlock();
         }
         else {
@@ -197,6 +191,7 @@
 {
     if (![self connectedToInternet])
     {
+        callbackBlock();
         return;
     }
     
@@ -277,6 +272,7 @@
 {
     if (![self connectedToInternet])
     {
+        callbackBlock();
         return;
     }
     
@@ -356,6 +352,7 @@
 {
     if (![self connectedToInternet])
     {
+        callbackBlock();
         return;
     }
     
@@ -435,6 +432,7 @@
 {
     if (![self connectedToInternet])
     {
+        callbackBlock();
         return;
     }
     
@@ -515,6 +513,7 @@
 {
     if (![self connectedToInternet])
     {
+        callbackBlock();
         return;
     }
     
@@ -594,6 +593,7 @@
 {
     if (![self connectedToInternet])
     {
+        callbackBlock();
         return;
     }
     
@@ -676,6 +676,7 @@
 {
     if (![self connectedToInternet])
     {
+        callbackBlock();
         return;
     }
     
@@ -699,7 +700,7 @@
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
                                                                options:0
                                                                  error:NULL];
-
+        [[UserInfo sharedInstance].announcements removeAllObjects];
         for (NSDictionary *dict in result)
         {
             Announcement *newAnnouncement = [[Announcement alloc] init];
@@ -717,6 +718,7 @@
 {
     if (![self connectedToInternet])
     {
+        callbackBlock();
         return;
     }
     
@@ -800,6 +802,7 @@
 {
     if (![self connectedToInternet])
     {
+        callbackBlock();
         return;
     }
     
@@ -820,9 +823,13 @@
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
+        [[UserInfo sharedInstance].calendarDict removeAllObjects];
+        
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
                                                                options:0
                                                                  error:NULL];
+        [[UserInfo sharedInstance].newsFeedArray removeAllObjects];
+        
         NSDictionary *eventsList = [result valueForKey:@"items"];
         for (NSDictionary *event in eventsList)
         {
@@ -876,6 +883,7 @@
 {
     if (![self connectedToInternet])
     {
+        callbackBlock();
         return;
     }
     
@@ -918,6 +926,8 @@
     
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        [[UserInfo sharedInstance].attendedEvents removeAllObjects];
         
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
                                                                options:0

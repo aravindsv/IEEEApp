@@ -14,6 +14,17 @@
 		7728EA7219EA66460044B9E2 /* NewsFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7728EA7119EA66460044B9E2 /* NewsFeedItem.m */; };
 		7728EA7419EB2B6F0044B9E2 /* UCLA IEEE.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA7319EB2B6F0044B9E2 /* UCLA IEEE.png */; };
 		7728EA7719EB493D0044B9E2 /* SegueAbleNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7728EA7619EB493D0044B9E2 /* SegueAbleNavigationController.m */; };
+		7728EA8419EBCABF0044B9E2 /* bullhorn.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA7C19EBCABF0044B9E2 /* bullhorn.png */; };
+		7728EA8519EBCABF0044B9E2 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA7D19EBCABF0044B9E2 /* calendar.png */; };
+		7728EA8619EBCABF0044B9E2 /* checkin.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA7E19EBCABF0044B9E2 /* checkin.png */; };
+		7728EA8719EBCABF0044B9E2 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA7F19EBCABF0044B9E2 /* help.png */; };
+		7728EA8819EBCABF0044B9E2 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA8019EBCABF0044B9E2 /* logout.png */; };
+		7728EA8919EBCABF0044B9E2 /* member.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA8119EBCABF0044B9E2 /* member.png */; };
+		7728EA8A19EBCABF0044B9E2 /* points.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA8219EBCABF0044B9E2 /* points.png */; };
+		7728EA8B19EBCABF0044B9E2 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA8319EBCABF0044B9E2 /* star.png */; };
+		7728EA8E19EBCD450044B9E2 /* HelpPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7728EA8D19EBCD450044B9E2 /* HelpPage.m */; };
+		77A4216B19ECED6A00773547 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4216A19ECED6A00773547 /* CoreData.framework */; };
+		77A4216E19ECEDA900773547 /* UserInfoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A4216C19ECEDA900773547 /* UserInfoStore.xcdatamodeld */; };
 		77A6BEBE19E4F2B80049B4FD /* IEEE_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */; };
 		77A92F4419B69D9F00430C23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92F4319B69D9F00430C23 /* Foundation.framework */; };
 		77A92F4619B69D9F00430C23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92F4519B69D9F00430C23 /* CoreGraphics.framework */; };
@@ -80,6 +91,18 @@
 		7728EA7319EB2B6F0044B9E2 /* UCLA IEEE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UCLA IEEE.png"; sourceTree = "<group>"; };
 		7728EA7519EB493D0044B9E2 /* SegueAbleNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SegueAbleNavigationController.h; path = ../SegueAbleNavigationController.h; sourceTree = "<group>"; };
 		7728EA7619EB493D0044B9E2 /* SegueAbleNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SegueAbleNavigationController.m; path = ../SegueAbleNavigationController.m; sourceTree = "<group>"; };
+		7728EA7C19EBCABF0044B9E2 /* bullhorn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullhorn.png; sourceTree = "<group>"; };
+		7728EA7D19EBCABF0044B9E2 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		7728EA7E19EBCABF0044B9E2 /* checkin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkin.png; sourceTree = "<group>"; };
+		7728EA7F19EBCABF0044B9E2 /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
+		7728EA8019EBCABF0044B9E2 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
+		7728EA8119EBCABF0044B9E2 /* member.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = member.png; sourceTree = "<group>"; };
+		7728EA8219EBCABF0044B9E2 /* points.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = points.png; sourceTree = "<group>"; };
+		7728EA8319EBCABF0044B9E2 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		7728EA8C19EBCD450044B9E2 /* HelpPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpPage.h; sourceTree = "<group>"; };
+		7728EA8D19EBCD450044B9E2 /* HelpPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpPage.m; sourceTree = "<group>"; };
+		77A4216A19ECED6A00773547 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		77A4216D19ECEDA900773547 /* UserInfoStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserInfoStore.xcdatamodel; sourceTree = "<group>"; };
 		77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IEEE_logo.jpg; sourceTree = "<group>"; };
 		77A92F4019B69D9F00430C23 /* UCLA IEEE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCLA IEEE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A92F4319B69D9F00430C23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77A4216B19ECED6A00773547 /* CoreData.framework in Frameworks */,
 				77A9987119E7B6720021070B /* SystemConfiguration.framework in Frameworks */,
 				77A92F4619B69D9F00430C23 /* CoreGraphics.framework in Frameworks */,
 				77A92F4819B69D9F00430C23 /* UIKit.framework in Frameworks */,
@@ -187,9 +211,19 @@
 			name = "Custom Classes";
 			sourceTree = "<group>";
 		};
+		7728EA8F19EBCD490044B9E2 /* Info Views */ = {
+			isa = PBXGroup;
+			children = (
+				7728EA8C19EBCD450044B9E2 /* HelpPage.h */,
+				7728EA8D19EBCD450044B9E2 /* HelpPage.m */,
+			);
+			name = "Info Views";
+			sourceTree = "<group>";
+		};
 		77A92F3719B69D9F00430C23 = {
 			isa = PBXGroup;
 			children = (
+				77A4216C19ECEDA900773547 /* UserInfoStore.xcdatamodeld */,
 				77A9986D19E7B63B0021070B /* Reachability.h */,
 				77A9986E19E7B63B0021070B /* Reachability.m */,
 				77CA03D919D9F4D400049169 /* MNCalendarView */,
@@ -214,6 +248,7 @@
 		77A92F4219B69D9F00430C23 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				77A4216A19ECED6A00773547 /* CoreData.framework */,
 				77A9987019E7B6720021070B /* SystemConfiguration.framework */,
 				77A92F4319B69D9F00430C23 /* Foundation.framework */,
 				77A92F4519B69D9F00430C23 /* CoreGraphics.framework */,
@@ -282,6 +317,14 @@
 		77BE77E019B6E2DC00097F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7728EA7C19EBCABF0044B9E2 /* bullhorn.png */,
+				7728EA7D19EBCABF0044B9E2 /* calendar.png */,
+				7728EA7E19EBCABF0044B9E2 /* checkin.png */,
+				7728EA7F19EBCABF0044B9E2 /* help.png */,
+				7728EA8019EBCABF0044B9E2 /* logout.png */,
+				7728EA8119EBCABF0044B9E2 /* member.png */,
+				7728EA8219EBCABF0044B9E2 /* points.png */,
+				7728EA8319EBCABF0044B9E2 /* star.png */,
 				7728EA7319EB2B6F0044B9E2 /* UCLA IEEE.png */,
 				7728EA6E19EA65000044B9E2 /* 44pxIEEE_Logo.jpeg */,
 				7728EA6C19EA5ED00044B9E2 /* 30pxTasksIcon.png */,
@@ -298,6 +341,7 @@
 		77BE77F019B95F1F00097F66 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7728EA8F19EBCD490044B9E2 /* Info Views */,
 				77C127E019C11F38007E3F53 /* Login/Register Views */,
 				77C127E119C11F9A007E3F53 /* Profile View/Edit Views */,
 				77C127E219C11FCF007E3F53 /* Functionality Views */,
@@ -468,17 +512,25 @@
 			files = (
 				7728EA7419EB2B6F0044B9E2 /* UCLA IEEE.png in Resources */,
 				77BE77EB19B6E5CF00097F66 /* 30pxCalendarIcon.png in Resources */,
+				7728EA8919EBCABF0044B9E2 /* member.png in Resources */,
 				77A92F5C19B69D9F00430C23 /* Images.xcassets in Resources */,
+				7728EA8619EBCABF0044B9E2 /* checkin.png in Resources */,
 				7728EA6D19EA5ED00044B9E2 /* 30pxTasksIcon.png in Resources */,
+				7728EA8A19EBCABF0044B9E2 /* points.png in Resources */,
 				77A92F4E19B69D9F00430C23 /* InfoPlist.strings in Resources */,
 				77C127E419C154D1007E3F53 /* Images1.xcassets in Resources */,
 				77C127D819C1064C007E3F53 /* 30pxBarcodeIcon.png in Resources */,
+				7728EA8519EBCABF0044B9E2 /* calendar.png in Resources */,
+				7728EA8B19EBCABF0044B9E2 /* star.png in Resources */,
 				77A6BEBE19E4F2B80049B4FD /* IEEE_logo.jpg in Resources */,
 				77BE77EC19B6E5CF00097F66 /* 30pxProfileIcon.png in Resources */,
+				7728EA8719EBCABF0044B9E2 /* help.png in Resources */,
 				7728EA6B19EA4DD80044B9E2 /* 30pxStarIcon.png in Resources */,
 				77BE77EA19B6E5CF00097F66 /* 30pxBellIcon.png in Resources */,
+				7728EA8419EBCABF0044B9E2 /* bullhorn.png in Resources */,
 				7728EA6F19EA65000044B9E2 /* 44pxIEEE_Logo.jpeg in Resources */,
 				77A92F7919B69DB700430C23 /* Main.storyboard in Resources */,
+				7728EA8819EBCABF0044B9E2 /* logout.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,8 +560,10 @@
 				77A92F5A19B69D9F00430C23 /* ViewController.m in Sources */,
 				7728EA6719EA33EB0044B9E2 /* FrontPageViewController.m in Sources */,
 				77CA03F119D9F4D400049169 /* MNFastDateEnumeration.m in Sources */,
+				7728EA8E19EBCD450044B9E2 /* HelpPage.m in Sources */,
 				77C127DF19C11A3E007E3F53 /* Event.m in Sources */,
 				77BE77D519B6ACA300097F66 /* RegisterViewController.m in Sources */,
+				77A4216E19ECEDA900773547 /* UserInfoStore.xcdatamodeld in Sources */,
 				77A92F7C19B69DF200430C23 /* DataManager.m in Sources */,
 				77A9986F19E7B63B0021070B /* Reachability.m in Sources */,
 				77C1277A19B998FE007E3F53 /* EditPasswordViewController.m in Sources */,
@@ -739,6 +793,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		77A4216C19ECEDA900773547 /* UserInfoStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				77A4216D19ECEDA900773547 /* UserInfoStore.xcdatamodel */,
+			);
+			currentVersion = 77A4216D19ECEDA900773547 /* UserInfoStore.xcdatamodel */;
+			path = UserInfoStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 77A92F3819B69D9F00430C23 /* Project object */;
 }

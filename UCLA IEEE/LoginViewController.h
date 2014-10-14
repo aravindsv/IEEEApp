@@ -10,4 +10,6 @@
 
 @interface LoginViewController : UIViewController
 
+-(IBAction)unwindToLogin:(UIStoryboardSegue *)segue;
+
 @end

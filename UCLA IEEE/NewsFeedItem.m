@@ -10,6 +10,26 @@
 
 @implementation NewsFeedItem
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self == [super init])
+    {
+        self.date = [aDecoder decodeObjectForKey:@"date"];
+        self.isEvent = [aDecoder decodeBoolForKey:@"isEvent"];
+        self.event = [aDecoder decodeObjectForKey:@"event"];
+        self.announcement = [aDecoder decodeObjectForKey:@"announcement"];
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.date forKey:@"date"];
+    [aCoder encodeBool:self.isEvent forKey:@"isEvent"];
+    [aCoder encodeObject:self.event forKey:@"event"];
+    [aCoder encodeObject:self.announcement forKey:@"announcement"];
+}
+
 -(NSComparisonResult)compare:(NewsFeedItem *)otherObject
 {
     NSDate *date1 = self.date;

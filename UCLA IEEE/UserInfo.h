@@ -34,4 +34,12 @@
 -(void)addCalendarEventToNewsFeedArray:(CalendarEvent *)event;
 -(void)addAnnouncementToNewsFeedArray:(Announcement *)announcement;
 
+-(void)saveUserToUserDefaults;
+-(void)getDefaultsUser;
+
+
+
+-(void)writeArrayWithCustomObjToUserDefaults:(NSString *)keyName withArray:(NSMutableArray *)myArray;
+-(NSArray *)readArrayWithCustomObjFromUserDefaults:(NSString*)keyName;
+
 @end

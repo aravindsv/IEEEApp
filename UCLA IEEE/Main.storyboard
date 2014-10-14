@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dro-s2-bnH">
-                                <rect key="frame" x="129" y="214" width="62" height="30"/>
+                                <rect key="frame" x="129" y="209" width="62" height="30"/>
                                 <state key="normal" title="Register">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -52,20 +52,36 @@
                                     <segue destination="JOs-ce-6Lm" kind="modal" id="tyU-hK-bsG"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="x4M-hc-gxD">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4g-O4-4Sv">
+                                <rect key="frame" x="102" y="236" width="117" height="30"/>
+                                <state key="normal" title="Forgot Password">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="x4M-hc-gxD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="134" id="3CV-ox-cnx"/>
+                            <constraint firstItem="v4g-O4-4Sv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="86" id="7xV-vc-Ql8"/>
                             <constraint firstItem="Jl2-mV-heX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="137" id="8Sw-LN-Uel"/>
                             <constraint firstAttribute="trailing" secondItem="dro-s2-bnH" secondAttribute="trailing" constant="129" id="C30-UR-DJl"/>
                             <constraint firstAttribute="trailing" secondItem="sEq-S6-Vhl" secondAttribute="trailing" constant="20" id="Clf-Ic-QAN"/>
                             <constraint firstAttribute="centerX" secondItem="sEq-S6-Vhl" secondAttribute="centerX" id="EGf-Wq-QLi"/>
                             <constraint firstItem="c6v-rz-ZH9" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="80" id="GnK-6L-9Yb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v4g-O4-4Sv" secondAttribute="trailing" constant="85" id="ICs-CI-Kow"/>
                             <constraint firstAttribute="trailing" secondItem="Jl2-mV-heX" secondAttribute="trailing" constant="137" id="LFZ-7Z-438"/>
+                            <constraint firstItem="v4g-O4-4Sv" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="172" id="OIa-4S-aS0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="x4M-hc-gxD" secondAttribute="trailing" constant="134" id="OeF-fp-FLm"/>
                             <constraint firstItem="Jl2-mV-heX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="118" id="TNn-Cg-E6h"/>
                             <constraint firstItem="dro-s2-bnH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="129" id="c1M-r5-Ocv"/>
                             <constraint firstItem="sEq-S6-Vhl" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="c7I-BM-0Xb"/>
-                            <constraint firstItem="dro-s2-bnH" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="150" id="eZT-pD-vfO"/>
+                            <constraint firstItem="dro-s2-bnH" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="145" id="eZT-pD-vfO"/>
                             <constraint firstItem="sEq-S6-Vhl" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="28" id="f2b-mJ-SNq"/>
+                            <constraint firstItem="x4M-hc-gxD" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="210" id="nQq-T1-4Q3"/>
                             <constraint firstAttribute="trailing" secondItem="c6v-rz-ZH9" secondAttribute="trailing" constant="20" id="nTR-Ca-GWq"/>
                             <constraint firstItem="c6v-rz-ZH9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="yPd-WK-dLg"/>
                         </constraints>
@@ -112,17 +128,17 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Retype Password" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="iUA-Ja-xuH">
-                                <rect key="frame" x="20" y="307" width="280" height="30"/>
+                                <rect key="frame" x="20" y="229" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Major" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G2F-qo-zXW">
-                                <rect key="frame" x="20" y="191" width="280" height="30"/>
+                                <rect key="frame" x="20" y="269" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="SEw-e9-kpX">
-                                <rect key="frame" x="20" y="267" width="280" height="30"/>
+                                <rect key="frame" x="20" y="191" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
@@ -138,11 +154,11 @@
                             <constraint firstAttribute="trailing" secondItem="JHz-oO-USx" secondAttribute="trailing" constant="20" id="Cjm-2B-dFk"/>
                             <constraint firstItem="KC7-l4-37Q" firstAttribute="top" secondItem="ud0-cx-I9r" secondAttribute="bottom" constant="51" id="G6R-J6-pcg"/>
                             <constraint firstItem="JHz-oO-USx" firstAttribute="leading" secondItem="Mr7-Pp-byA" secondAttribute="leading" constant="20" id="JdY-W0-MKv"/>
-                            <constraint firstItem="SEw-e9-kpX" firstAttribute="top" secondItem="ud0-cx-I9r" secondAttribute="bottom" constant="203" id="LBD-9J-un6"/>
-                            <constraint firstItem="G2F-qo-zXW" firstAttribute="top" secondItem="ud0-cx-I9r" secondAttribute="bottom" constant="127" id="RRR-Dw-iSA"/>
+                            <constraint firstItem="SEw-e9-kpX" firstAttribute="top" secondItem="ud0-cx-I9r" secondAttribute="bottom" constant="127" id="LBD-9J-un6"/>
+                            <constraint firstItem="G2F-qo-zXW" firstAttribute="top" secondItem="ud0-cx-I9r" secondAttribute="bottom" constant="205" id="RRR-Dw-iSA"/>
                             <constraint firstItem="G2F-qo-zXW" firstAttribute="leading" secondItem="Mr7-Pp-byA" secondAttribute="leadingMargin" constant="4" id="S2E-eg-Eux"/>
                             <constraint firstItem="iUA-Ja-xuH" firstAttribute="leading" secondItem="Mr7-Pp-byA" secondAttribute="leading" constant="20" id="a0p-ZV-b8l"/>
-                            <constraint firstItem="iUA-Ja-xuH" firstAttribute="top" secondItem="ud0-cx-I9r" secondAttribute="bottom" constant="243" id="mgN-8N-aCB"/>
+                            <constraint firstItem="iUA-Ja-xuH" firstAttribute="top" secondItem="ud0-cx-I9r" secondAttribute="bottom" constant="165" id="mgN-8N-aCB"/>
                             <constraint firstAttribute="trailing" secondItem="Mxw-Ms-7xJ" secondAttribute="trailing" constant="20" id="nW7-0v-cZC"/>
                             <constraint firstAttribute="trailing" secondItem="iUA-Ja-xuH" secondAttribute="trailing" constant="20" id="pHe-Qw-YRW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="G2F-qo-zXW" secondAttribute="trailing" constant="4" id="qji-qR-EA0"/>
@@ -175,7 +191,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EbL-ku-sAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="gTI-fQ-CTG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1550" y="657"/>
+            <point key="canvasLocation" x="1553" y="649"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="Jn4-kE-qEk">
@@ -230,10 +246,165 @@
             </objects>
             <point key="canvasLocation" x="3277" y="1309"/>
         </scene>
+        <!--Help-->
+        <scene sceneID="Piz-Of-roO">
+            <objects>
+                <viewController id="Uhy-0O-p1p" customClass="HelpPage" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="afj-Ee-bQB"/>
+                        <viewControllerLayoutGuide type="bottom" id="qnc-fT-37p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FO2-sY-703">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Questions, comments, concerns, bugs?" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nm4-Dj-Rav">
+                                <rect key="frame" x="16" y="82" width="288" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please direct your questions to IEEE's webmaster at webmaster@ieee.ucla.edu" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNN-Rd-cR3">
+                                <rect key="frame" x="16" y="117" width="276" height="75"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MQb-Tt-Cdt">
+                                <rect key="frame" x="0.0" y="200" width="320" height="319"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="3ls-po-uSc" rowHeight="50" style="IBUITableViewCellStyleDefault" id="sYS-CM-7f6">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="sYS-CM-7f6" id="gcv-sd-e4A">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Bullhorn icon designed by Shane Miller  from thenounproject.com" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3ls-po-uSc">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="vTy-Eq-HTg" rowHeight="50" style="IBUITableViewCellStyleDefault" id="tlg-yD-R4A">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="tlg-yD-R4A" id="Yd8-Rd-ROb">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Calendar icon designed by Laurent Patain from thenounproject.com" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vTy-Eq-HTg">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="6FP-Ua-Dkp" rowHeight="50" style="IBUITableViewCellStyleDefault" id="mHC-yn-PVl">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="mHC-yn-PVl" id="5NA-OL-s0l">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Log Out icon designed by useiconic.com from thenounproject.com" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6FP-Ua-Dkp">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="3Ku-r0-mbT" rowHeight="50" style="IBUITableViewCellStyleDefault" id="DOt-WA-EpX">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="DOt-WA-EpX" id="p0N-rY-qE8">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Question Mark icon designed by Mister Pixel from thenounproject.com" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Ku-r0-mbT">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="UMC-Yp-XIL" rowHeight="50" style="IBUITableViewCellStyleDefault" id="cbB-wf-A3r">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="cbB-wf-A3r" id="F0c-8s-N6f">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Trophy icon designed by Juan Garces from thenounproject.com" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UMC-Yp-XIL">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="KEg-Ew-vlD" rowHeight="50" style="IBUITableViewCellStyleDefault" id="sTK-Lp-ya2">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="sTK-Lp-ya2" id="oTU-RP-BEL">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Star icon designed by Alex S. Lakas from thenounproject.com" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KEg-Ew-vlD">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="lNk-5G-JUi" rowHeight="50" style="IBUITableViewCellStyleDefault" id="9mS-ui-ZrA">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="9mS-ui-ZrA" id="vaO-fr-WR5">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Map Marker icon designed by Dmitry Baranovskiy from thenounproject.com" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lNk-5G-JUi">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="zbO-tb-ozq" rowHeight="50" style="IBUITableViewCellStyleDefault" id="jLn-gg-ZJb">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="jLn-gg-ZJb" id="d88-9A-fJW">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="user icon designed by Richard Schumann from thenounproject.com" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zbO-tb-ozq">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Help" id="7BB-DM-LyX"/>
+                    <connections>
+                        <outlet property="attributions" destination="MQb-Tt-Cdt" id="sTE-py-OPk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eWO-Ck-Hsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3908" y="1354"/>
+        </scene>
         <!--LoginViewController-->
         <scene sceneID="Drg-jY-UvD">
             <objects>
-                <navigationController storyboardIdentifier="LoginViewController" title="LoginViewController" automaticallyAdjustsScrollViewInsets="NO" id="SIz-TV-yQt" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginViewController" title="LoginViewController" automaticallyAdjustsScrollViewInsets="NO" id="SIz-TV-yQt" customClass="SegueAbleNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lrq-7M-l1G">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -422,6 +593,7 @@
                         <segue destination="cjK-XR-2EN" kind="modal" identifier="changePassword" id="rpy-CA-1OX"/>
                         <segue destination="DBV-Vd-w8L" kind="unwind" identifier="loggedOut" unwindAction="unwindToLogin:" id="vgS-uV-FMe"/>
                         <segue destination="Uz1-2V-00T" kind="modal" identifier="EditDetails" id="zeK-bi-Ra9"/>
+                        <segue destination="Uhy-0O-p1p" kind="push" identifier="AboutPage" id="xVB-gX-HWl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXW-54-PpC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -645,7 +817,7 @@
         <scene sceneID="XIs-xe-nyi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T1Y-dl-jrE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Announcements" image="30pxBellIcon.png" id="eTr-nT-rPr"/>
+                    <tabBarItem key="tabBarItem" title="Announcements" image="bullhorn.png" id="eTr-nT-rPr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rd1-zt-Qdv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -713,7 +885,7 @@
                             <constraint firstItem="CTf-Q6-Hbn" firstAttribute="top" secondItem="kOu-zE-eem" secondAttribute="bottom" constant="100" id="vrO-Mo-GMX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Check In" image="30pxBarcodeIcon.png" id="dvv-i8-LA9"/>
+                    <tabBarItem key="tabBarItem" title="Check In" image="checkin.png" id="dvv-i8-LA9"/>
                     <connections>
                         <outlet property="eventLocation" destination="fv8-ct-lOp" id="Zvi-Av-eEX"/>
                         <outlet property="eventName" destination="kOu-zE-eem" id="XBF-1Z-eAo"/>
@@ -730,7 +902,7 @@
         <scene sceneID="Wh8-PM-VsI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bH6-4C-3hd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calendar" image="30pxCalendarIcon.png" id="TBS-CL-zbl"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar.png" id="TBS-CL-zbl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Db2-xM-eWf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -749,7 +921,7 @@
         <scene sceneID="H1J-W4-dTb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sDF-P5-iA4" customClass="SegueAbleNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="30pxProfileIcon.png" id="6IX-bD-Ehm"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="member.png" id="6IX-bD-Ehm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tgz-OF-97c">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -803,12 +975,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="30pxBarcodeIcon.png" width="30" height="30"/>
-        <image name="30pxBellIcon.png" width="30" height="30"/>
-        <image name="30pxCalendarIcon.png" width="30" height="30"/>
-        <image name="30pxProfileIcon.png" width="30" height="30"/>
         <image name="30pxTasksIcon.png" width="30" height="30"/>
         <image name="UCLA IEEE.png" width="370" height="160"/>
+        <image name="bullhorn.png" width="30" height="30"/>
+        <image name="calendar.png" width="30" height="30"/>
+        <image name="checkin.png" width="30" height="30"/>
+        <image name="member.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -816,6 +988,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TYl-UL-UKK"/>
+        <segue reference="jAi-te-hO9"/>
     </inferredMetricsTieBreakers>
 </document>

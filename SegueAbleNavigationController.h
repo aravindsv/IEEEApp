@@ -12,5 +12,7 @@
 
 -(IBAction)unwindToProfile:(UIStoryboardSegue *)segue;
 
+-(IBAction)unwindToLogin:(UIStoryboardSegue *)segue;
+
 
 @end

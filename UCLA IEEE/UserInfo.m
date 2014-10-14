@@ -71,6 +71,77 @@
     [self.newsFeedArray addObjectsFromArray:sorted];
 }
 
+-(void)saveUserToUserDefaults
+{
+    [[NSUserDefaults standardUserDefaults] setValue:self.userMail forKey:@"Username"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.userName forKey:@"UsersName"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.userId forKey:@"UserId"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.userYear forKey:@"UserYear"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.userMajor forKey:@"UserMajor"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.currentPoints] forKey:@"UserCurrentPoints"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.totalPoints] forKey:@"UserTotalPoints"];
+    [self writeArrayWithCustomObjToUserDefaults:@"AnnouncementsArray" withArray:self.announcements];
+//    [[NSUserDefaults standardUserDefaults] setObject:self.calendarDict forKey:@"CalendarDict"];
+    [self writeDictionaryWithCustomObjToUserDefaults:@"CalendarDict" withDictionary:self.calendarDict];
+    [self writeArrayWithCustomObjToUserDefaults:@"NewsFeedArray" withArray:self.newsFeedArray];
+    [self writeArrayWithCustomObjToUserDefaults:@"AttendedEvents" withArray:self.attendedEvents];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)getDefaultsUser
+{
+    [self.announcements removeAllObjects];
+    [self.calendarDict removeAllObjects];
+    [self.newsFeedArray removeAllObjects];
+    [self.attendedEvents removeAllObjects];
+    self.userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"UsersName"];
+    self.userMail = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
+    self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserId"];
+    self.userYear = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserYear"];
+    self.userMajor = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserMajor"];
+    self.currentPoints = [[[NSUserDefaults standardUserDefaults] objectForKey:@"UserCurrentPoints"] intValue];
+    self.totalPoints = [[[NSUserDefaults standardUserDefaults] objectForKey:@"UserTotalPoints"] intValue];
+    self.announcements = [[self readArrayWithCustomObjFromUserDefaults:@"AnnouncementsArray"] mutableCopy];
+    self.calendarDict = [[self readDictionaryWithCustomObjFromUserDefaults:@"CalendarDict"] mutableCopy];
+    self.newsFeedArray = [[self readArrayWithCustomObjFromUserDefaults:@"NewsFeedArray"] mutableCopy];
+    self.attendedEvents = [[self readArrayWithCustomObjFromUserDefaults:@"AttendedEvents"] mutableCopy];
+}
+
+
+-(void)writeArrayWithCustomObjToUserDefaults:(NSString *)keyName withArray:(NSMutableArray *)myArray
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:myArray];
+    [defaults setObject:data forKey:keyName];
+    [defaults synchronize];
+}
+
+-(NSArray *)readArrayWithCustomObjFromUserDefaults:(NSString*)keyName
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [defaults objectForKey:keyName];
+    NSArray *myArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    [defaults synchronize];
+    return myArray;
+}
+
+-(void)writeDictionaryWithCustomObjToUserDefaults:(NSString *)keyName withDictionary:(NSMutableDictionary *)myDict
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:myDict];
+    [defaults setObject:data forKey:keyName];
+    [defaults synchronize];
+}
+
+-(NSDictionary *)readDictionaryWithCustomObjFromUserDefaults:(NSString*)keyName
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [defaults objectForKey:keyName];
+    NSDictionary *myDict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    [defaults synchronize];
+    return myDict;
+}
 
 
 @end
