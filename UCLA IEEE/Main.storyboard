@@ -61,6 +61,9 @@
                                 <state key="normal" title="Forgot Password">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="forgotPassword:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0Qd-QE-pT1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -91,6 +94,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login or Register" id="8eA-Mg-eXr"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="x4M-hc-gxD" id="hae-Cv-hq6"/>
                         <outlet property="txtPassword" destination="c6v-rz-ZH9" id="rjZ-wz-o8i"/>
                         <outlet property="txtUsername" destination="sEq-S6-Vhl" id="LUo-bH-0wh"/>
                         <segue destination="Z4w-JR-gmt" kind="modal" identifier="LoggedIn" id="TYl-UL-UKK"/>
@@ -112,6 +116,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GVj-DL-HO7">
+                                <rect key="frame" x="62" y="237" width="101" height="162"/>
+                            </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Mxw-Ms-7xJ">
                                 <rect key="frame" x="20" y="77" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -142,6 +149,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7I-OU-SV1">
+                                <rect key="frame" x="20" y="307" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -185,13 +198,14 @@
                         <outlet property="txtMajor" destination="G2F-qo-zXW" id="33y-FV-7qH"/>
                         <outlet property="txtPassword" destination="SEw-e9-kpX" id="paD-Jf-6uM"/>
                         <outlet property="txtPasswordConfirm" destination="iUA-Ja-xuH" id="EqU-ao-BCt"/>
+                        <outlet property="yearPicker" destination="GVj-DL-HO7" id="XSE-aK-fKa"/>
                         <segue destination="Z4w-JR-gmt" kind="modal" identifier="Registered" id="jAi-te-hO9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EbL-ku-sAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="gTI-fQ-CTG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1553" y="649"/>
+            <point key="canvasLocation" x="1553" y="710"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="Jn4-kE-qEk">
@@ -988,6 +1002,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="jAi-te-hO9"/>
+        <segue reference="TYl-UL-UKK"/>
     </inferredMetricsTieBreakers>
 </document>

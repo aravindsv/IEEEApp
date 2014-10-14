@@ -23,6 +23,7 @@
 +(void)changeIDWithEmail:(NSString *)email Cookie:(NSString *)cookie newID:(NSString *)newID onComplete:(void (^)(void))callbackBlock;
 +(void)changeMajorWithEmail:(NSString *)email Cookie:(NSString *)cookie newMajor:(NSString *)newMajor onComplete:(void (^)(void))callbackBlock;
 +(void)changeYearWithEmail:(NSString *)email Cookie:(NSString *)cookie newYear:(NSString *)newYear onComplete:(void (^)(void))callbackBlock;
++(void)forgotPasswordWithEmail:(NSString *)email onComplete:(void (^)(void))callbackBlock;
 
 //Get Information
 +(void)getAnnouncementsOnComplete:(void (^)(void))callbackBlock;

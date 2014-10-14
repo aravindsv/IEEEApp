@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtUsername;
 - (IBAction)backgroundClick:(id)sender;
 -(IBAction)unwindToLogin:(UIStoryboardSegue *)segue;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+- (IBAction)forgotPassword:(id)sender;
 
 @end
 
@@ -38,6 +40,7 @@
     NSString *password = [[NSUserDefaults standardUserDefaults] valueForKey:@"Password"];
     if (usrname != nil && password != nil)
     {
+        
         [DataManager loginWithEmail:usrname Password:password onComplete:^{
             if ([UserInfo sharedInstance].isLoggedIn)
             {
@@ -66,9 +69,13 @@
 */
 
 - (IBAction)loginButton:(id)sender {
+    [_txtPassword resignFirstResponder];
+    [_txtUsername resignFirstResponder];
+    [self.loadingIndicator startAnimating];
     [DataManager loginWithEmail:_txtUsername.text Password:_txtPassword.text onComplete:^{
         if ([UserInfo sharedInstance].isLoggedIn)
         {
+            [self.loadingIndicator stopAnimating];
             [self performSegueWithIdentifier:@"LoggedIn" sender:nil];
         }
     }];
@@ -85,5 +92,18 @@
     _txtUsername.text = @"";
 }
 
+- (IBAction)forgotPassword:(id)sender
+{
+    if (_txtUsername.text.length == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Forgot Your Password?" message:[NSString stringWithFormat:@"Enter your email to have a temporary password sent to you"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+        // optional - add more buttons:
+        [alert show];
+        return;
+    }
+    [DataManager forgotPasswordWithEmail:_txtUsername.text onComplete:^{
+        
+    }];
+}
 
 @end

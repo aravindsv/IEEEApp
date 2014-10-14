@@ -331,7 +331,6 @@
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
             userInfo.userMajor = [userObj objectForKey:@"major"];
             userInfo.userYear = [userObj objectForKey:@"year"];
-            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
             [[NSUserDefaults standardUserDefaults] synchronize];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
@@ -411,7 +410,6 @@
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
             userInfo.userMajor = [userObj objectForKey:@"major"];
             userInfo.userYear = [userObj objectForKey:@"year"];
-            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
             [[NSUserDefaults standardUserDefaults] synchronize];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
@@ -492,7 +490,6 @@
             userInfo.userMajor = [userObj objectForKey:@"major"];
             userInfo.userYear = [userObj objectForKey:@"year"];
             [[NSUserDefaults standardUserDefaults] setObject:newPass forKey:@"Password"];
-            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
             [[NSUserDefaults standardUserDefaults] synchronize];
 //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
@@ -572,7 +569,6 @@
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
             userInfo.userMajor = [userObj objectForKey:@"major"];
             userInfo.userYear = [userObj objectForKey:@"year"];
-            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
@@ -653,7 +649,6 @@
             userInfo.userMajor = [userObj objectForKey:@"major"];
             userInfo.userYear = [userObj objectForKey:@"year"];
             [[NSUserDefaults standardUserDefaults] setObject:userInfo.userMail forKey:@"Username"];
-            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             //            userInfo.userCookie = [result objectForKey:@"cookie"];
             callbackBlock();
@@ -668,6 +663,75 @@
         }
         NSLog(@"Result %@", result);
     }];
+}
+
++(void)forgotPasswordWithEmail:(NSString *)email onComplete:(void (^)(void))callbackBlock
+{
+    if (![self connectedToInternet])
+    {
+        callbackBlock();
+        return;
+    }
+    
+    NSURL *url = [NSURL URLWithString:@"http://ieeebruins.org/membership_serve/users.php"];
+    
+    NSData *body = nil;
+    
+    NSString *contentType = @"application/x-www-form-urlencoded; charset=utf-8";
+    
+    
+    body = [[NSString stringWithFormat:@"service=forgot_password&email=%@", email] dataUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSString *putLength = [NSString stringWithFormat:@"%lu",(unsigned long)[body length]];
+    
+    
+    NSMutableDictionary* headers = [[NSMutableDictionary alloc] init];
+    [headers setValue:contentType forKey:@"Content-Type"];
+    //    [headers setValue:@"mimeType" forKey:@"Accept"];
+    //    [headers setValue:@"no-cache" forKey:@"Cache-Control"];
+    //    [headers setValue:@"no-cache" forKey:@"Pragma"];
+    //    [headers setValue:@"close" forKey:@"Connection"];
+    
+    
+    
+    
+    
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    [request setHTTPMethod:@"POST"];
+    
+    [request setAllHTTPHeaderFields:headers];
+    
+    
+    [request setHTTPBody:body];
+    [request setValue:putLength forHTTPHeaderField:@"Content-Length"];
+    
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:0
+                                                                 error:NULL];
+        
+        int success = [[result objectForKey:@"success"] intValue];
+        if (success) {
+            UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"A temporary password has been sent to your email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [successAlert show];
+            callbackBlock();
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Generate Temporary Password!" message:@"Please check your email and try again" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+            // optional - add more buttons:
+            
+            [alert show];
+            callbackBlock();
+        }
+        NSLog(@"Result %@", result);
+    }];
+
 }
 
 #pragma mark - Get Information
