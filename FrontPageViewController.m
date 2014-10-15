@@ -41,13 +41,14 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self.pointsLabel setHidden:YES];
     [DataManager GetCalendarEventsOnComplete:^{
         [DataManager getAnnouncementsOnComplete:^{
             [DataManager GetAttendedEventsOnComplete:^{
                 [[UserInfo sharedInstance] saveUserToUserDefaults];
             }];
             [self reloadInfo];
+            [self.pointsLabel setHidden:NO];
             [self.loadIndicator stopAnimating];
         }];
     }];
@@ -58,7 +59,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    //[self reloadInfo];
+    [self reloadInfo];
 }
 
 -(void)reloadInfo
@@ -77,7 +78,11 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    if (self.newsArray.count < 10)
+    {
+        return self.newsArray.count;
+    }
+    return 10;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,11 +139,17 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UILabel *label = [[UILabel alloc] init];
-    label.text = @"News Feed";
+    label.text = @"    News Feed";
     label.textColor = [UIColor whiteColor];
-    [label setFont:[UIFont boldSystemFontOfSize:26]];
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20];
+//    [label setFont:[UIFont boldSystemFontOfSize:26]];  HelveticaNeue-Thin
     label.backgroundColor = UIColorFromRGB(0x003BA6);
     return label;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
 }
 
 

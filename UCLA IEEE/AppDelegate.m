@@ -29,9 +29,13 @@
     NSString *isLoggedIn = [[NSUserDefaults standardUserDefaults] objectForKey:@"IsLoggedIn"];
     UIViewController *viewController;
     NSString *oldUserEmail = [[NSUserDefaults standardUserDefaults] objectForKey:@"Username"];
+    NSString *oldPassword = [[NSUserDefaults standardUserDefaults] objectForKey:@"Password"];
     if ([isLoggedIn isEqualToString:@"yes"] && oldUserEmail != nil)
     {
         [[UserInfo sharedInstance] getDefaultsUser];
+        [DataManager loginWithEmail:oldUserEmail Password:oldPassword onComplete:^{
+            
+        }];
         viewController = [storyboard instantiateViewControllerWithIdentifier:@"FrontPageViewController"];
     }
     else

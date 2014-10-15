@@ -111,6 +111,13 @@
     _txtYear = [_pickerData objectAtIndex:row];
 }
 
+-(IBAction)textFieldReturn:(id)sender
+{
+    [sender resignFirstResponder];
+    
+    
+}
+
 /*
 #pragma mark - Navigation
 

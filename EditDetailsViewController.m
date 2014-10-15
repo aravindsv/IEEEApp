@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelbutton;
 - (IBAction)saveEdit:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *txtDetail;
-@property (weak, nonatomic) IBOutlet UITextField *txtDetailConfirm;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @end
 
@@ -36,7 +36,6 @@
     [super viewDidLoad];
     _NavigationBar.title = [NSString stringWithFormat:@"Edit %@", _detail];
     _txtDetail.placeholder = [NSString stringWithFormat:@"New %@", _detail];
-    _txtDetailConfirm.placeholder = [NSString stringWithFormat:@"Retype %@", _detail];
     // Do any additional setup after loading the view.
     
 }
@@ -64,37 +63,43 @@
 */
 
 - (IBAction)saveEdit:(id)sender {
-    if (_txtDetail.text.length > 0 && [_txtDetail.text isEqualToString:_txtDetailConfirm.text])
+    if (_txtDetail.text.length > 0)
     {
+        [self.loadingIndicator startAnimating];
         UserInfo *user = [UserInfo sharedInstance];
         if ([_detail isEqualToString:@"Name"])
         {
             [DataManager changeNameWithEmail:user.userMail Cookie:user.userCookie newName:_txtDetail.text onComplete:^{
                 [self performSegueWithIdentifier:@"SaveChanges" sender:self];
+                [self.loadingIndicator stopAnimating];
             }];
         }
         else if ([_detail isEqualToString:@"IEEE ID"])
         {
             [DataManager changeIDWithEmail:user.userMail Cookie:user.userCookie newID:_txtDetail.text onComplete:^{
                 [self performSegueWithIdentifier:@"SaveChanges" sender:self];
+                [self.loadingIndicator stopAnimating];
             }];
         }
         else if ([_detail isEqualToString:@"Email"])
         {
             [DataManager changeEmailWithEmail:user.userMail Cookie:user.userCookie newEmail:_txtDetail.text onComplete:^{
                 [self performSegueWithIdentifier:@"SaveChanges" sender:self];
+                [self.loadingIndicator stopAnimating];
             }];
         }
         else if ([self.detail isEqualToString:@"Major"])
         {
             [DataManager changeMajorWithEmail:user.userMail Cookie:user.userCookie newMajor:_txtDetail.text onComplete:^{
                 [self performSegueWithIdentifier:@"SaveChanges" sender:self];
+                [self.loadingIndicator stopAnimating];
             }];
         }
         else if ([self.detail isEqualToString:@"Year"])
         {
             [DataManager changeYearWithEmail:user.userMail Cookie:user.userCookie newYear:_txtDetail.text onComplete:^{
                 [self performSegueWithIdentifier:@"SaveChanges" sender:self];
+                [self.loadingIndicator stopAnimating];
             }];
         }
     }
@@ -108,5 +113,12 @@
         [alert show];
         return;
     }
+}
+
+-(IBAction)textFieldReturn:(id)sender
+{
+    [sender resignFirstResponder];
+    
+    
 }
 @end

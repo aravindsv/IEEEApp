@@ -59,6 +59,12 @@
     self.eventListing.delegate = self;
     self.eventListing.dataSource = self;
     self.chosenDayEvents = [[NSMutableArray alloc] init];
+    
+    NSMutableArray *events = [DataManager getEventsForDate:self.currentDate];
+    self.chosenDayEvents = events;
+    
+    [self.calendarView reloadData];
+    [self.eventListing reloadData];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -108,9 +114,7 @@
     else
     {
         return YES;
-    }
-    
-    //Check if date has an event. If it does, return YES and display it on the bottom. If not, return NO
+    }    
 }
 
 #pragma mark - UITableViewDelegate
@@ -173,11 +177,17 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMMM d, yyyy"];
     NSString *dateString = [formatter stringFromDate:self.selectedDate];
-    label.text = [NSString stringWithFormat:@"Events for %@", dateString];
+    label.text = [NSString stringWithFormat:@"    Events for %@", dateString];
     label.textColor = [UIColor whiteColor];
-    [label setFont:[UIFont boldSystemFontOfSize:16]];
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20];
+//    [label setFont:[UIFont boldSystemFontOfSize:16]];
     label.backgroundColor = UIColorFromRGB(0x003BA6);
     return label;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
 }
 
 /*

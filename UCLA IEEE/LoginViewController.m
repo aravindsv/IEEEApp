@@ -13,6 +13,9 @@
 @interface LoginViewController ()
 
 - (IBAction)loginButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *btnLogin;
+@property (weak, nonatomic) IBOutlet UIButton *btnRegister;
+@property (weak, nonatomic) IBOutlet UIButton *btnForgotPass;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 @property (weak, nonatomic) IBOutlet UITextField *txtUsername;
 - (IBAction)backgroundClick:(id)sender;
@@ -40,7 +43,6 @@
     NSString *password = [[NSUserDefaults standardUserDefaults] valueForKey:@"Password"];
     if (usrname != nil && password != nil)
     {
-        
         [DataManager loginWithEmail:usrname Password:password onComplete:^{
             if ([UserInfo sharedInstance].isLoggedIn)
             {
@@ -72,10 +74,16 @@
     [_txtPassword resignFirstResponder];
     [_txtUsername resignFirstResponder];
     [self.loadingIndicator startAnimating];
+    _btnForgotPass.hidden = YES;
+    _btnLogin.hidden = YES;
+    _btnRegister.hidden = YES;
     [DataManager loginWithEmail:_txtUsername.text Password:_txtPassword.text onComplete:^{
+        [self.loadingIndicator stopAnimating];
+        _btnForgotPass.hidden = NO;
+        _btnLogin.hidden = NO;
+        _btnRegister.hidden = NO;
         if ([UserInfo sharedInstance].isLoggedIn)
         {
-            [self.loadingIndicator stopAnimating];
             [self performSegueWithIdentifier:@"LoggedIn" sender:nil];
         }
     }];

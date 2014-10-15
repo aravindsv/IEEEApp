@@ -162,7 +162,7 @@
             userInfo.userId = [userObj objectForKey:@"ieee_id"];
             userInfo.isLoggedIn = YES;
             userInfo.userMail = [userObj objectForKey:@"email"];
-            userInfo.userCookie = [userObj objectForKey:@"cookie"];
+            userInfo.userCookie = [result objectForKey:@"cookie"];
             userInfo.currentPoints = [[userObj objectForKey:@"points"] intValue];
             userInfo.totalPoints = [[userObj objectForKey:@"total_points"] intValue];
             userInfo.userMajor = [userObj objectForKey:@"major"];
@@ -521,7 +521,7 @@
     NSString *contentType = @"application/x-www-form-urlencoded; charset=utf-8";
     
     
-    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newMajor=%@", email, cookie, newMajor] dataUsingEncoding:NSUTF8StringEncoding];
+    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&major=%@", email, cookie, newMajor] dataUsingEncoding:NSUTF8StringEncoding];
     
     
     NSString *putLength = [NSString stringWithFormat:@"%lu",(unsigned long)[body length]];
@@ -600,7 +600,7 @@
     NSString *contentType = @"application/x-www-form-urlencoded; charset=utf-8";
     
     
-    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&newYear=%@", email, cookie, newYear] dataUsingEncoding:NSUTF8StringEncoding];
+    body = [[NSString stringWithFormat:@"service=edit_member&email=%@&cookie=%@&year=%@", email, cookie, newYear] dataUsingEncoding:NSUTF8StringEncoding];
     
     
     NSString *putLength = [NSString stringWithFormat:@"%lu",(unsigned long)[body length]];
@@ -844,8 +844,9 @@
             userInfo.currentPoints = [[user objectForKey:@"points"] intValue];
             userInfo.totalPoints = [[user objectForKey:@"total_points"] intValue];
             [[NSUserDefaults standardUserDefaults] setObject:userInfo.userMail forKey:@"Username"];
-            [[NSUserDefaults standardUserDefaults] setValue:userInfo forKey:@"UserInfo"];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:@"Success!" message:[NSString stringWithFormat:@"Checked in to %@", newEvent.summary] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [successAlert show];
             callbackBlock();
             NSLog(@"Result %@", result);
         }

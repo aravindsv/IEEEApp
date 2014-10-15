@@ -71,6 +71,9 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     self.eventsAttended = [UserInfo sharedInstance].attendedEvents;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.infoTable reloadData];
+    });
 }
 
 
@@ -82,10 +85,7 @@
         return 7;
     else if (section == 1)
     {
-        if (self.eventsAttended.count <= 5)
-            return self.eventsAttended.count;
-        else
-            return 5;
+        return self.eventsAttended.count;
     }
     else
         return 2;
@@ -209,7 +209,7 @@
                 break;
             case 3:
                 _detailToEdit = @"Year";
-                [self performSegueWithIdentifier:@"EditDetails" sender:self];
+                [self performSegueWithIdentifier:@"EditYear" sender:self];
                 break;
             case 4:
                 _detailToEdit = @"IEEE ID";
@@ -217,6 +217,7 @@
                 break;
             case 5:
                 //Insert Segue to Info about points
+                [self performSegueWithIdentifier:@"pointsInfo" sender:self];
                 break;
             case 6:
                 [self performSegueWithIdentifier:@"changePassword" sender:self];
@@ -252,19 +253,20 @@
 {
     UILabel *header = [[UILabel alloc] init];
     header.textColor = [UIColor whiteColor];
-    [header setFont:[UIFont boldSystemFontOfSize:16]];
+    header.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20];
+//    [header setFont:[UIFont boldSystemFontOfSize:16]];
     header.backgroundColor = UIColorFromRGB(0x003BA6);
     if (section == 0)
     {
-        header.text = @"Membership Details";
+        header.text = @"    Membership Details";
     }
     else if (section == 1)
     {
-        header.text = @"Events Attended";
+        header.text = @"    Events Attended";
     }
     else if (section == 2)
     {
-        header.text = @"";
+        header.text = @"    Options";
     }
     
     return header;

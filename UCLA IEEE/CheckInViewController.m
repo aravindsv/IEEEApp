@@ -43,7 +43,7 @@
 {
     [super viewDidLoad];
     
-    self.isReading = YES;
+    self.isReading = NO;
     self.captureSession = nil;
     [self startReading];
     self.eventTiming.hidden = YES;
@@ -64,37 +64,41 @@
 
 -(BOOL)startReading
 {
-    NSError *error;
-    //Set up a capture device to capture video
-    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    //set up an object to recieve the input from captureDevice
-    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
-    if (!input)
+    if (!self.isReading)
     {
-        NSLog(@"%@", [error localizedDescription]);
-        return NO;
+        self.isReading = YES;
+        NSError *error;
+        //Set up a capture device to capture video
+        AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        //set up an object to recieve the input from captureDevice
+        AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
+        if (!input)
+        {
+            NSLog(@"%@", [error localizedDescription]);
+            return NO;
+        }
+        //set up the capture session to send input to previously defined input
+        self.captureSession = [[AVCaptureSession alloc] init];
+        [self.captureSession addInput:input];
+        //set up a variable for the captureSession to put it's output into
+        AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
+        [self.captureSession addOutput:captureMetadataOutput];
+    
+        //set captureSession metadata output to a readable format by specifying type of metadata
+        dispatch_queue_t dispatchQueue;
+        dispatchQueue = dispatch_queue_create("myQueue", NULL);
+        [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
+        [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
+    
+        //show the user the camera view
+        self.videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
+        [self.videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+        [self.videoPreviewLayer setFrame:self.viewPreview.layer.bounds];
+        [self.viewPreview.layer addSublayer:self.videoPreviewLayer];
+    
+        //start the camera
+        [self.captureSession startRunning];
     }
-    //set up the capture session to send input to previously defined input
-    self.captureSession = [[AVCaptureSession alloc] init];
-    [self.captureSession addInput:input];
-    //set up a variable for the captureSession to put it's output into
-    AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
-    [self.captureSession addOutput:captureMetadataOutput];
-    
-    //set captureSession metadata output to a readable format by specifying type of metadata
-    dispatch_queue_t dispatchQueue;
-    dispatchQueue = dispatch_queue_create("myQueue", NULL);
-    [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
-    [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
-    
-    //show the user the camera view
-    self.videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
-    [self.videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-    [self.videoPreviewLayer setFrame:self.viewPreview.layer.bounds];
-    [self.viewPreview.layer addSublayer:self.videoPreviewLayer];
-    
-    //start the camera
-    [self.captureSession startRunning];
     
     
     return YES;
@@ -109,11 +113,8 @@
         {
             //[metadataObj stringValue]
             [DataManager checkInToEvent:[metadataObj stringValue] withEmail:[UserInfo sharedInstance].userMail andCookie:[UserInfo sharedInstance].userCookie onComplete:^{
-                [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
                 [self.scanLabel performSelectorOnMainThread:@selector(setText:) withObject:@"Tap to rescan" waitUntilDone:NO];
-                [self.eventName performSelectorOnMainThread:@selector(setText:) withObject:[Event currentEvent].summary waitUntilDone:NO];
-                [self.eventTiming performSelectorOnMainThread:@selector(setText:) withObject:[NSString stringWithFormat:@"%@ to %@", [Event currentEvent].startTime, [Event currentEvent].endTime] waitUntilDone:NO];
-                [self.eventLocation performSelectorOnMainThread:@selector(setText:) withObject:[Event currentEvent].location waitUntilDone:NO];
+                
                 [self toggleEventDetails];
             }];
             [self stopReading];

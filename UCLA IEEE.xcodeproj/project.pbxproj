@@ -25,6 +25,8 @@
 		7728EA8E19EBCD450044B9E2 /* HelpPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7728EA8D19EBCD450044B9E2 /* HelpPage.m */; };
 		77A4216B19ECED6A00773547 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4216A19ECED6A00773547 /* CoreData.framework */; };
 		77A4216E19ECEDA900773547 /* UserInfoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A4216C19ECEDA900773547 /* UserInfoStore.xcdatamodeld */; };
+		77A4217119EDB17A00773547 /* LoginNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4217019EDB17A00773547 /* LoginNavController.m */; };
+		77A4217419EDDC9400773547 /* EditYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4217319EDDC9400773547 /* EditYearViewController.m */; };
 		77A6BEBE19E4F2B80049B4FD /* IEEE_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */; };
 		77A92F4419B69D9F00430C23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92F4319B69D9F00430C23 /* Foundation.framework */; };
 		77A92F4619B69D9F00430C23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92F4519B69D9F00430C23 /* CoreGraphics.framework */; };
@@ -103,6 +105,10 @@
 		7728EA8D19EBCD450044B9E2 /* HelpPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpPage.m; sourceTree = "<group>"; };
 		77A4216A19ECED6A00773547 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		77A4216D19ECEDA900773547 /* UserInfoStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserInfoStore.xcdatamodel; sourceTree = "<group>"; };
+		77A4216F19EDB17A00773547 /* LoginNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginNavController.h; sourceTree = "<group>"; };
+		77A4217019EDB17A00773547 /* LoginNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginNavController.m; sourceTree = "<group>"; };
+		77A4217219EDDC9400773547 /* EditYearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditYearViewController.h; sourceTree = "<group>"; };
+		77A4217319EDDC9400773547 /* EditYearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditYearViewController.m; sourceTree = "<group>"; };
 		77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IEEE_logo.jpg; sourceTree = "<group>"; };
 		77A92F4019B69D9F00430C23 /* UCLA IEEE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCLA IEEE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A92F4319B69D9F00430C23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -207,6 +213,8 @@
 			children = (
 				7728EA7519EB493D0044B9E2 /* SegueAbleNavigationController.h */,
 				7728EA7619EB493D0044B9E2 /* SegueAbleNavigationController.m */,
+				77A4216F19EDB17A00773547 /* LoginNavController.h */,
+				77A4217019EDB17A00773547 /* LoginNavController.m */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -325,8 +333,8 @@
 				7728EA8119EBCABF0044B9E2 /* member.png */,
 				7728EA8219EBCABF0044B9E2 /* points.png */,
 				7728EA8319EBCABF0044B9E2 /* star.png */,
-				7728EA7319EB2B6F0044B9E2 /* UCLA IEEE.png */,
 				7728EA6E19EA65000044B9E2 /* 44pxIEEE_Logo.jpeg */,
+				7728EA7319EB2B6F0044B9E2 /* UCLA IEEE.png */,
 				7728EA6C19EA5ED00044B9E2 /* 30pxTasksIcon.png */,
 				7728EA6A19EA4DD80044B9E2 /* 30pxStarIcon.png */,
 				77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */,
@@ -381,6 +389,8 @@
 		77C127E119C11F9A007E3F53 /* Profile View/Edit Views */ = {
 			isa = PBXGroup;
 			children = (
+				77A4217219EDDC9400773547 /* EditYearViewController.h */,
+				77A4217319EDDC9400773547 /* EditYearViewController.m */,
 				77C1277819B998FE007E3F53 /* EditPasswordViewController.h */,
 				77C1277919B998FE007E3F53 /* EditPasswordViewController.m */,
 				77C1277519B9669E007E3F53 /* EditDetailsViewController.h */,
@@ -558,10 +568,12 @@
 				77CA03F019D9F4D400049169 /* MNCalendarViewWeekdayCell.m in Sources */,
 				77CA03EC19D9F4D400049169 /* MNCalendarView.m in Sources */,
 				77A92F5A19B69D9F00430C23 /* ViewController.m in Sources */,
+				77A4217419EDDC9400773547 /* EditYearViewController.m in Sources */,
 				7728EA6719EA33EB0044B9E2 /* FrontPageViewController.m in Sources */,
 				77CA03F119D9F4D400049169 /* MNFastDateEnumeration.m in Sources */,
 				7728EA8E19EBCD450044B9E2 /* HelpPage.m in Sources */,
 				77C127DF19C11A3E007E3F53 /* Event.m in Sources */,
+				77A4217119EDB17A00773547 /* LoginNavController.m in Sources */,
 				77BE77D519B6ACA300097F66 /* RegisterViewController.m in Sources */,
 				77A4216E19ECEDA900773547 /* UserInfoStore.xcdatamodeld in Sources */,
 				77A92F7C19B69DF200430C23 /* DataManager.m in Sources */,
