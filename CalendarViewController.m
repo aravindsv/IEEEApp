@@ -11,6 +11,7 @@
 #import "DataManager.h"
 #import "UserInfo.h"
 #import "CalendarEvent.h"
+#import "EventInfoViewController.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -43,6 +44,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     //Set Up Calendar
     self.currentDate = [NSDate date];
     self.selectedDate = [NSDate date];
@@ -56,6 +59,7 @@
     [self.view addSubview:self.calendarView];
     
     //Set up event Listing table
+    self.eventListing.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
     self.eventListing.delegate = self;
     self.eventListing.dataSource = self;
     self.chosenDayEvents = [[NSMutableArray alloc] init];
@@ -71,6 +75,9 @@
 {
     [self.calendarView reloadData];
     [self.eventListing reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.eventListing reloadData];
+    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -164,6 +171,20 @@
         cell.detailTextLabel.text = @"";
     }
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.chosenDayEvents.count > 0)
+    {
+        CalendarEvent *event = [self.chosenDayEvents objectAtIndex:indexPath.row];
+//        EventInfoViewController *infoView = [EventInfoViewController createInfoPageForEvent:event];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        EventInfoViewController *infoView = [storyboard instantiateViewControllerWithIdentifier:@"infoPage"];
+        infoView.currentEvent = event;
+        [self.navigationController pushViewController:infoView animated:YES];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -21,6 +21,7 @@
         self.eventID = [aDecoder decodeObjectForKey:@"eventID"];
         self.eventLocation = [aDecoder decodeObjectForKey:@"eventLocation"];
         self.eventTitle = [aDecoder decodeObjectForKey:@"eventTitle"];
+        self.eventEndTime = [aDecoder decodeObjectForKey:@"eventEndTime"];
     }
     return self;
 }
@@ -34,7 +35,7 @@
     [aCoder encodeObject:self.eventID forKey:@"eventID"];
     [aCoder encodeObject:self.eventLocation forKey:@"eventLocation"];
     [aCoder encodeObject:self.eventTitle forKey:@"eventTitle"];
-    
+    [aCoder encodeObject:self.eventEndTime forKey:@"eventEndTime"];
 }
 
 @end

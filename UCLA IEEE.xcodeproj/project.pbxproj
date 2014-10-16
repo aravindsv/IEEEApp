@@ -14,19 +14,22 @@
 		7728EA7219EA66460044B9E2 /* NewsFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7728EA7119EA66460044B9E2 /* NewsFeedItem.m */; };
 		7728EA7419EB2B6F0044B9E2 /* UCLA IEEE.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA7319EB2B6F0044B9E2 /* UCLA IEEE.png */; };
 		7728EA7719EB493D0044B9E2 /* SegueAbleNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7728EA7619EB493D0044B9E2 /* SegueAbleNavigationController.m */; };
-		7728EA8419EBCABF0044B9E2 /* bullhorn.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA7C19EBCABF0044B9E2 /* bullhorn.png */; };
-		7728EA8519EBCABF0044B9E2 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA7D19EBCABF0044B9E2 /* calendar.png */; };
-		7728EA8619EBCABF0044B9E2 /* checkin.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA7E19EBCABF0044B9E2 /* checkin.png */; };
-		7728EA8719EBCABF0044B9E2 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA7F19EBCABF0044B9E2 /* help.png */; };
-		7728EA8819EBCABF0044B9E2 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA8019EBCABF0044B9E2 /* logout.png */; };
-		7728EA8919EBCABF0044B9E2 /* member.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA8119EBCABF0044B9E2 /* member.png */; };
-		7728EA8A19EBCABF0044B9E2 /* points.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA8219EBCABF0044B9E2 /* points.png */; };
-		7728EA8B19EBCABF0044B9E2 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 7728EA8319EBCABF0044B9E2 /* star.png */; };
 		7728EA8E19EBCD450044B9E2 /* HelpPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7728EA8D19EBCD450044B9E2 /* HelpPage.m */; };
 		77A4216B19ECED6A00773547 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4216A19ECED6A00773547 /* CoreData.framework */; };
 		77A4216E19ECEDA900773547 /* UserInfoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A4216C19ECEDA900773547 /* UserInfoStore.xcdatamodeld */; };
 		77A4217119EDB17A00773547 /* LoginNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4217019EDB17A00773547 /* LoginNavController.m */; };
 		77A4217419EDDC9400773547 /* EditYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4217319EDDC9400773547 /* EditYearViewController.m */; };
+		77A4217719EF692500773547 /* EventInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4217619EF692500773547 /* EventInfoViewController.m */; };
+		77A4218019EF746C00773547 /* bullhorn_30px.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4217819EF746C00773547 /* bullhorn_30px.png */; };
+		77A4218119EF746C00773547 /* calendar_30px.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4217919EF746C00773547 /* calendar_30px.png */; };
+		77A4218219EF746C00773547 /* checkin_30px.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4217A19EF746C00773547 /* checkin_30px.png */; };
+		77A4218319EF746C00773547 /* help_30px.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4217B19EF746C00773547 /* help_30px.png */; };
+		77A4218419EF746C00773547 /* logout_30px.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4217C19EF746C00773547 /* logout_30px.png */; };
+		77A4218519EF746C00773547 /* member_30px.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4217D19EF746C00773547 /* member_30px.png */; };
+		77A4218619EF746C00773547 /* points_30px.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4217E19EF746C00773547 /* points_30px.png */; };
+		77A4218719EF746C00773547 /* star_30px.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4217F19EF746C00773547 /* star_30px.png */; };
+		77A4218919EF75BA00773547 /* membershippage.png in Resources */ = {isa = PBXBuildFile; fileRef = 77A4218819EF75BA00773547 /* membershippage.png */; };
+		77A4218B19EF9AF500773547 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77A4218A19EF9AF500773547 /* Images.xcassets */; };
 		77A6BEBE19E4F2B80049B4FD /* IEEE_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */; };
 		77A92F4419B69D9F00430C23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92F4319B69D9F00430C23 /* Foundation.framework */; };
 		77A92F4619B69D9F00430C23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A92F4519B69D9F00430C23 /* CoreGraphics.framework */; };
@@ -61,7 +64,6 @@
 		77C127D819C1064C007E3F53 /* 30pxBarcodeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77C127D719C1064C007E3F53 /* 30pxBarcodeIcon.png */; };
 		77C127DB19C109E7007E3F53 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C127DA19C109E7007E3F53 /* CheckInViewController.m */; };
 		77C127DF19C11A3E007E3F53 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C127DE19C11A3E007E3F53 /* Event.m */; };
-		77C127E419C154D1007E3F53 /* Images1.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77C127E319C154D1007E3F53 /* Images1.xcassets */; };
 		77CA03EB19D9F4D400049169 /* MNCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA03DB19D9F4D400049169 /* MNCalendarHeaderView.m */; };
 		77CA03EC19D9F4D400049169 /* MNCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA03DE19D9F4D400049169 /* MNCalendarView.m */; };
 		77CA03ED19D9F4D400049169 /* MNCalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CA03E019D9F4D400049169 /* MNCalendarViewCell.m */; };
@@ -93,14 +95,6 @@
 		7728EA7319EB2B6F0044B9E2 /* UCLA IEEE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UCLA IEEE.png"; sourceTree = "<group>"; };
 		7728EA7519EB493D0044B9E2 /* SegueAbleNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SegueAbleNavigationController.h; path = ../SegueAbleNavigationController.h; sourceTree = "<group>"; };
 		7728EA7619EB493D0044B9E2 /* SegueAbleNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SegueAbleNavigationController.m; path = ../SegueAbleNavigationController.m; sourceTree = "<group>"; };
-		7728EA7C19EBCABF0044B9E2 /* bullhorn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullhorn.png; sourceTree = "<group>"; };
-		7728EA7D19EBCABF0044B9E2 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
-		7728EA7E19EBCABF0044B9E2 /* checkin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkin.png; sourceTree = "<group>"; };
-		7728EA7F19EBCABF0044B9E2 /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
-		7728EA8019EBCABF0044B9E2 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
-		7728EA8119EBCABF0044B9E2 /* member.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = member.png; sourceTree = "<group>"; };
-		7728EA8219EBCABF0044B9E2 /* points.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = points.png; sourceTree = "<group>"; };
-		7728EA8319EBCABF0044B9E2 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		7728EA8C19EBCD450044B9E2 /* HelpPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpPage.h; sourceTree = "<group>"; };
 		7728EA8D19EBCD450044B9E2 /* HelpPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpPage.m; sourceTree = "<group>"; };
 		77A4216A19ECED6A00773547 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -109,6 +103,18 @@
 		77A4217019EDB17A00773547 /* LoginNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginNavController.m; sourceTree = "<group>"; };
 		77A4217219EDDC9400773547 /* EditYearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditYearViewController.h; sourceTree = "<group>"; };
 		77A4217319EDDC9400773547 /* EditYearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditYearViewController.m; sourceTree = "<group>"; };
+		77A4217519EF692500773547 /* EventInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventInfoViewController.h; sourceTree = "<group>"; };
+		77A4217619EF692500773547 /* EventInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventInfoViewController.m; sourceTree = "<group>"; };
+		77A4217819EF746C00773547 /* bullhorn_30px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullhorn_30px.png; sourceTree = "<group>"; };
+		77A4217919EF746C00773547 /* calendar_30px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_30px.png; sourceTree = "<group>"; };
+		77A4217A19EF746C00773547 /* checkin_30px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkin_30px.png; sourceTree = "<group>"; };
+		77A4217B19EF746C00773547 /* help_30px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_30px.png; sourceTree = "<group>"; };
+		77A4217C19EF746C00773547 /* logout_30px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout_30px.png; sourceTree = "<group>"; };
+		77A4217D19EF746C00773547 /* member_30px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = member_30px.png; sourceTree = "<group>"; };
+		77A4217E19EF746C00773547 /* points_30px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = points_30px.png; sourceTree = "<group>"; };
+		77A4217F19EF746C00773547 /* star_30px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_30px.png; sourceTree = "<group>"; };
+		77A4218819EF75BA00773547 /* membershippage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = membershippage.png; sourceTree = "<group>"; };
+		77A4218A19EF9AF500773547 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		77A6BEBD19E4F2B80049B4FD /* IEEE_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IEEE_logo.jpg; sourceTree = "<group>"; };
 		77A92F4019B69D9F00430C23 /* UCLA IEEE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UCLA IEEE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A92F4319B69D9F00430C23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -162,7 +168,6 @@
 		77C127DA19C109E7007E3F53 /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckInViewController.m; path = "UCLA IEEE/CheckInViewController.m"; sourceTree = "<group>"; };
 		77C127DD19C11A3E007E3F53 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		77C127DE19C11A3E007E3F53 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		77C127E319C154D1007E3F53 /* Images1.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images1.xcassets; sourceTree = "<group>"; };
 		77CA03DA19D9F4D400049169 /* MNCalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNCalendarHeaderView.h; sourceTree = "<group>"; };
 		77CA03DB19D9F4D400049169 /* MNCalendarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNCalendarHeaderView.m; sourceTree = "<group>"; };
 		77CA03DC19D9F4D400049169 /* MNCalendarView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MNCalendarView-Prefix.pch"; sourceTree = "<group>"; };
@@ -222,6 +227,8 @@
 		7728EA8F19EBCD490044B9E2 /* Info Views */ = {
 			isa = PBXGroup;
 			children = (
+				77A4217519EF692500773547 /* EventInfoViewController.h */,
+				77A4217619EF692500773547 /* EventInfoViewController.m */,
 				7728EA8C19EBCD450044B9E2 /* HelpPage.h */,
 				7728EA8D19EBCD450044B9E2 /* HelpPage.m */,
 			);
@@ -231,11 +238,11 @@
 		77A92F3719B69D9F00430C23 = {
 			isa = PBXGroup;
 			children = (
+				77A4218A19EF9AF500773547 /* Images.xcassets */,
 				77A4216C19ECEDA900773547 /* UserInfoStore.xcdatamodeld */,
 				77A9986D19E7B63B0021070B /* Reachability.h */,
 				77A9986E19E7B63B0021070B /* Reachability.m */,
 				77CA03D919D9F4D400049169 /* MNCalendarView */,
-				77C127E319C154D1007E3F53 /* Images1.xcassets */,
 				77BE77E019B6E2DC00097F66 /* Resources */,
 				77A92F4919B69D9F00430C23 /* UCLA IEEE */,
 				77A92F6819B69D9F00430C23 /* UCLA IEEETests */,
@@ -325,14 +332,15 @@
 		77BE77E019B6E2DC00097F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7728EA7C19EBCABF0044B9E2 /* bullhorn.png */,
-				7728EA7D19EBCABF0044B9E2 /* calendar.png */,
-				7728EA7E19EBCABF0044B9E2 /* checkin.png */,
-				7728EA7F19EBCABF0044B9E2 /* help.png */,
-				7728EA8019EBCABF0044B9E2 /* logout.png */,
-				7728EA8119EBCABF0044B9E2 /* member.png */,
-				7728EA8219EBCABF0044B9E2 /* points.png */,
-				7728EA8319EBCABF0044B9E2 /* star.png */,
+				77A4217819EF746C00773547 /* bullhorn_30px.png */,
+				77A4217919EF746C00773547 /* calendar_30px.png */,
+				77A4218819EF75BA00773547 /* membershippage.png */,
+				77A4217A19EF746C00773547 /* checkin_30px.png */,
+				77A4217B19EF746C00773547 /* help_30px.png */,
+				77A4217C19EF746C00773547 /* logout_30px.png */,
+				77A4217D19EF746C00773547 /* member_30px.png */,
+				77A4217E19EF746C00773547 /* points_30px.png */,
+				77A4217F19EF746C00773547 /* star_30px.png */,
 				7728EA6E19EA65000044B9E2 /* 44pxIEEE_Logo.jpeg */,
 				7728EA7319EB2B6F0044B9E2 /* UCLA IEEE.png */,
 				7728EA6C19EA5ED00044B9E2 /* 30pxTasksIcon.png */,
@@ -522,25 +530,26 @@
 			files = (
 				7728EA7419EB2B6F0044B9E2 /* UCLA IEEE.png in Resources */,
 				77BE77EB19B6E5CF00097F66 /* 30pxCalendarIcon.png in Resources */,
-				7728EA8919EBCABF0044B9E2 /* member.png in Resources */,
+				77A4218219EF746C00773547 /* checkin_30px.png in Resources */,
 				77A92F5C19B69D9F00430C23 /* Images.xcassets in Resources */,
-				7728EA8619EBCABF0044B9E2 /* checkin.png in Resources */,
 				7728EA6D19EA5ED00044B9E2 /* 30pxTasksIcon.png in Resources */,
-				7728EA8A19EBCABF0044B9E2 /* points.png in Resources */,
 				77A92F4E19B69D9F00430C23 /* InfoPlist.strings in Resources */,
-				77C127E419C154D1007E3F53 /* Images1.xcassets in Resources */,
+				77A4218119EF746C00773547 /* calendar_30px.png in Resources */,
+				77A4218419EF746C00773547 /* logout_30px.png in Resources */,
+				77A4218319EF746C00773547 /* help_30px.png in Resources */,
 				77C127D819C1064C007E3F53 /* 30pxBarcodeIcon.png in Resources */,
-				7728EA8519EBCABF0044B9E2 /* calendar.png in Resources */,
-				7728EA8B19EBCABF0044B9E2 /* star.png in Resources */,
 				77A6BEBE19E4F2B80049B4FD /* IEEE_logo.jpg in Resources */,
+				77A4218019EF746C00773547 /* bullhorn_30px.png in Resources */,
+				77A4218619EF746C00773547 /* points_30px.png in Resources */,
 				77BE77EC19B6E5CF00097F66 /* 30pxProfileIcon.png in Resources */,
-				7728EA8719EBCABF0044B9E2 /* help.png in Resources */,
 				7728EA6B19EA4DD80044B9E2 /* 30pxStarIcon.png in Resources */,
+				77A4218B19EF9AF500773547 /* Images.xcassets in Resources */,
+				77A4218919EF75BA00773547 /* membershippage.png in Resources */,
 				77BE77EA19B6E5CF00097F66 /* 30pxBellIcon.png in Resources */,
-				7728EA8419EBCABF0044B9E2 /* bullhorn.png in Resources */,
 				7728EA6F19EA65000044B9E2 /* 44pxIEEE_Logo.jpeg in Resources */,
 				77A92F7919B69DB700430C23 /* Main.storyboard in Resources */,
-				7728EA8819EBCABF0044B9E2 /* logout.png in Resources */,
+				77A4218519EF746C00773547 /* member_30px.png in Resources */,
+				77A4218719EF746C00773547 /* star_30px.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +571,7 @@
 				7728EA7219EA66460044B9E2 /* NewsFeedItem.m in Sources */,
 				77A9987419E7C1850021070B /* CalendarEvent.m in Sources */,
 				77C127DB19C109E7007E3F53 /* CheckInViewController.m in Sources */,
+				77A4217719EF692500773547 /* EventInfoViewController.m in Sources */,
 				7728EA7719EB493D0044B9E2 /* SegueAbleNavigationController.m in Sources */,
 				77CA03ED19D9F4D400049169 /* MNCalendarViewCell.m in Sources */,
 				77C1277719B9669E007E3F53 /* EditDetailsViewController.m in Sources */,
@@ -707,13 +717,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aravind Vadali (AQ6F2VZP2L)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCLA IEEE/UCLA IEEE-Prefix.pch";
 				INFOPLIST_FILE = "UCLA IEEE/UCLA IEEE-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2382933c-1dbe-49e7-8da3-ae5a883193d7";
+				PROVISIONING_PROFILE = "a590a62b-1ce7-4bf7-8363-7a56c2c499c4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -723,13 +733,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aravind Vadali (AQ6F2VZP2L)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCLA IEEE/UCLA IEEE-Prefix.pch";
 				INFOPLIST_FILE = "UCLA IEEE/UCLA IEEE-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2382933c-1dbe-49e7-8da3-ae5a883193d7";
+				PROVISIONING_PROFILE = "a590a62b-1ce7-4bf7-8363-7a56c2c499c4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

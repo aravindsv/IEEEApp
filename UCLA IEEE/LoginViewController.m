@@ -39,6 +39,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.txtPassword.delegate = self;
+    
+    //Attempt To Login (Should not happen since user should already be on the front page)
     NSString *usrname = [[NSUserDefaults standardUserDefaults] valueForKey:@"Username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] valueForKey:@"Password"];
     if (usrname != nil && password != nil)
@@ -50,6 +53,7 @@
             }
         }];
     }
+    
     // Do any additional setup after loading the view.
 }
 
@@ -71,22 +75,7 @@
 */
 
 - (IBAction)loginButton:(id)sender {
-    [_txtPassword resignFirstResponder];
-    [_txtUsername resignFirstResponder];
-    [self.loadingIndicator startAnimating];
-    _btnForgotPass.hidden = YES;
-    _btnLogin.hidden = YES;
-    _btnRegister.hidden = YES;
-    [DataManager loginWithEmail:_txtUsername.text Password:_txtPassword.text onComplete:^{
-        [self.loadingIndicator stopAnimating];
-        _btnForgotPass.hidden = NO;
-        _btnLogin.hidden = NO;
-        _btnRegister.hidden = NO;
-        if ([UserInfo sharedInstance].isLoggedIn)
-        {
-            [self performSegueWithIdentifier:@"LoggedIn" sender:nil];
-        }
-    }];
+    [self attemptLogin];
 }
 
 - (IBAction)backgroundClick:(id)sender {
@@ -112,6 +101,35 @@
     [DataManager forgotPasswordWithEmail:_txtUsername.text onComplete:^{
         
     }];
+}
+
+-(void)attemptLogin
+{
+    [_txtPassword resignFirstResponder];
+    [_txtUsername resignFirstResponder];
+    [self.loadingIndicator startAnimating];
+    _btnForgotPass.hidden = YES;
+    _btnLogin.hidden = YES;
+    _btnRegister.hidden = YES;
+    [DataManager loginWithEmail:_txtUsername.text Password:_txtPassword.text onComplete:^{
+        [self.loadingIndicator stopAnimating];
+        _btnForgotPass.hidden = NO;
+        _btnLogin.hidden = NO;
+        _btnRegister.hidden = NO;
+        if ([UserInfo sharedInstance].isLoggedIn)
+        {
+            [self performSegueWithIdentifier:@"LoggedIn" sender:nil];
+        }
+    }];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.txtPassword)
+    {
+        [self attemptLogin];
+    }
+    return YES;
 }
 
 @end

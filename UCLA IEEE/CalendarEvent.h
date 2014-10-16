@@ -11,6 +11,7 @@
 @interface CalendarEvent : NSObject <NSCoding>
 
 @property (nonatomic) NSDate *eventDate;
+@property (nonatomic) NSDate *eventEndTime;
 @property (nonatomic) NSString *eventTitle; //key: summary
 @property (nonatomic) NSString *eventLocation; //key: location
 @property (nonatomic) NSString *eventDescription; //key: description

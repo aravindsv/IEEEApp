@@ -12,6 +12,7 @@
 #import "Announcement.h"
 #import "CalendarEvent.h"
 #import "NewsFeedItem.h"
+#import "EventInfoViewController.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -41,6 +42,8 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.pointsLabel setHidden:YES];
     [DataManager GetCalendarEventsOnComplete:^{
         [DataManager getAnnouncementsOnComplete:^{
@@ -60,6 +63,9 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [self reloadInfo];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.newsFeed reloadData];
+    });
 }
 
 -(void)reloadInfo
@@ -92,7 +98,7 @@
     NewsFeedItem *item = [self.newsArray objectAtIndex:indexPath.row];
     if (item.isEvent)
     {
-        cell.imageView.image = [UIImage imageNamed:@"30pxCalendarIcon.png"];
+        cell.imageView.image = [UIImage imageNamed:@"calendar_30px.png"];
         cell.textLabel.text = item.event.eventTitle;
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"h:mm a"];
@@ -111,7 +117,7 @@
     }
     else if (!item.isEvent)
     {
-        cell.imageView.image = [UIImage imageNamed:@"30pxBellIcon.png"];
+        cell.imageView.image = [UIImage imageNamed:@"bullhorn_30px.png"];
         cell.textLabel.text = item.announcement.content;
         NSDateFormatter *d2s = [[NSDateFormatter alloc] init];
         [d2s setDateFormat:@"MMM d"];
@@ -129,6 +135,19 @@
     cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NewsFeedItem *item = [self.newsArray objectAtIndex:indexPath.row];
+    if (item.isEvent)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        EventInfoViewController *infoView = [storyboard instantiateViewControllerWithIdentifier:@"infoPage"];
+        infoView.currentEvent = item.event;
+        [self.navigationController pushViewController:infoView animated:YES];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

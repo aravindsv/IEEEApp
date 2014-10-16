@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtMajor;
 @property (strong, nonatomic) NSString *txtYear;
 @property (weak, nonatomic) IBOutlet UIPickerView *yearPicker;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @end
 
@@ -47,8 +48,9 @@
     _txtYear = @"1st";
     self.yearPicker.dataSource = self;
     self.yearPicker.delegate = self;
-    
-    self.yearPicker.transform = CGAffineTransformMakeScale(1, 1);
+    [self.yearPicker addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
+//    self.yearPicker.transform = CGAffineTransformMakeScale(1, 1);
     // Do any additional setup after loading the view.
 }
 
@@ -81,7 +83,9 @@
         [alert show];
         return;
     }
+    [self.loadingIndicator startAnimating];
     [DataManager registerWithEmail:_txtEmail.text Firstname:_txtFirstName.text Lastname:_txtLastName.text Password:password year:_txtYear major:_txtMajor.text onComplete:^{
+        [self.loadingIndicator stopAnimating];
         if ([UserInfo sharedInstance].isLoggedIn)
         {
             [self performSegueWithIdentifier:@"Registered" sender:nil];
@@ -116,6 +120,11 @@
     [sender resignFirstResponder];
     
     
+}
+
+-(void)dismissKeyboard
+{
+    [self.view endEditing:YES];
 }
 
 /*

@@ -913,6 +913,7 @@
             newEvent.eventCreatorEmail = [event valueForKeyPath:@"creator.email"];
             newEvent.eventID = [event valueForKey:@"id"];
             newEvent.eventDescription = [event valueForKey:@"description"];
+            newEvent.eventEndTime = [formatter dateFromString:[event valueForKeyPath:@"end.dateTime"]];
             
             if ([newEvent.eventDate timeIntervalSinceNow] > 0)
             {
@@ -1010,6 +1011,7 @@
                 NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
                 [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
                 newEvent.eventDate = [formatter dateFromString:[event valueForKey:@"start"]];
+                newEvent.eventEndTime = [formatter dateFromString:[event valueForKey:@"end"]];
                 [[UserInfo sharedInstance].attendedEvents addObject:newEvent];
             }
             callbackBlock();

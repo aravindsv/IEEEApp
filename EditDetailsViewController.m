@@ -36,6 +36,19 @@
     [super viewDidLoad];
     _NavigationBar.title = [NSString stringWithFormat:@"Edit %@", _detail];
     _txtDetail.placeholder = [NSString stringWithFormat:@"New %@", _detail];
+    if ([_detail isEqualToString:@"Name"] || [_detail isEqualToString:@"Major"])
+    {
+        _txtDetail.keyboardType = UIKeyboardTypeAlphabet;
+        _txtDetail.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    }
+    else if ([_detail isEqualToString:@"IEEE ID"])
+    {
+        _txtDetail.keyboardType = UIKeyboardTypeNumberPad;
+    }
+    else if ([_detail isEqualToString:@"Email"])
+    {
+        _txtDetail.keyboardType = UIKeyboardTypeEmailAddress;
+    }
     // Do any additional setup after loading the view.
     
 }
@@ -91,13 +104,6 @@
         else if ([self.detail isEqualToString:@"Major"])
         {
             [DataManager changeMajorWithEmail:user.userMail Cookie:user.userCookie newMajor:_txtDetail.text onComplete:^{
-                [self performSegueWithIdentifier:@"SaveChanges" sender:self];
-                [self.loadingIndicator stopAnimating];
-            }];
-        }
-        else if ([self.detail isEqualToString:@"Year"])
-        {
-            [DataManager changeYearWithEmail:user.userMail Cookie:user.userCookie newYear:_txtDetail.text onComplete:^{
                 [self performSegueWithIdentifier:@"SaveChanges" sender:self];
                 [self.loadingIndicator stopAnimating];
             }];

@@ -9,6 +9,7 @@
 #import "ProfilePageViewController.h"
 #import "UserInfo.h"
 #import "EditDetailsViewController.h"
+#import "EventInfoViewController.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -229,7 +230,11 @@
     
     else if (indexPath.section == 1)
     {
-        
+        CalendarEvent *event = [self.eventsAttended objectAtIndex:indexPath.row];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        EventInfoViewController *infoView = [storyboard instantiateViewControllerWithIdentifier:@"infoPage"];
+        infoView.currentEvent = event;
+        [self.navigationController pushViewController:infoView animated:YES];
     }
     
     else
