@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *eventName;
 @property (weak, nonatomic) IBOutlet UILabel *eventTiming;
 @property (weak, nonatomic) IBOutlet UILabel *eventLocation;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *waitIndicator;
 
 -(BOOL)startReading;
 -(void)stopReading;
@@ -112,10 +113,10 @@
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) //check if the first item is a readable QR code
         {
             //[metadataObj stringValue]
+            [self.waitIndicator startAnimating];
             [DataManager checkInToEvent:[metadataObj stringValue] withEmail:[UserInfo sharedInstance].userMail andCookie:[UserInfo sharedInstance].userCookie onComplete:^{
                 [self.scanLabel performSelectorOnMainThread:@selector(setText:) withObject:@"Tap to rescan" waitUntilDone:NO];
-                
-                [self toggleEventDetails];
+                [self.waitIndicator stopAnimating];
             }];
             [self stopReading];
         }
@@ -124,16 +125,10 @@
 
 -(void)stopReading
 {
+    self.isReading = NO;
     [self.captureSession stopRunning];
     self.captureSession = nil;
     [self.videoPreviewLayer removeFromSuperlayer];
-}
-
--(void)toggleEventDetails
-{
-    self.eventName.hidden = !self.eventName.hidden;
-    self.eventLocation.hidden = !self.eventName.hidden;
-    self.eventTiming.hidden = !self.eventName.hidden;
 }
 
 /*

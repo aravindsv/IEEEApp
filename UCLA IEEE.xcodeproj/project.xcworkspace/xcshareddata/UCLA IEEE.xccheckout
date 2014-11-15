@@ -11,17 +11,17 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>040C71AE15A7641BF6C6DD56E9ADC72EF46191D7</key>
-		<string>ssh://github.com/aravindsv/IEEEApp.git</string>
+		<string>github.com:aravindsv/IEEEApp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>UCLA IEEE.xcodeproj/project.xcworkspace</string>
+	<string>UCLA IEEE.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>040C71AE15A7641BF6C6DD56E9ADC72EF46191D7</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/aravindsv/IEEEApp.git</string>
+	<string>github.com:aravindsv/IEEEApp.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

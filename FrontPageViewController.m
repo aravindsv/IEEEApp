@@ -162,7 +162,7 @@
     label.textColor = [UIColor whiteColor];
     label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20];
 //    [label setFont:[UIFont boldSystemFontOfSize:26]];  HelveticaNeue-Thin
-    label.backgroundColor = UIColorFromRGB(0x003BA6);
+    label.backgroundColor = UIColorFromRGB(0x00539E);
     return label;
 }
 

@@ -260,7 +260,7 @@
     header.textColor = [UIColor whiteColor];
     header.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20];
 //    [header setFont:[UIFont boldSystemFontOfSize:16]];
-    header.backgroundColor = UIColorFromRGB(0x003BA6);
+    header.backgroundColor = UIColorFromRGB(0x00539E);
     if (section == 0)
     {
         header.text = @"    Membership Details";
